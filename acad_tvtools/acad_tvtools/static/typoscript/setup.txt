@@ -1,0 +1,11 @@
+/**
+ * @description Adding standard header functionality to FCEs
+
+plugin.tx_templavoila_pi1 >
+	plugin.tx_templavoila_pi1 = COA
+	plugin.tx_templavoila_pi1 {
+	10 =< lib.stdheader
+	20 = USER
+	20.userFunc = tx_templavoila_pi1->main
+}
+ */
