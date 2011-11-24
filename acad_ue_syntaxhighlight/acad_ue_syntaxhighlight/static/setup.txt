@@ -1,0 +1,223 @@
+includeLibs.tx_syntaxhighlight_controller = EXT:syntaxhighlight/controller/class.tx_syntaxhighlight_controller.php
+
+plugin.tx_syntaxhighlight_controller = USER
+plugin.tx_syntaxhighlight_controller {
+	userFunc = tx_syntaxhighlight_controller->main
+
+
+		// Dimensions, widths, heights, pixels
+
+	alternateLines = {$plugin.tx_syntaxhighlight_controller.alternateLines}
+	lineNumbers    = {$plugin.tx_syntaxhighlight_controller.lineNumbers}
+	startLine      = {$plugin.tx_syntaxhighlight_controller.startLine}
+
+
+	template (
+			<div class="tx-syntaxhighlight" id="###ID###">
+				<div class="title"###TITLESTYLE###>###TITLE###</div>
+				<div class="text" id="text_###ID###">###TEXT###</div>
+				<p class="clippyCopyLink" id="clippyCopyLink_###ID###" style="display: none;"><a href="javascript:tx_syntaxhighlightSelectText('###ID###');">###COPY_CODE###</a></p>
+				<script type="text/javascript">
+					/*<![CDATA[*/
+				<!--
+					document.getElementById('clippyCopyLink_###ID###').style.display = 'block';
+				// -->
+					/*]]>*/
+				</script>
+				<noscript><p id="src_###ID###" >###TEXT_SOURCE_LINK###</p></noscript>
+				<div id="clippyText_###ID###" style="display: none;">
+					<textarea id="clippyTextArea_###ID###" name="clippyTextArea" rows="5" cols="40"></textarea>
+				</div>
+			</div>
+	)
+
+
+		// keyword link settings
+
+	link {
+		enable = 1
+		target = 
+		style {
+			link    = text-decoration: underline;
+			hover   = text-decoration: none;
+			active  = 
+			visited =
+		}
+	}
+
+
+		// header type
+
+	headerType = div
+
+
+		// general settings
+
+	useGeshiCSS = 1
+
+
+		// language specific settings
+
+	typoscript {
+
+		link =< plugin.tx_syntaxhighlight_controller.link
+
+		style {
+			overall >
+			overall = font-size:1em; 
+			overallMerge = 0
+			lineNumbers {
+				normal = color: #222;
+				fancy = color: #222; background: #fdfdfd;
+			}
+				// setup keyword styles. Either merge them or replace the styles
+				// completely
+			keyword {
+					// Conditions: http://documentation.typo3.org/documentation/tsref/conditions/
+				set1 {
+					value = 
+					merge = 0
+				}
+					// Functions: http://documentation.typo3.org/documentation/tsref/functions/
+				set2 {
+					value =
+					merge = 0
+				}
+					// Toplevel objects: http://documentation.typo3.org/documentation/tsref/tlo-objects/
+				set3 {
+					value =
+					merge = 0
+				}
+					// Content Objects (cObject) : http://documentation.typo3.org/documentation/tsref/cobjects/
+				set4 {
+					value =
+					merge = 0
+				}
+					// GIFBUILDER toplevel link: http://documentation.typo3.org/documentation/tsref/gifbuilder/
+				set5 {
+					value =
+					merge = 0
+				}
+					// GIFBUILDER: http://documentation.typo3.org/documentation/tsref/gifbuilder/
+				set6 {
+					value =
+					merge = 0
+				}
+					// MENU Objects: http://documentation.typo3.org/documentation/tsref/menu/
+				set7 {
+					value =
+					merge = 0
+				}
+					// MENU common properties: http://documentation.typo3.org/documentation/tsref/menu/common-properties/
+				set8 {
+					value =
+					merge = 0
+				}
+					// MENU item states: http://documentation.typo3.org/documentation/tsref/menu/item-states/
+				set9 {
+					value =
+					merge = 0
+				}
+			}
+				// comment styles
+			comment {
+				set1 {
+					value = 
+					merge = 0
+				}
+				set2 {
+					value =
+					merge = 0
+				}
+				set3 {
+					value =
+					merge = 0
+				}
+				multiline {
+					value = 
+					merge = 0
+				}
+			}
+				// symbol style
+			symbol {
+				set0 {
+					value = 
+					merge = 0
+				}
+					// bracket style
+				set1 {
+					value = 
+					merge = 0
+				}
+			}
+				// string style
+			string {
+				value = 
+				merge = 0
+			}
+				// number style
+			number {
+				value = 
+				merge = 0
+			}
+				// method style
+			method {
+				set1 {
+					value =
+					merge = 0
+				}
+				set2 {
+					value =
+					merge = 1
+				}
+			}
+				// regexp style
+			regexp {
+					// Constant
+				set0 {
+					value =
+					merge = 1
+				}
+					// Constant dollar sign
+				set1 {
+					value =
+					merge = 1
+				}
+					// xhtml tag
+				set2 {
+					value =
+					merge = 1
+				}
+					// extension keys / tables: (static|user|ttx|tx|tt|fe)_something[_something]
+				set3 {
+					value =
+					merge = 1
+				}
+					// conditions and controls
+				set4 {
+					value =
+					merge = 1
+				}
+					// lowlevel setup and constant objects
+				set5 {
+					value =
+					merge = 1
+				}
+			}
+		}
+	}
+	apache < plugin.tx_syntaxhighlight_controller.typoscript
+	bash < plugin.tx_syntaxhighlight_controller.typoscript	
+	css < plugin.tx_syntaxhighlight_controller.typoscript
+	html4strict < plugin.tx_syntaxhighlight_controller.typoscript
+	javascript < plugin.tx_syntaxhighlight_controller.typoscript
+	mysql < plugin.tx_syntaxhighlight_controller.typoscript
+	php < plugin.tx_syntaxhighlight_controller.typoscript
+	sql < plugin.tx_syntaxhighlight_controller.typoscript
+	xml < plugin.tx_syntaxhighlight_controller.typoscript
+	
+
+	
+}
+
+tt_content.list.20.syntaxhighlight_controller =< plugin.tx_syntaxhighlight_controller
