@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'acad_ue_be'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pages.tx_acaduebe_display_plugin.I.0">Select plugin</label>
+			<label index="pages.tx_acaduebe_display_plugin.I.1">News</label>
+			<label index="pages.tx_acaduebe_display_plugin.I.2">Cal</label>
+			<label index="pages.tx_acaduebe_display_plugin">Display plugin:</label>
+			<label index="pages.tx_acaduebe_doktype">Page type:</label>
+			<label index="pages.tx_acaduebe_palette_dates">Dates</label>
+			<label index="pages.tx_acaduebe_palette_title">Title and URL</label>
+			<label index="pages.tx_acaduebe_palette_caching">Caching and search</label>
+			<label index="pages.tx_acaduebe_tx_realurl_pathsegment">URL segment:</label>
+			<label index="pages.tx_acaduebe_tx_cooluri_exclude">Not in URL:</label>
+            <label index="pages.tx_acaduebe_headerimage">Headerimage</label>
+            <label index="pages.tx_acaduebe_subsite">Subsite stuff:</label>
+            <label index="pages.tx_acaduebe_imprint_page">Imprint page</label>
+			<label index="common_headerOnly_title">Header only</label>
+			<label index="common_headerOnly_description">Adds a header only.</label>
+			<label index="special_menu_description">Create various types of linklists from the pagetree or content elements.</label>
+	
+
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="pages.tx_acaduebe_display_plugin.I.0">Plugin auswählen</label>
+			<label index="pages.tx_acaduebe_display_plugin.I.1">News</label>
+			<label index="pages.tx_acaduebe_display_plugin.I.2">Cal</label>
+			<label index="pages.tx_acaduebe_display_plugin">Plugin anzeigen:</label>
+			<label index="pages.tx_acaduebe_doktype">Seitentyp:</label>
+			<label index="pages.tx_acaduebe_palette_dates">Datum:</label>
+			<label index="pages.tx_acaduebe_palette_title">Titel und URL</label>
+			<label index="pages.tx_acaduebe_palette_caching">Caching und Suche</label>
+			<label index="pages.tx_acaduebe_tx_realurl_pathsegment">URL-Segment:</label>
+			<label index="pages.tx_acaduebe_tx_cooluri_exclude">Nicht in URL:</label>
+            <label index="pages.tx_acaduebe_headerimage">Kopfbild</label>
+            <label index="pages.tx_acaduebe_subsite">Präsenz:</label>
+            <label index="pages.tx_acaduebe_imprint_page">Impressum</label>
+			<label index="common_headerOnly_title">Überschrift</label>
+			<label index="common_headerOnly_description">Fügt nur eine Überschrift hinzu.</label>
+			<label index="special_menu_description">Erzeugen Sie verschiedenartige Linklisten aus dem Seitenbaum oder aus Inhaltselementen.</label>
+		</languageKey>
+	</data>
+</T3locallang>

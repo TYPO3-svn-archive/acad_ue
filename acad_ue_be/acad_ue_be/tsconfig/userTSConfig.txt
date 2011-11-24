@@ -1,0 +1,9 @@
+options.pageTree.showPageIdWithTitle = 1
+options.pageTree.showNavTitle = 1
+setup.override.navFrameResizable = 0
+options.RTESmallWidth = 700
+options.RTESmallHeight = 470
+	// funzt net, und wirklich increment auch net
+options.RTELargeWidthIncrement = 800
+
+txdam.elementBrowser.removeTabs = upload

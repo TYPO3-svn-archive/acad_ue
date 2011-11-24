@@ -1,0 +1,60 @@
+(add new changes on top of this file)
+2009-12-01 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* #113 Echtes delete für Content-Elemente aktivieren
+	* #114 Header im NewContentWizard aktivieren und Sitemap in common verschieben
+	* #115 Umstellung auf die neue Art, locallang-files zu überschreiben
+2009-04-05 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #100 Neue Icons für den Seitenbaum
+2009-03-25 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #86 Helpermenu: Impressum für jede Seite über ein neues Feld
+    * Version hochgesetzt auf 0.5.2
+
+
+2009-02-19 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #67 pages_language_overlay: subsite title nur für doktype subsite verfügbar machen
+    * #66 pages_language_overlay: Auswahlliste für Seitentypen für andere Sprachen anpassen
+2009-02-17 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #60 Removed custom field 'Display plugin' because we use the default field module now
+    * #61 Show field module in doktypes Standard, Subsite, SysFolder and add it to rootline fields
+    * #62 Added field tx_acaduebe_headerimage to enable custom header images without template access (typoscript not done yet)
+    * #58 Repaired showitem for SysFolder
+    * #59 Repaired showitem for External URL
+
+2009-01-13 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* #41: Added tx_beacl_acl to the list of allowedTables for doktype 1
+	
+2009-01-01 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* #20 Reorganisation of formfields for pages of doktype 1 (Standard)
+	* #20 Reorganisation of formfields for pages doktype 77 (Subsite)
+	* #20 Reorganisation of formfields for pages doktype 3 (External URL)
+	* #20 Reorganisation of formfields for pages doktype 101 (Service Folder)
+	* #20 Reorganisation of formfields for pages doktype 199 (Visual Menu Separator)
+	* #20 Reorganisation of formfiels for pages doktype 254 (SysFolder)
+	
+	* #22 Restricted 'New Records' for doktypes Standard to tables pages,pages_language_overlay,tt_content,sys_template,sys_domain,sys_note
+	
+2008-12-31 	Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* #18 Added new field tx_acaduebe_display_plugin to table pages in order to identify the news display page of a subsite automatically
+	
+2008-05-25 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Removed checkbox before uplink id in page properties dialogue (ext_tables.php)
+	* Moved 'Speaking URL path segment' from TAB Extended to General
+	
+2008-02-19 Irene Höppner <irene.hoeppner@abezet.de>
+	* added possibility to override default values via TCEFORM.table.field.config.default = myValue
+
+2008-02-18 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* pageTSConfig: disabled template selection in tv new page wizard (would like to get rid of that wizard altogether, though)
+
+2008-02-17 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* added folder tsconfig
+	* added file pageTSConfig.txt
+	
+2008-01-31 Irene Höppner <irene.hoeppner@abezet.de>
+	* removed csh-inclusions
+	* added some fields from sr_feuser_register correctly to palette 2 of fe_users tca
+	* added dependency of sr_feuser_register
+
+2007-11-19 Ursula Renziehausen  <ursula.renziehausen@uni-erfurt.de>
+
+	* Initial release

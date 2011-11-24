@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Labels for tt_content table (Content Elements).</description>
+		<type>database</type>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="CType.I.12">Link list</label>
+			<label index="text_size">Fontsize:</label>
+			<label index="palette_type_settings">Type and Settings</label>
+			<label index="imageorient_arrangement">Position and arrangement of images</label>
+			<label index="ALT.imgDimensions">Image Dimensions and Formatting</label>
+			<label index="imagecaption_position">Caption alignment:</label>
+			<label index="palette_design_options">Design Options</label>
+			<label index="palette_visibility">Visibility</label>
+			<label index="spaceBefore">Space before:</label>
+			<label index="spaceAfter">Space after:</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="CType.I.12">Linkliste</label>
+			<label index="text_size">Schriftgöße:</label>
+			<label index="palette_type_settings">Typ und Einstellungen</label>
+			<label index="imageorient_arrangement">Position and Arrangement</label>
+			<label index="ALT.imgDimensions">Bildmaße und Formatierung</label>
+			<label index="imagecaption_position">Bildunterschrift ausrichten:</label>			
+			<label index="palette_design_options">Design-Optionen</label>
+			<label index="palette_visibility">Sichtbarkeit</label>
+			<label index="spaceBefore">Abstand vor:</label>
+			<label index="spaceAfter">Abstand nach:</label>			
+		</languageKey>
+	</data>
+</T3locallang>

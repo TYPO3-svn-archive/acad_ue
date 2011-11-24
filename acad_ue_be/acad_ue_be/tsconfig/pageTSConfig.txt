@@ -1,0 +1,103 @@
+	// Always alternating rows in list view
+mod.web_list.alternateBgColors	= 1
+	
+TCEFORM.tt_content {
+	  // disable the checkbox that lets users disable the RTE
+	rte_enabled.disabled = 1
+	  // enable the text_size field (disabled by css_styled_content
+	text_size.disabled = 0
+	  // reduce text_size options to default and small	
+	text_size.removeItems = 2,3,4,5,10,11
+	  // disable non working sitemap options
+	menu_type.removeItems = 7,2,6
+	menu_type.disableNoMatchingValueElement = 1
+	  
+}
+
+    // Remove upload tab in Element browsers
+txdam.elementBrowser.removeTabs = upload
+
+
+    // Remove items shop,board and aprove from selectlist of pages.module
+TCEFORM.pages.module.removeItems = shop,board,approve
+
+ 	// getting rid of TV newPageWiz as this will force people to choose a template
+mod.web_list.newPageWiz.overrideWithExtension =
+
+	// Enable real delete icon for nonreferenced CEs in TV
+mod.web_txtemplavoilaM1.enableDeleteIconForLocalElements = 1
+
+	// render newContentWizard as tabs
+templavoila.wizards.newContentElement.renderMode = tabs
+
+	// Show CTypes header and menu in newContentWizard
+	// Clear the default settings to be able to override them
+templavoila.wizards.newContentElement.wizardItems.common.elements >
+templavoila.wizards.newContentElement.wizardItems.common.elements {
+	header {
+		// iconpath has to be relative to typo3
+		icon = ../typo3conf/ext/acad_ue_be/gfx/regular_header.gif
+		title = LLL:EXT:acad_ue_be/locallang_db.xml:common_headerOnly_title
+		description = LLL:EXT:acad_ue_be/locallang_db.xml:common_headerOnly_description
+		tt_content_defValues {
+			CType = header
+		}
+	}
+	text {
+		icon = gfx/c_wiz/regular_text.gif
+		title = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_regularText_title
+		description = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_regularText_description
+		tt_content_defValues {
+			CType = text
+		}
+	}
+	textpic {
+		icon = gfx/c_wiz/text_image_right.gif
+		title = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_textImage_title
+		description = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_textImage_description
+		tt_content_defValues {
+			CType = textpic
+			imageorient = 17
+		}
+	}
+	image {
+		icon = gfx/c_wiz/images_only.gif
+		title = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_imagesOnly_title
+		description = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_imagesOnly_description
+		tt_content_defValues {
+			CType = image
+			imagecols = 2
+		}
+	}
+
+	menu {
+		icon = gfx/c_wiz/sitemap2.gif
+		title = LLL:EXT:acad_ue_be/locallang_ttc.xml:CType.I.12
+		description = LLL:EXT:acad_ue_be/locallang_db.xml:special_menu_description
+		tt_content_defValues {
+			CType = menu
+			menu_type = 2
+		}
+	}
+
+	bullets {
+		icon = gfx/c_wiz/bullet_list.gif
+		title = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_bulletList_title
+		description = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_bulletList_description
+		tt_content_defValues {
+			CType = bullets
+		}
+	}
+	table {
+		icon = gfx/c_wiz/table.gif
+		title = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_table_title
+		description = LLL:EXT:cms/layout/locallang_db_new_content_el.xml:common_table_description
+		tt_content_defValues {
+			CType = table
+		}
+	}
+}
+
+templavoila.wizards.newContentElement.wizardItems.common.show = *
+	// remove CType menu from special tab, otherwise we have it doubled up
+templavoila.wizards.newContentElement.wizardItems.special.show := removeFromList(menu)
