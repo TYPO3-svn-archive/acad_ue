@@ -1,0 +1,8 @@
+(add new changes on top of this file)
+08-01-27 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+
+	* Changed pagepath to tx_realurl_pathsegment,alias,title (CoolUriConf.xml)
+	
+07-11-20 Irene Höppner  <irene.hoeppner@abezet.de>
+
+	* Initial release
