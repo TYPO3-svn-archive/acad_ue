@@ -1,0 +1,17 @@
+@import url(content.css);
+
+/**
+ * Add borders to certain elements in RTE only
+ * They are meant as guidelines for authors only
+ */
+table, div.clearfix { border: 1px dotted #e4e4e4 }
+
+/**
+ * Elements that might have a clearing
+ */
+h1.clearL, h2.clearL, h3.clearL, h4.clearL, h5.clearL, h6.clearL,
+p.clearL, div.clearL, ol.clearL, ul.clearL, dl.clearL, table.clearL,
+pre.clearL, address.clearL, img.clearL,
+h1.clearR, h2.clearR, h3.clearR, h4.clearR, h5.clearR, h6.clearR,
+p.clearR, div.clearR, ol.clearR, ul.clearR, dl.clearR, table.clearR,
+pre.clearR, img.clearR, address.clearL {}

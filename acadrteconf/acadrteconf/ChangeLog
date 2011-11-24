@@ -1,0 +1,45 @@
+(add new changes on top of this file)
+2010-01-18 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Neue ul-Klasse zur Formatierung von Publikationslisten, Jahr am Anfang incl neuer Klassen für cite
+	* Integration der Symbole für Note, Warning etc. in res/images/symbols
+	* Version 0.9.0
+
+2009-03-29 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #99 Größeres Link-Popup-Fenster
+
+2009-03-21 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #98 RTE: Parameter bei Links zu internen Seiten enablen
+
+2009-02-23 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #80 Tabellen: colspan und rowspan zu den allowedAttribs hinzufügen
+
+2009-02-23 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * Remove font tag on the way to database
+    * New user elements for contact stuff
+    * Finished configuration of lang attribute
+    
+2009-02-20 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #70 Styled code and provided class code.path
+    * #70 Added styling for kbd plus a class kbd.menuItem to be used in IT documentation
+    * #70 Added stylink for icons in text: valignMiddle
+    * #65 Configured language attribute
+    * Reenabled alignment fieldset for table properties
+
+2009-01-17
+	* #43: Remove font tag on the way RTE>DB
+	
+2009-01-05 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Preparation for the upcoming lang attribute feature (selectlist and language visualizer button added)
+	* New css class list-divider for li, usefull to visually split up link lists a bit
+	* Changed version to 0.5.0
+2008-05-04 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Clean up of link dialogue: removed target selector
+	* Clean up of link dialogue: removed possibility to create popup links
+	* Added possibility to add a link by uid
+	
+2008-05-03 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* New class for commented linklists (dl) 
+
+07-08-25 Uschi Renziehausen  <ursula.renziehausen@uni-erfurt.de>
+
+	* Initial release

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Contains labels for css classes and user elements for use in RTE GUI</description>
+		<type>module</type>
+		<labelContext type="array">
+			<css-indent-left>Caption for left indentation</css-indent-left>
+		</labelContext>
+		<generator>LFEditor</generator>
+		<authorName>Uschi Renziehausen</authorName>
+		<authorEmail>ursula.renziehausen@uni-erfurt.de</authorEmail>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="css-float-left">Float left</label>
+			<label index="css-float-right">Float right</label>
+			<label index="css-clear-left">Clear left</label>
+			<label index="css-clear-right">Clear right</label>
+			<label index="css-clearfix">Float wrapper</label>
+			<label index="css-cscheme1-rte">Background pale green</label>
+			<label index="css-cscheme2-rte">Background light yellow</label>
+			<label index="css-cscheme3-rte">Background light blue</label>
+			<label index="css-cscheme4-rte">Background pale violet</label>
+			<label index="css-external-download-titleText">Download from external page</label>
+			<label index="css-important">Important</label>
+			<label index="css-indent-left">Indent left</label>
+			<label index="css-indent-left-right">Indent left and right</label>
+			<label index="css-indent-right">Indent right</label>
+            <label index="css-indent-hanging">Indent hanging</label>
+			<label index="css-align-left">Align left</label>
+			<label index="css-align-right">Align right</label>
+			<label index="css-align-center">Align center</label>
+			<label index="css-align-justify">Align justify</label>
+			<label index="css-ol-decimal">1, 2, 3</label>
+			<label index="css-ol-lower-alpha">a, b, c</label>
+			<label index="css-ol-lower-roman">i, ii, iii</label>
+			<label index="css-ol-upper-alpha">A, B, C</label>
+			<label index="css-ol-upper-roman">I, II, III</label>
+			<label index="css-tip">Tip!</label>
+			<label index="css-ul-bullet1">Light blue bullets</label>
+			<label index="css-ul-nobullets">No bullets</label>
+			<label index="css-ul-contact-items">Contact info</label>
+			<label index="css-simple-linklist">Link list</label>
+			<label index="css-commented-linklist">Link list with comments</label>
+			<label index="css-contact-web">Contact web</label>
+			<label index="css-contact-mail">Contact mail</label>
+			<label index="css-contact-fon">Contact fon</label>
+			<label index="css-contact-mobile">Contact mobile</label>
+			<label index="css-contact-fax">Contact fax</label>
+
+            <label index="css-list-divider">List divider</label>
+			<label index="css-warning">Warning!</label>
+            <label index="css-menuItem">Menuitem</label>
+            <label index="css-button">Button</label>
+            <label index="css-path">Path</label>
+            <label index="css-valignMiddle">Position in line</label>
+			
+			<label index="css-tb-caption-top">Caption on top</label>
+			<label index="css-odd-row">Odd row</label>
+			<label index="css-even-row">Even row</label>
+			<label index="css-header-row">Header row</label>
+			<label index="css-odd-cell">Odd cell</label>
+			<label index="css-even-cell">Even cell</label>
+			<label index="css-odd-header-cell">Odd header cell</label>
+			<label index="css-even-header-cell">Even header cell</label>
+			<label index="css-odd-header-row">Odd header row</label>
+			<label index="css-even-header-row">Even header row</label>
+			<label index="css-zebra-rows">Zebra rows</label>
+			<label index="css-zebra-cols">Zebra columns</label>
+			<label index="css-zebra-plaid">Zebra wearing plaid</label>
+			
+			<label index="tb-highlight-1">Highlight 1</label>
+			<label index="tb-highlight-2">Highlight 2</label>
+			<label index="tb-highlight-3">Highlight 3</label>			
+
+			<label index="custom-box-cscheme1-rte">Pale green</label>
+			<label index="custom-box-cscheme1-rte-descr">Wraps selected paragraphs in a box with pale green background.</label>
+			<label index="custom-box-cscheme2-rte">Light yellow background</label>
+			<label index="custom-box-cscheme2-rte-descr">Wraps selected paragraphs in a box with light yellow background.</label>
+			<label index="custom-box-cscheme3-rte">Light blue background</label>
+			<label index="custom-box-cscheme3-rte-descr">Wraps selected paragraphs in a box with light blue background.</label>
+			<label index="custom-box-cscheme4-rte">Pale violet background</label>
+			<label index="custom-box-cscheme4-rte-descr">Wraps selected paragraphs in a box with pale violet background.</label>
+			<label index="custom-boxes">Boxes</label>
+			<label index="custom-float-wrapper">Wrapper around floated tables and images with text</label>
+			<label index="custom-float-wrapper-descr">Draws an invisible box that clears the floating.</label>
+			<label index="custom-indent-left-descr">Indents selected paragraphs from left margin.</label>
+			<label index="custom-indent-left-right-descr">Indents selected paragraphs from left and right margin.</label>
+			<label index="custom-indent-right-descr">Indents selected paragraphs from right margin.</label>
+			<label index="custom-indentation">Indentation</label>
+			
+
+            <label index="publist-yearfirst">Publications: Year first</label>
+            <label index="pub-author">Author</label>
+            <label index="pub-title">Title</label>
+            <label index="pub-yearfirst">Year outdent</label>
+            <label index="pub-review">Reviews</label>
+            <label index="pub-in">Journal, Book</label>
+			
+			<label index="title-mail">Email</label>
+			<label index="title-download">Download file</label>
+			<label index="title-download-odc">Download Open Office Calc document (ODC)</label>
+			<label index="title-download-odp">Download Open Office Presentation (ODP)</label>
+			<label index="title-download-odt">Download Open Office Writer document (ODT)</label>
+			<label index="title-download-pdf">Download PDF document</label>
+			<label index="title-download-pps">Download MS-Powerpoint presentation (PPS)</label>
+			<label index="title-download-ppt">Download MS-Powerpoint presentation (PPT)</label>
+			<label index="title-download-psd">Download Adobe Photoshop file (PSD)</label>
+			<label index="title-download-swx">Download Open Office Writer document (SWX)</label>
+			<label index="title-download-word">MS-Word document</label>
+			<label index="title-download-xls">Download MS-Excel document (XLS)</label>
+			<label index="title-external-download">Download external file</label>
+			<label index="title-external-download-odc">Download external Open Office Calc document (ODC)</label>
+			<label index="title-external-download-odp">Download external Open Office Presentation (ODP)</label>
+			<label index="title-external-download-odt">Download external Open Office Writer document (ODT)</label>
+			<label index="title-external-download-pdf">Download external PDF document</label>
+			<label index="title-external-download-pps">Download external MS-Powerpoint presentation (PPS)</label>
+			<label index="title-external-download-ppt">Download external MS-Powerpoint presentation (PPT)</label>
+			<label index="title-external-download-psd">Download external Adobe Photoshop file (PSD)</label>
+			<label index="title-external-download-swx">Download external Open Office Writer document (SWX)</label>
+			<label index="title-external-download-word">MS-Word external document</label>
+			<label index="title-external-download-xls">Download external MS-Excel document (XLS)</label>
+			<label index="title-external-link">External link</label>
+			<label index="title-external-link-new-window">External link in new window</label>
+			<label index="title-internal-anchor">Section on this page</label>
+			<label index="title-internal-link">Internal link</label>
+			<label index="title-internal-link-new-window">Internal link in new window</label>
+			<label index="user-box-background-info">Background Information</label>
+			<label index="user-box-background-info-descr">Box with books icon (for  background or indepth information)</label>
+			<label index="user-box-bad">Bad solution</label>
+			<label index="user-box-bad-descr">Box with red mark for 'incorrect'</label>
+			<label index="user-box-good">Good solution</label>
+			<label index="user-box-good-descr">Box with correct icon (for good examples, solutions and so on)</label>
+			<label index="user-box-note">Note box</label>
+			<label index="user-box-note-descr">Box with a small note icon. Use this one for 'Please note ...'</label>
+			<label index="user-box-plain">Plain box (no icon)</label>
+			<label index="user-box-plain-descr">without any icon</label>
+			<label index="user-box-tip">Tip</label>
+			<label index="user-box-tip-descr">Box with a little bulb. Use for tips and hints.</label>
+			<label index="user-box-warning">Warning box</label>
+			<label index="user-box-warning-descr">Box with a small warning icon</label>
+			<label index="usercat-cscheme1-boxes">Boxes (pale green background)</label>
+			<label index="usercat-cscheme2-boxes">Boxes (light yellow background)</label>
+			<label index="usercat-cscheme3-boxes">Boxes (light blue background)</label>
+			<label index="usercat-cscheme4-boxes">Boxes (pale violet background)</label>
+			<label index="usercat-plain-boxes">Plain boxes</label>
+		</languageKey>
+		<languageKey index="dk" type="array"></languageKey>
+		<languageKey index="de" type="array">
+			<label index="css-float-left">Umfluss links</label>
+			<label index="css-float-right">Umfluss rechts</label>
+			<label index="css-clear-left">Umfluss links aufheben</label>
+			<label index="css-clear-right">Umfluss rechts aufheben</label>
+			<label index="css-clearfix">Umflussbox</label>
+			<label index="css-cscheme1-rte">Hintergrund blassgrün</label>
+			<label index="css-cscheme2-rte">Hintergrund hellgelb</label>
+			<label index="css-cscheme3-rte">Hintergrund hellblau</label>
+			<label index="css-cscheme4-rte">Hintergrund blassviolett</label>
+			<label index="css-external-download-titleText">Externe Datei herunterladen</label>
+			<label index="css-important">Wichtig</label>
+			<label index="css-indent-left">Einrücken links</label>
+			<label index="css-indent-left-right">Einrücken links und rechts</label>
+			<label index="css-indent-right">Einrücken rechts</label>
+            <label index="css-indent-hanging">Einrücken hängend</label>
+			<label index="css-align-left">Links ausrichten</label>
+			<label index="css-align-right">Rechts ausrichten</label>
+			<label index="css-align-center">Zentrieren</label>
+			<label index="css-align-justify">Blocksatz</label>
+			<label index="css-ol-decimal">1, 2, 3</label>
+			<label index="css-ol-lower-alpha">a, b, c</label>
+			<label index="css-ol-lower-roman">i, ii, iii</label>
+			<label index="css-ol-upper-alpha">A, B, C</label>
+			<label index="css-ol-upper-roman">I, II, III</label>
+			<label index="css-tip">Tip!</label>
+			
+			<label index="css-ul-bullet1">Hellblaue Listenpunkte</label>
+			<label index="css-ul-nobullets">Ohne Listenpunkt</label>
+			<label index="css-ul-contact-items">Contact-Info</label>
+			<label index="css-simple-linklist">Link-Liste</label>
+			<label index="css-commented-linklist">Kommentierte Linkliste</label>
+            <label index="css-list-divider">Listentrenner</label>
+			<label index="css-contact-web">Contact Web</label>
+			<label index="css-contact-mail">Contact Mail</label>
+			<label index="css-contact-fon">Contact fon</label>
+			<label index="css-contact-mobile">Contact Mobil</label>
+			<label index="css-contact-fax">Contact Fax</label>
+			
+			<label index="css-tb-caption-top">Beschriftung oben</label>
+			<label index="css-odd-row">Ungerade Zeile</label>
+			<label index="css-even-row">Gerade Zeile</label>
+			<label index="css-header-row">Kopfzeile</label>
+			<label index="css-odd-cell">Ungerade Zelle</label>
+			<label index="css-even-cell">Gerade Zelle</label>
+			<label index="css-odd-header-cell">Ungerade Kopfzelle</label>
+			<label index="css-even-header-cell">Gerade Kopfzelle</label>
+			<label index="css-odd-header-row">Ungerade Kopfzeile</label>
+			<label index="css-even-header-row">Gerade Kopfzeile</label>
+			<label index="css-zebra-rows">Zebra-Zeilen</label>
+			<label index="css-zebra-cols">Zebra-Spalten</label>
+			<label index="css-zebra-plaid">Zebra kariert</label>
+			
+			<label index="tb-highlight-1">Hervorheben 1</label>
+			<label index="tb-highlight-2">Hervorheben 2</label>
+			<label index="tb-highlight-3">Hervorheben 3</label>			
+			
+			<label index="css-warning">Warnung!</label>
+            <label index="css-menuItem">Menüeintrag</label>
+            <label index="css-button">Button</label>
+            <label index="css-path">Pfad</label>
+            <label index="css-valignMiddle">In Zeile ausrichten</label>
+			<label index="custom-box-cscheme1-rte">Blassgrüner Hintergrund</label>
+			<label index="custom-box-cscheme1-rte-descr">Rahmen mit blassgrünem Hintergrund für ausgewählte Absätze</label>
+			<label index="custom-box-cscheme2-rte">Hellgelber Hintergrund</label>
+			<label index="custom-box-cscheme2-rte-descr">Rahmen mit hellgelbem Hintergrund für ausgewählte Absätze</label>
+			<label index="custom-box-cscheme3-rte">Hellblauer Hintergrund</label>
+			<label index="custom-box-cscheme3-rte-descr">Rahmen mit hellgelbem Hintergrund für ausgewählte Absätze</label>
+			<label index="custom-box-cscheme4-rte">Blasslila Hintergrund</label>
+			<label index="custom-box-cscheme4-rte-descr">Rahmen mit blasslila Hintergrund für ausgewählte Absätze</label>
+			<label index="custom-boxes">Boxen</label>
+			<label index="custom-float-wrapper">Umflussrahmen für Bild mit Text oder Tabelle mit Text</label>
+			<label index="custom-float-wrapper-descr">Ein unsichtbarer Rahmen, der den Umfluss um links oder rechts ausgerichtete Bilder und Tabellen mit Text aufhebt.</label>
+			<label index="custom-indent-left-descr">Rückt ausgewählte Absätze links ein.</label>
+			<label index="custom-indent-left-right-descr">Rückt ausgewählte Absätze von links und rechts ein.</label>
+			<label index="custom-indent-right-descr">Rückt ausgewählte Absätze von rechts ein.</label>
+			<label index="custom-indentation">Einrückungen</label>
+
+            <label index="publist-yearfirst">Publikationsliste: Jahr zuerst</label>
+            <label index="pub-author">Autor</label>
+            <label index="pub-title">Titel</label>
+            <label index="pub-yearfirst">Jahr ausgerückt</label>
+            <label index="pub-review">Rezensionen</label>
+            <label index="pub-in">Zeitschrift, Sammelwerk</label>
+
+			
+
+			<label index="title-mail">E-Mail</label>
+			<label index="title-download">Datei herunterladen</label>
+			<label index="title-download-odc">Open-Office-Calc-Dokument (ODC)</label>
+			<label index="title-download-odp">Open-Office-Präsentation (ODP)</label>
+			<label index="title-download-odt">Open-Office-Writer-Dokument (ODT)</label>
+			<label index="title-download-pdf">PDF-Dokument</label>
+			<label index="title-download-pps">MS-Powerpoint-Präsentation (PPS)</label>
+			<label index="title-download-ppt">MS-Powerpoint-Präsentation (PPT)</label>
+			<label index="title-download-psd">Adobe Photoshop file (PSD)</label>
+			<label index="title-download-swx">Open-Office-Writer-Dokument (SWX)</label>
+			<label index="title-download-word">MS-Word-Dokument</label>
+			<label index="title-download-xls">MS-Excel-Dokument (XLS)</label>
+			<label index="title-external-download">Externe Datei herhunterladen</label>
+			<label index="title-external-download-odc">Externes Open-Office-Calc-Dokument (ODC)</label>
+			<label index="title-external-download-odp">Externe Open-Office-Präsentation (ODP)</label>
+			<label index="title-external-download-odt">Externes Open-Office-Writer-Dokument (ODT)</label>
+			<label index="title-external-download-pdf">Externes PDF-Dokument</label>
+			<label index="title-external-download-pps">Externe MS-Powerpoint-Präsentation (PPS)</label>
+			<label index="title-external-download-ppt">Externe MS-Powerpoint-Präsentation (PPT)</label>
+			<label index="title-external-download-psd">Externe Adobe-Photoshop-Datei (PSD)</label>
+			<label index="title-external-download-swx">Externes Open-Office-Writer-Dokument (SWX)</label>
+			<label index="title-external-download-word">Externes MS-Word-Dokument</label>
+			<label index="title-external-download-xls">Externes MS-Excel-Dokument (XLS)</label>
+			<label index="title-external-link">Externe Seite</label>
+			<label index="title-external-link-new-window">Externe Seite in neuem Fenster</label>
+			<label index="title-internal-anchor">Abschnitt auf dieser Seite</label>
+			<label index="title-internal-link">Interne Seite</label>
+			<label index="title-internal-link-new-window">Interner Link in neuem Fenster</label>
+			<label index="user-box-background-info">Hintergrundinformation</label>
+			<label index="user-box-background-info-descr">Box mit Büchern (für Hintergrundinformationen)</label>
+			<label index="user-box-bad">Schlechte Lösung</label>
+			<label index="user-box-bad-descr">Box mit rotem Kreuz für 'falsch'</label>
+			<label index="user-box-good">Gute Lösung</label>
+			<label index="user-box-good-descr">Box mit grünem Haken (für korrekte Beispiel, Lösungen usw.)</label>
+			<label index="user-box-note">Notiz</label>
+			<label index="user-box-note-descr">Box mit kleinem Notizzettel. Benutzen Sie dieses Format für 'Bitte beachten'</label>
+			<label index="user-box-plain">Einfache Box (kein Symbol)</label>
+			<label index="user-box-plain-descr">ohne Symbol</label>
+			<label index="user-box-tip">Tip</label>
+			<label index="user-box-tip-descr">Box mit einer Glühbirne für Tips und Hinweise</label>
+			<label index="user-box-warning">Warnung</label>
+			<label index="user-box-warning-descr">Box mit einem kleinen Warndreieck</label>
+			<label index="usercat-cscheme1-boxes">Rahmen (blassgrüner Hintergrund)</label>
+			<label index="usercat-cscheme2-boxes">Rahmen (hellgelber Hintergrund)</label>
+			<label index="usercat-cscheme3-boxes">Rahmen (hellblauer Hintergrund)</label>
+			<label index="usercat-cscheme4-boxes">Rahmen (blasslila Hintergrund)</label>
+			<label index="usercat-plain-boxes">Einfache Boxen</label>
+		</languageKey>
+		<languageKey index="no" type="array"></languageKey>
+		<languageKey index="it" type="array"></languageKey>
+		<languageKey index="fr" type="array"></languageKey>
+		<languageKey index="es" type="array">
+			<label index="title-external-link">Spanisch: externer Link</label>
+		</languageKey>
+		<languageKey index="nl" type="array"></languageKey>
+		<languageKey index="cz" type="array"></languageKey>
+		<languageKey index="pl" type="array"></languageKey>
+		<languageKey index="si" type="array"></languageKey>
+		<languageKey index="fi" type="array"></languageKey>
+		<languageKey index="tr" type="array"></languageKey>
+		<languageKey index="se" type="array"></languageKey>
+		<languageKey index="pt" type="array"></languageKey>
+		<languageKey index="ru" type="array"></languageKey>
+		<languageKey index="ro" type="array"></languageKey>
+		<languageKey index="ch" type="array"></languageKey>
+		<languageKey index="sk" type="array"></languageKey>
+		<languageKey index="lt" type="array"></languageKey>
+		<languageKey index="is" type="array"></languageKey>
+		<languageKey index="hr" type="array"></languageKey>
+		<languageKey index="hu" type="array"></languageKey>
+		<languageKey index="gl" type="array"></languageKey>
+		<languageKey index="th" type="array"></languageKey>
+		<languageKey index="gr" type="array"></languageKey>
+		<languageKey index="hk" type="array"></languageKey>
+		<languageKey index="eu" type="array"></languageKey>
+		<languageKey index="bg" type="array"></languageKey>
+		<languageKey index="br" type="array"></languageKey>
+		<languageKey index="et" type="array"></languageKey>
+		<languageKey index="ar" type="array"></languageKey>
+		<languageKey index="he" type="array"></languageKey>
+		<languageKey index="ua" type="array"></languageKey>
+		<languageKey index="lv" type="array"></languageKey>
+		<languageKey index="jp" type="array"></languageKey>
+		<languageKey index="vn" type="array"></languageKey>
+		<languageKey index="ca" type="array"></languageKey>
+		<languageKey index="ba" type="array"></languageKey>
+		<languageKey index="kr" type="array"></languageKey>
+		<languageKey index="eo" type="array"></languageKey>
+		<languageKey index="my" type="array"></languageKey>
+		<languageKey index="hi" type="array"></languageKey>
+		<languageKey index="fo" type="array"></languageKey>
+		<languageKey index="fa" type="array"></languageKey>
+		<languageKey index="sr" type="array"></languageKey>
+	</data>
+</T3locallang>

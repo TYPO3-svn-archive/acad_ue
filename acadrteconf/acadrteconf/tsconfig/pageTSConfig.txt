@@ -1,0 +1,189 @@
+RTE.default {
+
+	removeTrailingBR = 1   
+	
+
+	// Available buttons
+	// Note: including some buttons from extensions, i.e.
+	// definitionlist,definitionitem,codebox
+ 	showButtons (
+		  formatblock,blockstyle,
+		   formattext,textstyle,
+		  image,emoticon,link,unlink,acronym,
+		   strong, emphasis, span,
+		   quotation, citation, 
+		   definition, sample, code, variable, keyboard,language,showlanguagemarks,
+		   insertedtext, deletedtext,
+		   italic, bold, big, small, monospaced, subscript, superscript, 
+		   underline, strikethrough,
+		   orderedlist, unorderedlist, definitionlist,definitionitem, blockquote, user, syntaxhighlight,
+		   indent,outdent,
+		   left,right,center,justifyfull,
+		   insertparagraphbefore, insertparagraphafter,
+		   table,toggleborders,
+		   tableproperties, rowproperties, columnproperties, cellproperties, tablerestyle,
+		   rowinsertabove, rowinsertunder, rowdelete,
+		   columninsertbefore, columninsertafter, columndelete,
+		   cellinsertbefore, cellinsertafter, celldelete, 
+		   cellmerge, cellsplit,rowsplit, columnsplit, 
+		   textcolor, bgcolor, textindicator,
+		   fontstyle, fontsize,
+		   removeformat, chMode, inserttag, 
+		   undo,redo,
+		   copy,cut,paste,
+		   findreplace,
+		   showhelp, about	 	
+ 	) 
+
+
+
+	
+
+	  // Order of the buttons in the toolbar
+	 toolbarOrder (
+		  formatblock,blockstylelabel,blockstyle,
+		  bar, formattext,textstylelabel,textstyle,
+		  linebreak,image,emoticon,link,unlink,acronym,
+		  bar, strong, emphasis, span,
+		  bar, quotation, citation, 
+		  bar, definition, sample, code, variable, keyboard,language,showlanguagemarks,
+		  bar, insertedtext, deletedtext,
+		  bar, italic, bold, big, small, monospaced, subscript, superscript, 
+		  bar, underline, strikethrough,
+		  bar, bidioverride, lefttoright,righttoleft,
+		  linebreak,
+		  bar, orderedlist, unorderedlist, definitionlist, definitionitem, blockquote, user, syntaxhighlight, line,
+		  bar, indent,outdent,
+		  bar, left,right,center,justifyfull,
+		  bar, insertparagraphbefore, insertparagraphafter,
+		  bar, textcolor, bgcolor, textindicator,
+		  bar, fontstyle, fontsize,
+		  bar, removeformat, chMode, inserttag, 
+		  bar, undo,redo,
+		  bar, copy,cut,paste,
+		  bar, findreplace, spellcheck, insertcharacter,
+		  linebreak,
+		  table,toggleborders,
+		  bar, tableproperties, rowproperties, columnproperties, cellproperties, tablerestyle,
+		  bar, rowinsertabove, rowinsertunder, rowdelete,
+		  bar, columninsertbefore, columninsertafter, columndelete,
+		  bar, cellinsertbefore, cellinsertafter, celldelete, 
+		  bar, cellmerge, cellsplit, rowsplit, columnsplit, 
+		  bar, showhelp, about	
+	 )
+
+		
+    	// Keep button groups defined by 'bar' and 'linebreak' together
+    keepButtonGroupTogether = 1
+ 
+    	// Shows the element path down to the current element in the status bar of the textarea
+ 	 showStatusBar = 1
+	 
+		// Custom order of block elements
+    buttons.formatblock.orderItems =  p,h1,h2,h3,h4,h5,h6,div,blockquote,pre,address      
+
+ 		// Prefix block element labels with tag names
+    buttons.formatblock.prefixLabelWithTag = 1           
+
+		// Show tag names in front of inline elements
+    buttons.formattext.prefixLabelWithTag = 1
+		
+		// Do not hide table operations in toolbar
+	hideTableOperationsInToolbar = 0
+		
+    	// Keep the toggle border button in the toolbar, even if table operations are hidden
+	 buttons.toggleborders.keepInToolbar = 1
+
+		// Configuration for tables
+	buttons.table {
+	
+			// remove unwanted fieldsets
+		removeFieldsets = spacing,borders,color
+
+			// No cute little arrows for adding cells etc.
+		enableHandles = 0
+
+		properties {
+				// force either caption or summary to be entered
+			required = captionOrSummary
+				// make sure some header cells are set
+			headers.removeItems = none
+				// header cells on top as default
+			headers.defaultValue = top		
+				// default number of rows on creation of table
+			numberOfRows.defaultValue = 3
+				// default number of columns on creation of table
+			numberOfColumns.defaultValue = 3
+				// default class for tables
+			tableClass.defaultValue = tb-zebra-rows
+				// disallow style="height" for table
+			removed = height
+				// set default width unit to em
+			widthUnit.defaultValue = em			
+			
+		}
+	}
+	
+	buttons.tableproperties < RTE.default.buttons.table
+	
+	buttons.rowproperties {
+		removeFieldsets = color,borders,layout
+	}		
+	
+	buttons.cellproperties {
+		removeFieldsets = color,borders
+		properties.removed = height
+		widthUnit.defaultValue = em
+	}
+	
+	buttons.columnproperties.removeFieldsets = color,borders,layout
+
+ 
+	// Images Dialogue //
+	
+	
+		// Maximum width for magic images		
+    buttons.image.options.magic.maxWidth = 300
+    	// Maximum height for magic images
+	buttons.image.options.magic.maxHeight = 1000
+	 	// Users will not be allowed to insert images wider than 300px under plain image
+	buttons.image.options.plain.maxWidth = 300
+	 	// will remove height from propery window, thus avoiding scrumbled up images
+	proc.plainImageMode = lockRatio
+	 	// Remove certain properties from the image dialogue
+	buttons.image.properties.removeItems = align, border, clickenlarge, float, paddingTop, paddingRight, paddingBottom, paddingLeft 	
+		// If DAM is available, use caption field for title attribute
+    buttons.image.title.useDAMColumn = caption
+        // Bigger link popup for large pagetrees
+    buttons.image.dialogueWindow.width = 800
+    buttons.image.dialogueWindow.height = 700
+    
+
+
+	// Link Dialogue //
+	
+		// Do not show target selector in link dialogue
+    buttons.link.targetSelector.disabled = 1
+    	// Do not allow popup links in link dialogue
+   	buttons.link.popupSelector.disabled = 1
+   		// Allow users to create an internal link by inserting a page id
+   	buttons.link.pageIdSelector.enabled = 1
+        // Enable query parameter selector for internal pages?
+    buttons.link.queryParametersSelector.enabled = 1
+        // Bigger link popup for large pagetrees
+    buttons.link.dialogueWindow.width = 800
+    buttons.link.dialogueWindow.height = 700
+   	
+   	// Language Attribute //
+
+	buttons.language {
+        postfixLabelWithCode = 1
+	}
+}
+
+	// disable choice between acronym and abbr for
+TCEFORM.tx_rtehtmlarea_acronym.type.disabled = 1
+
+
+
+

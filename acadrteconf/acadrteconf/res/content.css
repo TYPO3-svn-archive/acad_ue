@@ -1,0 +1,350 @@
+/**
+* content.css contains all styles that have to be available
+* in RTE and FE
+*
+*/
+body, option {
+	font-family: "Arial Unicode MS", Arial, "Lucida Sans Unicode", Helvetica,Verdana, sans-serif;
+}
+
+strong, b {
+	font-size: 0.93em;
+	font-weight: 600;
+	color: #353535;
+	letter-spacing: 0.013em;
+}
+
+img {
+	border: none
+}
+
+h2 {
+	margin-top: 0.83em;
+	margin-bottom: 12px;
+	color: #1E4C62;
+	font-size: 1.43em;
+	font-weight: 500;;
+	line-height: normal;
+	padding-bottom: 0.5ex;
+	border-bottom: 1px solid #7CA5AA;
+}
+
+h3 {
+	color: #1E4C62;
+	font-size: 1.15em;
+	font-weight: 800;
+	line-height: normal;
+	margin-bottom: 0.3ex;
+	margin-top: 1ex;
+	padding-top: 0.5ex;
+}
+
+h4 {
+	color: #1E4C62;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: normal;
+	margin-top: 1em;
+	margin-bottom: 0.3em;
+	padding-bottom: 0px;
+}
+
+h5 {
+	color: #1E4C62;
+	font-size: 0.9em;
+	font-weight: bold;
+	line-height: normal;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+h6 {
+	font-size: 0.85em;
+	font-weight: bold;
+	line-height: normal;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+p {
+	margin-top: 0px;
+	margin-bottom: 0.63em;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	line-height: 1.4em;
+}
+
+ul {
+	margin-top: 0.65em;
+	margin-bottom: 0.65em;
+	margin-left: 15px;
+	padding-left: 10px;
+}
+
+ul li {
+	margin-left: 10px;
+	padding-left: 0px;
+	line-height: 1.2em;
+	padding-bottom: 0.3em;
+}
+
+ul li ul {
+	margin-left: 5px;
+	margin-top: 0.3em;
+	margin-bottom: 0px;
+}
+
+ul.bullet1, ul.bullet1 ul {
+	padding-left: 0px;
+}
+
+ul.bullet1 li {
+	list-style: none;
+	background: url(bullet1b.gif) 0px 1ex no-repeat;
+	margin-left: 0px;
+	padding-left: 15px;
+}
+
+ul.bullet1 li ul li {
+	background: url(bullet1b.gif) 0px 1ex no-repeat;
+}
+
+address {font-style: normal}
+
+/******************** LINKS ******************************/
+
+/**
+* Standard link format inside .content and in body of RTE
+*/
+.content a, .htmlarea-content-body a {
+	color: #2748B1;
+	text-decoration: none;
+	background-position: 0px 1ex;
+	background-repeat: no-repeat;
+
+}
+
+.content a:hover,  .htmlarea-content-body a:hover,
+.content a:focus,  .htmlarea-content-body a:focus,
+.content a:active, .htmlarea-content-body a:active {
+	outline: none !important;
+	border-bottom: 1px solid #FFB200;
+}
+
+.content a:active, .htmlarea-content-body a:active,
+.content a:focus,  .htmlarea-content-body a:focus {
+	color: #000029;
+	background-color: #FEDD63;
+}
+
+
+.content a:visited, .htmlarea-content-body a:visited {
+	color: #0F6FFF;
+	color: #0063DC; /*flickr-blau*/
+}
+
+#uplinks a:hover,
+.content a:hover, .htmlarea-content-body a:hover {
+	border-bottom: 1px solid #FFB200
+}
+
+/* internal link*/
+a.internal-link,
+a.internal-link:focus {
+	padding-left: 10px;
+	background-image: url(icons/blue/arrow_right.gif);
+	background-repeat: no-repeat;
+
+}
+
+a.internal-link:visited {
+	padding-left: 10px;
+	background-image: url(icons/mezzoblue/arrow_right.gif)
+}
+
+/* internal link in new window */
+a.internal-link-new-window,
+a.internal-link-new-window:focus {
+	padding-left: 13px;
+	background-image: url(icons/blue/arrow_right_box.gif);
+}
+
+a.internal-link-new-window:visited {
+	padding-left: 13px;
+	background-image: url(icons/mezzoblue/arrow_right_box.gif)
+}
+
+/* external link */
+a.external-link,
+a.external-link:focus {
+	padding-left: 9px;
+	background-image: url(icons/blue/arrow_out.gif);
+}
+
+a.external-link:visited {
+	padding-left: 9px;
+	background-image: url(icons/mezzoblue/arrow_out.gif)
+}
+
+/* external link in new window */
+a.external-link-new-window,
+a.external-link-new-window:focus {
+	padding-left: 11px;
+	background-image: url(icons/blue/arrow_out_box.gif);
+}
+
+a.external-link-new-window:visited {
+	padding-left: 11px;
+	background-image: url(icons/mezzoblue/arrow_out_box.gif)
+}
+
+/* downloads */
+a.download,
+a.download:focus {
+	padding-left: 12px;
+	background-image: url(icons/blue/arrow_download.gif);
+	background-position: left 0.7ex;
+}
+
+a.download:visited {
+	padding-left: 12px;
+	background-image: url(icons/mezzoblue/arrow_download.gif);
+}
+
+/* email */
+a.email,
+a.email:visited,
+a.email:focus {
+	padding-left: 14px;
+	/* background: url(link_email.gif) left 0.5ex no-repeat; */
+	background-image: url(icons/link_email.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0.5ex;
+	border-bottom: 1px solid #ffffff
+}
+
+
+/**
+ * Tables
+ */
+table {
+	border: none;
+	border-collapse: collapse;
+	font-size: 1em;
+}
+caption {font-size: 0.8em; text-align: right; margin-bottom: 4px}
+th, td {
+	padding-left: 4px;
+	padding-right: 4px;
+	vertical-align: top
+}
+
+th {
+	font-size: 0.8em;
+	text-align: left;
+	border: 1px solid #C7B461;
+	background-color: #FBF6DE;
+	font-weight: normal
+}
+td {border: 1px solid #B2BFCE}
+thead th {text-align: center; border-bottom-color: #B2BFCE}
+tbody th {border-right-color: #B2BFCE; padding-top: 0.3em}
+tr.odd, td.odd {background-color: #F9FAFC}
+thead th.first {border-bottom-color: #C7B461;}
+
+
+
+
+/**
+* Float stuff
+*/
+.floatL {
+	float: left;
+}
+
+.floatR {
+	float: right;
+}
+img.floatL, table.floatL {margin-right: 10px; margin-bottom: 3px;}
+img.floatR, table.floatR {margin-left: 10px; margin-bottom: 3px;}
+
+.clearL { clear: left }
+.clearR { clear: right }
+
+
+
+.clearfix:after {
+	content:".................................................................";
+	display: block;
+	height: 0;
+	margin: 0;
+	float: none;
+	clear: both;
+	visibility: hidden;
+	width: 100%;
+}
+
+.clearfix {
+	position: relative;
+}
+div.clearfix {}
+:focus {
+	-moz-outline-style: none;
+}
+
+/** testkrams **/
+ul.nobullets li {
+	list-style: none;
+	margin-left: 0px
+}
+
+dl.imgLeft {
+	float: left;
+	margin-right: 20px;
+	margin-top: 0px;
+	line-height: 0.5em;
+	margin-bottom: 3px;
+}
+
+dl.imgLeft dt, dl.imgLeft dd {
+	margin: 0 0;
+	padding: 0 0;
+}
+
+dl.imgLeft dt {
+	border: 1px solid #556C79;
+	font-size: 0px;
+}
+
+dl.imgLeft dd {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	text-align: left;
+	font-size: 0.9em;
+	color: #556C79;
+}
+
+.outdentFL {
+	padding-left: 2em;
+	text-indent: -2em;
+}
+
+/**
+ * Indentation
+ */
+div.indentL, p.indentL {margin-left: 2em}
+div.indentR, p.indentR {margin-right: 2em}
+div.indentLR, p.indentLR {margin-left: 2em;	margin-right: 2em;}
+
+
+
+
+/**
+* hfg stands for hide from GUI. Use for elements that shall not show up in normal
+* browsers but have to appear in screenreaders.
+*/
+.hfg {
+	position: absolute;
+	height: 1px;
+	left: -4000px
+}

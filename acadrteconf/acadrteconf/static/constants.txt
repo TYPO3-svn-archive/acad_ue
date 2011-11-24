@@ -1,0 +1,6 @@
+# The following elements are allowed on the way from the database to the frontend:
+styles.content.links.allowTags = a,abbr,acronym,address,blockquote,b,big,br,caption,cite,code,col,colgroup,dfn,dl,dt,dd,div,em,h1,h2,h3,h4,h5,h6,hr,i,img,kbd,li,link,ol,p,pre,q,samp,small,span,strong,sub,sup,table,thead,tbody,tfoot,td,th,tr,tt,ul,var
+# No funny target-attributes
+styles.content.links.extTarget =
+PAGE_TARGET =
+content.pageFrameObj =

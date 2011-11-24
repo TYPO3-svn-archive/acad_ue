@@ -1,0 +1,98 @@
+# @description	User elements
+#					Unfortunately, these elements will not be available for FE-Users
+RTE.default.userElements {
+    # Address Stuff
+    10 = Kontaktvorlagen
+    10 {
+        10 = Kontaktliste: Tel, Fax, Mobil, E-Mail
+        10 {
+            mode = default
+            content = <ul class="contact-items"><li class="contact-fon" title="Tel:">+49(0)361/737-XXXX</li><li class="contact-fax" title="Fax:">+49(0)361/737-XXXX</li><li class="contact-mobile" title="Mobil:">123</li><li class="contact-email" title="E-Mail:"><a class="mail" href="mailto:someone@uni-erfurt.de">someone@uni-erfurt.de</a></li></ul>
+         }
+
+ 
+       20 = Visitenkarte
+       20 {
+            mode = default
+            content = <p>Mitarbeitergebäude X, Raum Y</p><ul class="contact-items"><li class="contact-fon" title="Tel:">+49(0)361/737-XXXX</li><li class="contact-fax" title="Fax:">+49(0)361/737-XXXX</li><li class="contact-mobile" title="Mobil:">123</li><li class="contact-email list-divider" title="E-Mail:"><a class="mail" href="mailto:someone@uni-erfurt.de">someone@uni-erfurt.de</a></li><li class="contact-web" title="Web:">Link 1</li></ul><p><strong>Sprechzeiten: </strong></p><ul class="bullet1"><li>Montag, 13 – 14 Uhr</li><li>Freitag, 14 – 15 Uhr</li><li>nach Vereinbarung</li></ul>
+        }
+
+       30 = Postanschrift Einrichtung
+       30 {
+            mode = default
+            content = <address><p>Universität Erfurt</p><p>Einrichtung</p><p>Postfach 900 221</p><p>99105 Erfurt</p></address>
+       }
+
+	   40 = Postanschrift MaxWeberKolleg
+       40 {
+            mode = default
+            content = <address><p>Universität Erfurt</p><p>Max-Weber-Kolleg für kultur- und sozialwissenschaftliche Studien</p><p>Am Hügel 1</p><p>99084 Erfurt </p></address>
+       }
+
+		50 = Postanschrift FZGotha
+       	50 {
+            mode = default
+            content = <address><p>Universität Erfurt</p><p>Forschungszentrum Gotha</p><p>Postfach 100 561</p><p>99855 Gotha</p></address>
+
+       }
+
+    }
+
+
+	# boxes with class cscheme2-rte (light yellow background)
+	30 = LLL:EXT:acadrteconf/locallang_rte.xml:usercat-cscheme2-boxes
+	30 {
+			
+		# @description Note box
+		20 = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-note
+		20 {
+			description = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-note-descr
+			mode = wrap
+			content = <div class="clearfix cscheme2-rte"><img src="###_URL###/typo3conf/ext/acadrteconf/res/images/symbols/note.png" width="36" height="32" alt="" class="floatL" />|</div>
+		}
+		
+		# @description Tip box
+		30 = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-tip
+		30 {
+			description = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-tip-descr
+			mode = wrap
+			content = <div class="clearfix cscheme2-rte"><img src="###_URL###/typo3conf/ext/acadrteconf/res/images/symbols/tip.png" width="36" height="42" alt="" class="floatL" />|</div>
+		}
+		
+		
+		# @description Background info box
+		40 = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-background-info
+		40 {
+			description = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-background-info-descr
+			mode = wrap
+			content = <div class="clearfix cscheme2-rte"><img src="###_URL###/typo3conf/ext/acadrteconf/res/images/symbols/background-info.png" width="36" height="40" alt="" class="floatL" />|</div>
+		}
+
+		
+		# @description Warning box
+		50 = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-warning
+		50 {
+			description = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-warning-descr
+			mode = wrap
+			content = <div class="clearfix cscheme2-rte"><img src="###_URL###/typo3conf/ext/acadrteconf/res/images/symbols/warning.png" width="36" height="34" alt="" class="floatL" />|</div>
+		}
+		
+		# @description Good box
+		60 = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-good
+		60 {
+			description = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-good-descr
+			mode = wrap
+			content = <div class="clearfix cscheme2-rte"><img src="###_URL###/typo3conf/ext/acadrteconf/res/images/symbols/good.png" width="36" height="25" alt="" class="floatL" />|</div>
+		}
+		
+		# @description Bad box
+		70 = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-bad
+		70 {
+			description = LLL:EXT:acadrteconf/locallang_rte.xml:user-box-bad-descr
+			mode = wrap
+			content = <div class="clearfix cscheme2-rte"><img src="###_URL###/typo3conf/ext/acadrteconf/res/images/symbols/bad.png" width="36" height="32" alt="" class="floatL" />|</div>
+		}
+		
+	}	
+}
+

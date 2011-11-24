@@ -1,0 +1,402 @@
+##-------------------- Classes ------------------------------##
+
+	// Allowed classes and there labels
+RTE.classes {
+	
+		// Links
+	internal-link.name = LLL:EXT:acadrteconf/locallang_rte.xml:title-internal-link
+	internal-link-new-window.name = LLL:EXT:acadrteconf/locallang_rte.xml:title-internal-link-new-window
+	external-link.name = LLL:EXT:acadrteconf/locallang_rte.xml:title-external-link
+	external-link-new-window.name = LLL:EXT:acadrteconf/locallang_rte.xml:title-external-link-new-window
+	download.name = LLL:EXT:acadrteconf/locallang_rte.xml:title-download
+	mail.name = LLL:EXT:acadrteconf/locallang_rte.xml:title-mail
+	
+		// Indentation
+	indent.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-indent-left-right
+	indentL.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-indent-left
+	indentR.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-indent-right
+    indent-hanging.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-indent-hanging
+		
+		// Float and clear
+	floatL.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-float-left
+	floatR.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-float-right
+	float-left.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-float-left
+	float-right.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-float-right
+	clearL.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-clear-left
+	clearR.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-clear-right
+	clearfix.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-clearfix
+	
+		// Alignment
+	align-left.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-align-left
+	align-right.name =  LLL:EXT:acadrteconf/locallang_rte.xml:css-align-right
+	align-center.name =  LLL:EXT:acadrteconf/locallang_rte.xml:css-align-center
+	align-justify.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-align-justify
+		
+		// Importance and warning for strong
+	important.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-important
+	important.value = font-weight: bold; font-style: normal; color: #ff0000;
+	warning.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-warning
+	warning.value = font-weight: bold; background-color: #FEFFDE; color: #ff0000; border: 1px solid #ff000;
+
+        // kbd, code, etc
+    menuItem.name =  LLL:EXT:acadrteconf/locallang_rte.xml:css-menuItem
+    button.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-button
+    path.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-path
+
+        // for img
+    valignMiddle.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-valignMiddle
+		
+		// Unorderd lists
+	nobullets.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ul-nobullets
+	linklist.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-simple-linklist
+	bullet1.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ul-bullet1
+    contact-items.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ul-contact-items
+	publist-yearfirst.name = LLL:EXT:acadrteconf/locallang_rte.xml:publist-yearfirst
+	
+		// Ordered lists
+	decimal.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ol-decimal
+	lower-roman.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ol-lower-roman
+	upper-roman.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ol-upper-roman
+	lower-alpha.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ol-lower-alpha
+	upper-alpha.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-ol-upper-alpha
+	
+		// Classes for li
+	list-divider.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-list-spacer
+
+        // li-contact stuff
+    contact-web.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-contact-web
+    #contact-web.noShow = 1
+    contact-mail.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-contact-mail
+    #contact-mail.noShow = 1
+    contact-fon.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-contact-fon
+    #contact-fon.noShow = 1
+    contact-mobile.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-contact-mobile
+    #contact-mobile.noShow = 1
+    contact-fax.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-contact-fax
+	
+		// Definition lists
+	linklist-commented.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-commented-linklist
+
+
+
+        // citations
+    pub-yearlist.name = LLL:EXT:acadrteconf/locallang_rte.xml:pub-yearfirst
+    pub-author.name = LLL:EXT:acadrteconf/locallang_rte.xml:pub-author
+    pub-yearfirst.name = LLL:EXT:acadrteconf/locallang_rte.xml:pub-yearfirst
+    pub-title.name = LLL:EXT:acadrteconf/locallang_rte.xml:pub-title
+    pub-review.name = LLL:EXT:acadrteconf/locallang_rte.xml:pub-review
+	
+		// Colored background for DIVs: Pale green
+	cscheme1-rte.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-cscheme1-rte
+	cscheme1-rte.value = background-color: #EDF1D6; border: 1px solid #dddddd;
+	
+	
+	cscheme2-rte.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-cscheme2-rte
+	cscheme3-rte.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-cscheme3-rte
+	
+	cscheme4-rte.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-cscheme4-rte
+	cscheme4-rte.value = background-color: #EBE6E4; border: 1px solid #dddddd;
+
+
+		// Special classes for paragraphs
+	teaser.name = Teaser
+	teaser.value = font-weight:bold;
+
+		// table caption
+	tb-caption-top.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-tb-caption-top
+	
+		// Zebra tables: rows and cells
+	tr-odd.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-odd-row
+	tr-even.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-even-row
+	thead.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-header-row
+	th-odd.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-odd-header-cell
+	th-even.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-even-header-cell
+	td-odd.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-odd-cell
+	td-even.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-even-cell
+	header-even.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-even-header-row
+	header-odd.name = LLL:EXT:acadrteconf/locallang_rte.xml:css-odd-header-row
+	tb-highlight-1.name = LLL:EXT:acadrteconf/locallang_rte.xml:tb-highlight-1
+	tb-highlight-2.name = LLL:EXT:acadrteconf/locallang_rte.xml:tb-highlight-2
+	tb-highlight-3.name = LLL:EXT:acadrteconf/locallang_rte.xml:tb-highlight-3
+
+	tr-odd.nowShow = 1
+	cellcount-2.name = Zelle 2
+	cellcount-2.noShow = 2
+	
+	cellcount-2.noShow = 1
+
+		// Zebra table: rows
+	tb-zebra-rows {
+		name = LLL:EXT:acadrteconf/locallang_rte.xml:css-zebra-rows
+		alternating {
+			rows {
+				  // first row is 1 (odd) not 0
+				startAt = 1
+				  // odd tr in tbody
+				oddClass = tr-odd
+				  // even tr in tbody
+				evenClass = tr-even
+					// odd tr in thead
+				oddHeaderClass = header-odd
+					// even tr in thead
+				evenHeaderClass = header-even
+			}
+		}
+		/* not yet usable because of bug
+		counting {
+			rows {
+				startAt = 1
+				rowClass = rowcount-
+				rowLastClass = rowcount-last
+				rowHeaderClass = rowhcount-
+				rowHeaderLastClass = rowhcount-last
+			}
+			columns {
+				startAt = 1
+				columnClass = cellcount-
+				columnLastClass = cellcount-last
+				columnHeaderClass = cellhcount-
+				columnHeaderLastClass = cellhcount-last
+			}
+		}
+		*/
+	}
+	
+		// Zebra table: cols
+	tb-zebra-cols {
+		name = LLL:EXT:acadrteconf/locallang_rte.xml:css-zebra-cols
+		alternating {
+			columns {
+					// first column is 1 (odd) not 0
+				startAt = 1
+					// odd td in tbody
+				oddClass = td-odd
+					// even td in tbody
+				evenClass = td-even
+					// odd th on top (either inside thead or tr.thead)
+				oddHeaderClass = th-odd
+					// odd th on top (either inside thead or tr.thead)
+				evenHeaderClass = th-even
+			}
+		}	
+	}
+}
+
+
+
+	// Link configuration
+RTE.classesAnchor {
+	externalLink {
+		class = external-link
+		type = url
+		titleText = LLL:EXT:acadrteconf/locallang_rte.xml:title-external-link
+	}
+	
+	externalDownload {
+		class = download
+		type = url
+		titleText = LLL:EXT:acadrteconf/locallang_rte.xml:title-external-download
+	}
+	
+	externalLinkInNewWindow {
+		class = external-link-new-window
+		type = url
+		titleText = LLL:EXT:acadrteconf/locallang_rte.xml:title-external-link-new-window
+		target =_blank
+	}
+	
+	internalLink {
+		class = internal-link
+		type = page
+		titleText = 
+	}
+	
+	internalLinkInNewWindow {
+		class = internal-link-new-window
+		type = page
+		titleText = LLL:EXT:acadrteconf/locallang_rte.xml:title-internal-link-new-window
+		target = _blank
+	}
+	
+	download {
+		class = download
+		type = file
+		titleText = LLL:EXT:acadrteconf/locallang_rte.xml:title-download
+	}
+	
+		// Links to files need to be of type media when dam is installed	
+	downloadDAM {
+		class = download
+		type = media
+		target = _blank
+		#titleText = LLL:EXT:acadrteconf/locallang_rte.xml:title-download
+	}
+	
+	
+	mail {
+		class = mail
+		type = mail
+		titleText = LLL:EXT:acadrteconf/locallang_rte.xml:titel-mail
+	}
+}
+
+	// define classes that will be selected by default for each link type
+RTE.default {
+	classesAnchor = external-link, external-link-new-window, internal-link, internal-link-new-window, download, mail
+	classesAnchor.default {
+		page = internal-link
+		url = external-link
+		file = download
+		media = download
+		mail = mail
+	}
+}	
+
+RTE.default.proc.allowedClasses (
+	align-left,
+	align-right,
+	align-center,
+	align-justify,
+	external-link,
+	external-link-new-window,
+	internal-link,
+	internal-link-new-window,
+	download,
+	mail,
+	indentL,
+	indentR,
+	indent,
+    indent-hanging,
+	floatL,
+	floatR,
+	float-left,
+	float-right,
+	clearL,
+	clearR,
+	clearfix,
+	important,
+	warning,
+    menuItem,
+    button,
+    path,
+	nobullets, 
+	bullet1,
+	linklist,
+	decimal,
+	lower-alpha,
+	upper-alpha,
+	lower-roman,
+	upper-roman,
+	list-divider,
+	linklist-commented,
+	cscheme1-rte,
+	cscheme2-rte,
+	cscheme3-rte,
+	cscheme4-rte,
+	clearfix,
+	symicon-warning,
+	symicon-tip,
+	symicon-note,
+	symicon-background-info,
+	symicon-good,
+	symicon-bad,
+	css-tb-caption-top,
+	tb-highlight-1,
+	tb-highlight-2,
+	tb-highlight-3,
+	tb-zebra-rows,
+	tb-zebra-cols,
+	td-odd,
+	td-even,
+	header-odd,
+	header-even,
+	th-odd,
+	th-even,
+	td-odd-col,
+	td-even-col,
+	th-odd-col,
+	th-even-col,
+	teaser,
+	tr-odd,
+	tr-even,
+    valignMiddle,
+    contact-items,
+    contact-fon,
+    contact-mobile,
+    contact-fax,
+    contact-web,
+	contact-mail,
+    publist-yearfirst,
+    pub-author,
+    pub-title,
+    pub-review,
+    pub-yearfirst,
+	green,
+	
+)
+
+RTE.default {
+	
+		// Tell the editor which css-file to use
+	contentCSS = /fileadmin/templates/themes/default/rte.css
+	
+		// Tell the editor that the css-file shall have the highest priority
+	ignoreMainStyleOverride = 1
+	
+		// When running under Mozilla/Firefox, use <b>, <i> etc. 
+		// and not <span style="...">. Otherwise we will have different markup
+		// in the database depending on the author's browser.
+	useCSS = 0
+	
+		// Ownly show classes with element selector (div.foo, but not foo)
+	showTagFreeClasses = 0
+
+		// Classes allowed for immages
+		// Todo: can this be replaced by buttons.blockstyle.tags.img.allowedClasses?	
+	classesImage = floatL, floatR, valignMiddle
+
+		// Classes allowed for various block elements	
+	buttons.blockstyle.tags {
+		p.allowedClasses = teaser, indent,  indentL, indentR, indent-hanging, align-left, align-right, align-center, align-justify
+		div.allowedClasses = indent, indentL, indentR, cscheme1-rte, cscheme2-rte, cscheme3-rte, cscheme4-rte, indent, align-left, align-right, align-center, align-justify, clearfix
+		pre.allowedClasses =  cscheme1-rte, cscheme2-rte, cscheme3-rte, cscheme4-rte
+		ul.allowedClasses =	 nobullets, bullet1, linklist, contact-items, publist-yearfirst
+		ol.allowedClasses = decimal, lower-roman, upper-roman, lower-alpha, upper-alpha
+		li.allowedClasses = list-divider, contact-fon, contact-mobile, contact-fax, contact-email, contact-web
+		table.allowedClasses = tb-zebra-rows, tb-zebra-cols, float-left, float-right, align-right, align-left, align-center
+		caption.allowedClasses = tb-caption-top, align-left, align-right, align-center, align-justify 
+		tr.allowedClasses = tr-odd, tr-even, header-odd, header-even, tb-highlight-1, tb-highlight-2, tb-highlight-3, align-left, align-right, align-center
+		td.allowedClasses = td-odd, td-even, tb-highlight-1, tb-highlight-2, tb-highlight-3,  align-left, align-right, align-center
+		th.allowedClasses = header-odd, header-even, th-odd, th-even,  tb-highlight-1, tb-highlight-2, tb-highlight-3,  align-left, align-right, align-center
+		dl.allowedClasses = linklist-commented 
+		
+	}
+
+		// Classes allowed for various inline elements	
+	buttons.textstyle.tags {
+		strong.allowedClasses = warning
+        kbd.allowedClasses = menuItem,button
+        code.allowedClasses = path
+        cite.allowedClasses = pub-yearfirst,pub-author,pub-title,pub-review
+	}
+		
+}
+
+	// Define lists of classes that will be replaced by each other
+RTE.mutuallyExclusiveClasses {
+	10 = align-left,align-right,align-center,align-justify
+	20 = indent,indentL,indentR,indent-hanging
+	30 = green,red,blue
+	50 = decimal,lower-roman,upper-roman,lower-alpha,upper-alpha
+	60 = tr-odd,tr-even,header-odd,header-even
+	80 = td-odd,td-even
+	85 = th-odd,th-even
+	86 = tb-highlight-1, tb-highlight-2, tb-highlight-3
+	90 = nobullets,bullet1,linklist,contact-items,publist-yearfirst
+	100 = cscheme1-rte,cscheme2-rte,cscheme3-rte,cscheme4-rte
+	110 = tb-zebra-cols, tb-zebra-rows, tb-zebra-plaid
+	120 = floatL, floatR, float-left, float-right
+    130 = menuItem, button
+    140 = contact-fon, contact-mobile, contact-fax, contact-web
+    150 = pub-author, pub-title, pub-yearfirst
+}	
