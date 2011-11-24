@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallang>
+    <meta type="array">
+        <description>Contains values needed specifically for the templates of the University website. Default language is German.</description>
+        <type>module</type>
+        <fileId>fileadmin/lang/locallang_uni_erfurt.xml</fileId>
+        <labelContext type="array">
+            <label index="uni_erfurt">Der Name unserer Universität</label>
+            <label index="mainportals_summary">Hilfstext für Nutzer von Screenreadern für die Tabelle mit den Hauptportalen auf der Startseite der Uni</label>
+            <label index="servicemenu">Überschrift für das Service-Menü</label>
+            <label index="toolbox">Überschrift für die Werkzeugkiste</label>
+            <label index="insidermenu">Überschrift für das Insidermenü auf der Startseite</label>
+            <label index="user_and_langmenu">Überschrift für Nutzermenü und Sprachwahl</label>
+            <label index="to_uni_home">Verweistext für den Link "Zur Startseite der Universität"</label>
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default">
+            <label index="uni_erfurt">University of Erfurt</label>
+            <label index="mainportals_summary">Single row table with links to the four main portals and their most important subsites.</label>
+            <label index="servicemenu">Service Menu</label>
+            <label index="toolbox">Toolbox</label>
+            <label index="insidermenu">Shortcuts for insiders</label>
+            <label index="user_and_langmenu">User menu and language choice</label>
+            <label index="to_uni_home">To homepage of the University of Erfurt</label>
+        </languageKey>
+        
+        <languageKey index="de">
+            <label index="uni_erfurt">Universität Erfurt</label>
+            <label index="mainportals_summary">Einzeilige Tabelle mit Links zu den vier Hauptportalen und den wichtigsten Unterseiten.</label>
+            <label index="servicemenu">Service-Menü</label>
+            <label index="toolbox">Werkzeugkiste</label>
+            <label index="insidermenu">Schnellzugriff für Insider</label>
+            <label index="user_and_langmenu">Nutzermenü und Sprachwahl</label>
+            <label index="to_uni_home">Zur Startseite der Universität Erfurt</label>
+          </languageKey>
+    </data>
+</T3locallang>

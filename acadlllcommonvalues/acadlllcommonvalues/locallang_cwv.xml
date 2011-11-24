@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallang>
+    <meta type="array">
+        <description>Contains values for frequently used website phrases like "to page top" and so on,</description>
+        <type>module</type>
+        <labelContext type="array">
+            <label index="navigation">Überschrift für den Navigationsbereich der Seite</label>
+            <label index="search_noun">Überschrift für das Suchformular</label>
+            <label index="skip_to_content">Verweistext für den Skiplink "zum Text springen"</label>
+            <label index="skip_to_menu">Verweistext für den Skiplink "zur Navigation springen"</label>
+            <label index="skip_to_toolbox">Verweistext für den Skiplink "zur Werkzeugkiste springen"</label>
+            <label index="you_are_here">Vorspann zur Brotkrumen-Navigation "Sie sind hier"</label>
+            <label index="first_published">Text vor dem Datum der ersten Veröffentlichung</label>
+            <label index="last_update">Text vor dem Datum der letzten Änderung</label>
+            <label index="main_menu">Beschriftung Hauptmenü</label>
+            <label index="submenu">Beschriftung Untermenü</label>
+            <label index="change_language">Beschriftung für den Button zum Wechseln der Sprache</label>
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default">
+            <label index="navigation">Navigation</label>
+            <label index="search_noun">Search</label>
+            <label index="search-word">Search word:</label>
+            <label index="skip_to_content">Skip to content</label>
+            <label index="skip_to_menu">Skip to menues</label>
+            <label index="skip_to_toolbox">Skip to toolbox</label>
+            <label index="toolbox">Toolbox</label>
+            <label index="you_are_here">You are here</label>
+            <label index="first_published">first published</label>
+            <label index="last_update">last update</label>
+            <label index="main_menu">Main Menu</label>
+            <label index="submenu">Submenu</label>
+            <label index="change_language">Change language</label>
+            <label index="more">more</label>
+            <label index="next_page">Next page</label>
+            <label index="prev_page">Previous page</label>
+            <label index="toc">Table of contents</label>
+            <label index="home">Home</label>
+            <label index="login">Login</label>
+            <label index="logout">Logout</label>
+        </languageKey>
+        
+        <languageKey index="de">
+            <label index="navigation">Navigation</label>
+            <label index="search_noun">Suche</label>
+            <label index="search-word">Suchwort</label>
+            <label index="skip_to_content">Zum Text</label>
+            <label index="skip_to_menu">Zur Navigation</label>
+            <label index="skip_to_toolbox">Zur Werkzeugkiste</label>
+            <label index="toolbox">Werkzeugkiste</label>
+            <label index="you_are_here">Sie sind hier</label>
+            <label index="first_published">Erstveröffentlichung</label>
+            <label index="last_update">letzte Änderung</label>
+            <label index="main_menu">Hauptmenü</label>
+            <label index="submenu">Untermenü</label>
+            <label index="change_language">Sprache wechseln</label>
+            <label index="more">mehr</label>
+            <label index="next_page">Nächste Seite</label>
+            <label index="prev_page">Vorherige Seite</label>
+            <label index="toc">Inhaltsverzeichnis</label>
+            <label index="home">Home</label>
+            <label index="login">Login</label>
+            <label index="logout">Logout</label>
+        </languageKey>
+        
+        <languageKey index="es">
+        	<label index="home">Inicio</label>
+        </languageKey>
+        
+        <languageKey index="ru">
+        	<label index="navigation">Навигация</label>
+        	<label index="search_noun">Поиск</label>
+        	<label index="skip_to_menu">Перейти к навигации</label>
+        	<label index="skip_to_content">Перейти к содержимому</label>
+        	<label index="skip_to_toolbox">Перейти к панели инструментов</label>
+        	<label index="toolbox">Инструменты</label>
+        	<label index="you_are_here">Вы здесь</label>
+        	<label index="first_published">панель инструментов</label>
+        	<label index="last_update">последнее изменение</label>
+        	<label index="main_menu">Главное меню</label>
+        	<label index="submenu">Подменю</label>
+        	<label index="change_language">Сменить язык</label>
+        	<label index="more">подробнее</label>
+        	<label index="next_page">Следующая страница</label>
+        	<label index="prev_page">Предыдущая страница</label>
+        	<label index="toc">Содержание</label>
+        	<label index="home">Главная</label>
+        </languageKey>
+    </data>
+</T3locallang>
