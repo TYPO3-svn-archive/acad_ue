@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'acad_ue_subsites'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pages.tx_acaduesubsites_title">Subsite Title</label>
+			<label index="pages.tx_acaduesubsites_uplink">Uplink-id</label>
+			<label index="pages_language_overlay.tx_acaduesubsites_title">Subsite Title</label>
+			<label index="pages.doktype.I.77">Subsite Home</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="pages.tx_acaduesubsites_title">Präsenz Titel</label>
+			<label index="pages.tx_acaduesubsites_uplink">Uplink ID</label>
+			<label index="pages_language_overlay.tx_acaduesubsites_title">Präsenztitel</label>
+			<label index="pages.doktype.I.77">Präsenzstart</label>
+		</languageKey>
+	</data>
+</T3locallang>

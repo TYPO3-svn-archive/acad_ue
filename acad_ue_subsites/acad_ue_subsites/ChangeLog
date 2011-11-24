@@ -1,0 +1,24 @@
+(add new changes on top of this file)
+2010-11-09 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Use sprite icon API for 4.4
+	* Change ext_icon.gif
+	* Set version number to 1.1
+
+2009-01-13 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* #41: Added tx_beacl_acl to the list of allowedTables for doktype 77
+
+2009-01-03 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Version set to 0.3.0
+	* #22: Restrict new records wizard to tables pages,pages_language_overlay,tt_content,sys_template,sys_domain,sys_note
+	
+2008-02-09 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+
+	* Use doktype 1 as 'template' for doktype 77 (subsite) after 'Advanced' has been removed in t3 4.2
+
+2008-01-27 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	
+	* Made field tx_realurl_pathsegment available for doktype 77 (ext_tables.php)
+
+2007-11-21 Irene Höppner  <irene.hoeppner@abezet.de>
+
+	* Initial release
