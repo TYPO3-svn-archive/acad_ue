@@ -1,0 +1,33 @@
+plugin.tt_news {
+
+        // gar nicht erst checken, ob eine News in irgendeiner pid liegt
+    dontUsePidList	= 1
+        // enable the use of 'year' and 'month' instead of 'pS', 'pL' and 'arc' for archive periods
+    useHRDates = 1
+        // disable the BackPid in links to the single view (for nicer RealUrls)
+    dontUseBackPid = 1
+        // hide not-translated articles
+    sys_language_mode = content_fallback
+        // using our own template file
+    templateFile = EXT:acad_ue_templates/res/tt_news.tmpl
+        // max number of item in latest view
+    latestLimit = 5
+
+}
+
+plugin.tt_news._LOCAL_LANG.de {
+    latestHeader = Aktuell
+    catmenuHeader = Kategorien
+}
+
+plugin.tt_news._LOCAL_LANG.en {
+    latestHeader = Latest News
+    catmenuHeader = Categories
+}
+
+
+plugin.tt_news._LOCAL_LANG {
+    latestHeader.de = Aktuell
+    latestHeader.en = Latest News
+}
+

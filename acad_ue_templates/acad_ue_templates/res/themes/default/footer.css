@@ -1,0 +1,198 @@
+/**
+ *
+ */
+
+#footer {
+	position: relative;
+	margin: 0px 20px 20px 20px;
+	padding: 0px 0px 0px 0px;
+	min-width: 740px;
+	max-width: 1200px;
+	background: #ffffff url(backgrounds/bg_innershadow_right.png) top right repeat-y;
+}
+
+#footer-inner {
+	background: url(backgrounds/bg_innershadow_left.png) repeat-y;
+}
+
+#footer-row1 {
+	padding-top: 3px;
+	background: #264353;
+	/*background: #264353 url(backgrounds/bg_footer_row1.png) repeat-x;*/
+	color: #ffffff;
+}
+
+#footer-row1 .inner {
+	background: #264353;
+	padding-bottom: 3px;
+}
+
+#footer-row2 {
+	border: 1px solid #254457;
+}
+
+#footer-row2 .inner {
+	background: #F8F7ED;
+}
+
+#footer-row3 {
+	background: #FFB200;
+	color: #ffffff;
+	border: 1px solid #254457;
+	border-top: 4px solid #FFB200;
+}
+
+#footer-row4 {background-color:#FAF7D8; color:CCCCCC}
+
+#footer-row1 a,
+#footer-row1 a:focus {
+	color: #ffffff;
+	text-decoration: none;
+	border-bottom:none;
+}
+#footer-row1 a:hover {
+	text-decoration:underline;
+}
+
+.filesmenu,
+#print-stuff {
+	float: right;
+	width: 32%;
+	margin: 0 0;
+	padding: 0 0;
+	text-align: right;
+	line-height: 4.5ex;
+}
+
+.filesmenu li,
+#print-stuff li {
+	display: inline;
+	list-style: none;
+	padding-right: 10px;
+}
+
+.filesmenu .print a,
+#print-stuff .print a {
+	padding-left: 20px;
+	background: url(icons/printer.png) no-repeat;
+}
+.filesmenu .pdf a,
+#print-stuff .make-pdf a {
+	padding-left: 20px;
+	background: url(icons/filetypes/acrobat.gif) no-repeat;
+}
+
+.helpermenu {
+	float: left;
+	margin: 0 0;
+	padding: 0 0;
+	width: 68%;
+	line-height: 4.5ex;
+}
+
+.helpermenu li {
+	display: inline;
+	list-style: none;
+	margin-right: 10px;
+}
+
+.helpermenu form {
+	display: inline;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+#quicklinks {
+	font-size: 0.9em;
+	line-height: 0.9em;
+	color: #000029;
+}
+
+#quicklinks option {
+	background: #ffffff;
+	color: #000029;
+}
+
+#frm-quicklinks { display:inline; }
+#frm-quicklinks button.submit {
+	vertical-align:middle;
+	width:25px;
+	height:17px;
+	padding:0;
+	color: #B8CEDD;
+	border-width: 1px;
+	background: url(icons/white/btn_go.gif) -2px -2px no-repeat;
+}
+
+/* elements in footer row 2*/
+
+#frm-wac {
+	display: block;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+/* So geht's nich *grummels*. display: inline wird nicht ohne weiteres akzeptiert,
+* nur Safari ist artig. Daher als Quickhack erstmal ne Liste
+#frm-wac fieldset {display: inline !important; border: none; padding: 0 0;}
+#frm-wac legend {display: inline !important; margin-top: 0px; padding: 0 0;}
+*/
+#frm-wac ul {
+	display: block;
+	margin: 3px;
+	padding: 7px;
+}
+
+#frm-wac li {
+	display: inline;
+	list-style: none;
+	margin: 0px 1em 0px 0px;
+	padding: 0 0;
+}
+
+#frm-wac strong {
+	color: #346E86;
+}
+
+#frm-wac button.submit {
+	color: red;
+	background: #000029 url(icons/blue/btn_go.gif) no-repeat;
+}
+
+/* elements in footer row 3 */
+
+#wrap-globalmenu {
+	display: table;
+	background: #264353;
+	width: 100%;
+}
+
+#wrap-globalmenu ul {
+	display: table-row;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+#wrap-globalmenu li {
+	display: table-cell;
+	width: 20%;
+	margin: 0 0;
+	padding: 0 0;
+	list-style: none;
+	text-align: center;
+}
+
+#wrap-globalmenu a {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-right: 1px solid #FFB200;
+	border-bottom:none;
+	line-height: 1.5em;
+}
+
+#wrap-globalmenu li.last a {
+	border-right: none;
+}

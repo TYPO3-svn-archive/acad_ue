@@ -1,0 +1,4 @@
+#options.pageTree.showPageIdWithTitle = 1
+#setup.override.navFrameResizable = 0
+#options.RTESmallWidth = 700
+#options.RTESmallHeight = 400

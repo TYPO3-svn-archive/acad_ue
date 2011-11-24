@@ -1,0 +1,142 @@
+# --------------- UPLINKS ------------------ #
+	##
+	# @description	Renders the uplinks, i.e. the wordmark Universität Erfurt and,
+	# 				if available, the parent_page of the portal as unordered list.
+	# @see LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:to_uni_home
+	# @see CONSTANTS:$uplink_id
+
+	lib.shared_uplinks = COA
+	lib.shared_uplinks {
+
+        5 = LOAD_REGISTER
+        5 {
+            uplinkID.cObject  < plugin.tx_t3wgetrootlinefield_pi1
+			uplinkID.cObject {
+				// we want only 1 result
+				collect=0
+				collectReverse=0
+				// field whose value we are interested in
+				fieldToReturn = tx_acaduesubsites_uplink
+				// condition: doktype 77 (subsite)
+				if.value=77
+				if.equals.field=doktype
+			}
+        }
+		wrap = <ul id="uplinks">|</ul>
+		
+		# outputs the wordmark of the university's logo
+		10 = TEXT
+		10 {
+			wrap = <li id="uplink-uni"><a href="/">|</a></li>
+			value = <span class="hfg">{LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:to_uni_home}</span>
+			insertData = 1
+		}
+		
+		// First create an object of type IMG_RESOURCE and make it's
+		// property file a GIFBUILDER object
+		20 = IMG_RESOURCE
+		20.file = GIFBUILDER
+		20.file {
+			
+			// Setting width and height of the image
+			// 10 refers to the GIFBUILDERs TEXT object below, w means width,
+			// h means height. So the image will have the size of the text itself.
+			XY = [10.w],[10.h]+4
+			
+			// Setting the background-color
+			backColor = #FAF7D8
+			
+			format = png
+			
+			// Next, we need the text value for our image
+			10 = TEXT
+			
+			// This has to be the page title and in order to get the language right,
+			// we use a dummy HMENU of type special=list
+			10.text.cObject = HMENU
+			10.text.cObject.special = list
+			10.text.cObject.special.value.cObject < plugin.tx_t3wgetrootlinefield_pi1
+			10.text.cObject.special.value.cObject {
+				// we want only 1 result
+				collect=0
+				collectReverse=0
+				// field whose value we are interested in
+				fieldToReturn = tx_acaduesubsites_uplink
+				// condition: doktype 77 (subsite)
+				if.value=77
+				if.equals.field=doktype
+			}
+			10.text.cObject{
+				1=TMENU
+				1.NO.stdWrap.field = title
+				1.NO.allWrap = |
+				1.NO.doNotLinkIt = 1
+			}
+			
+			// Formatting the text
+			10.text.case = upper
+			10.fontFile = fileadmin/fonts/VCR1.pfb
+			10.fontSize = 12.7
+			10.fontColor =  #00253C	
+			10.offset=0,12
+			10.spacing = 3
+			10.antiAlias = 1
+		
+		}
+	
+		// And here we do the wrapping of our IMG_RESOURCE-object
+		20.stdWrap {
+            if.isTrue.data = register:uplinkID
+			prepend = TEXT
+			prepend.dataWrap = <li id="uplink-parent" style="
+			
+			innerWrap.cObject = COA
+			innerWrap.cObject {
+			
+				// li[style] : width = width of the image + 13px
+				10 = TEXT
+				
+				// TSFE:lastImgResourceInfo|0 contains the width of an IMG_RESOURCE
+				// warning: for IMAGE it TSFE:lastImageInfo|0
+				10.data = TSFE:lastImgResourceInfo|0
+				
+				// now wrap the content of data with the desired calculation,
+				// WARNING: The stdWrap is important! A simple 10.wrap = |+13 will not do the job, because wrap
+				// because it is called before prioriCalc. So with a simple wrap prioriCalc will
+				// have nothing to calculate and returns 0.
+				10.stdWrap.wrap = |+13
+				
+				// Call prioriCalc to execute the calculation ...
+				10.prioriCalc = 1
+				
+				// and wrap the result with whatever you need.
+				10.wrap = width:|px
+				
+				// li[style] : background-image:url = the url of the newly created image
+				20 = TEXT
+				20.value = ; background-image:url(|);">
+				
+				// link and linktext
+				30 < lib.shared_uplinks.20.file.10.text.cObject
+				30.1.noBlur = 1
+				30.1.NO {
+					doNotLinkIt = 0
+					stdWrap.htmlSpecialChars = 1
+					ATagParams.cObject = COA
+					ATagParams.cObject {
+						wrap = style="|"
+						
+						10 = TEXT
+						10.wrap = width:|px;
+						10.data = TSFE:lastImgResourceInfo|0
+					}
+					
+					linkWrap = <span class="hfg">|</span>
+					ATagBeforeWrap = 1
+				}	
+			}
+			
+			append = TEXT
+			append.value = </li>
+		}
+	}

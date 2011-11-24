@@ -1,0 +1,205 @@
+/**
+ * @description Displays the pagetitle dependent on TO
+ * 
+ * @see lib.pagetitle
+ * @see lib.nothing  
+ */
+
+ // pagetitle dependent on TO
+lib.shared_pagetitle = CASE
+lib.shared_pagetitle {
+  key.data = page:tx_templavoila_to
+  
+  default = CASE
+  default {
+    key.data = levelfield : -1, tx_templavoila_next_to, slide
+    
+    // 1 col plain
+    14 < lib.nothing
+    // 1 col, page title only
+    23 < lib.pagetitle
+    // 1 col, page title and prevupnext
+    24 < lib.pagetitle
+    
+    // 2 cols, page title and submenu
+    11 < lib.pagetitle
+    // 2 cols, only page title
+    16 < lib.pagetitle
+    // 2 cols, only submenu
+    18 < lib.nothing
+    // 2 cols, page title, submenu and prevpnext
+    19 < lib.pagetitle
+    // 2 cols, only prevupnext
+    20 < lib.nothing
+    // 2 cols, submenu and prevupnext
+    21 < lib.nothing
+    // 2 cols plain
+    22 < lib.nothing
+    
+    // 3 cols plain
+    10 < lib.nothing
+    // 3 cols, page title and prevupnext
+    26 < lib.pagetitle
+    // 3 cols, only page title
+    25 < lib.pagetitle
+
+     
+  }
+
+  // 1 col plain
+  14 < lib.nothing
+  // 1 col, page title only
+  23 < lib.pagetitle
+  // 1 col, page title and prevupnext
+  24 < lib.pagetitle
+  
+  // 2 cols, page title and submenu
+  11 < lib.pagetitle
+  // 2 cols, only page title
+  16 < lib.pagetitle
+  // 2 cols, only submenu
+  18 < lib.nothing
+  // 2 cols, page title, submenu and prevpnext
+  19 < lib.pagetitle
+  // 2 cols, only prevupnext
+  20 < lib.nothing
+  // 2 cols, submenu and prevupnext
+  21 < lib.nothing
+  // 2 cols plain
+  22 < lib.nothing
+  
+  // 3 cols plain
+  10 < lib.nothing
+  // 3 cols, page title and prevupnext
+  26 < lib.pagetitle
+  // 3 cols, only page title
+  25 < lib.pagetitle
+
+}   
+
+
+lib.shared_contentfooter = COA
+lib.shared_contentfooter {
+  #wrap = <div id="content-footer">|</div>
+  10 =< lib.shared_credentials
+  20 = CASE
+  20 {
+    key.data = page:tx_templavoila_to
+    
+    default = CASE
+    default {
+      key.data = levelfield : -1, tx_templavoila_next_to, slide
+      
+      // 1 col plain
+      14 < lib.nothing
+      // 1 col, page title only
+      23 < lib.nothing
+      // 1 col, page title and prevupnext
+      24 < lib.shared_prevupnext
+      
+      // 2 cols, page title and submenu
+      11 < lib.nothing
+      // 2 cols, only page title
+      16 < lib.nothing
+      // 2 cols, only submenu
+      18 < lib.nothing
+      // 2 cols, page title, submenu and prevpnext
+      19 < lib.shared_prevupnext
+      // 2 cols, only prevupnext
+      20 < lib.shared_prevupnext
+      // 2 cols, submenu and prevupnext
+      21 < lib.shared_prevupnext
+      // 2 cols plain
+      22 < lib.nothing
+      
+      // 3 cols plain
+      10 < lib.nothing
+      // 3 cols, page title and prevupnext
+      26 < lib.shared_prevupnext
+      // 3 cols, only page title
+      25 < lib.nothing
+       
+    }
+  
+    // 1 col plain
+    14 < lib.nothing
+    // 1 col, page title only
+    23 < lib.nothing
+    // 1 col, page title and prevupnext
+    24 < lib.shared_prevupnext
+    
+    // 2 cols, page title and submenu
+    11 < lib.nothing
+    // 2 cols, only page title
+    16 < lib.nothing
+    // 2 cols, only submenu
+    18 < lib.nothing
+    // 2 cols, page title, submenu and prevpnext
+    19 < lib.shared_prevupnext
+    // 2 cols, only prevupnext
+    20 < lib.shared_prevupnext
+    // 2 cols, submenu and prevupnext
+    21 < lib.shared_prevupnext
+    // 2 cols plain
+    22 < lib.nothing
+    
+    // 3 cols plain
+    10 < lib.nothing
+    // 3 cols, page title and prevupnext
+    26 < lib.shared_prevupnext
+    // 3 cols, only page title
+    25 < lib.nothing    
+  }
+}
+
+
+
+/**
+ * @description Decides by TO whether the submenu is displayed
+ *
+ * @see lib.submenu
+ * @see lib.nothing     
+ */ 
+
+lib.shared_submenu = CASE
+lib.shared_submenu {
+ 	key.data = page:tx_templavoila_to
+	
+  default = CASE
+  default {
+    key.data = levelfield : -1 , tx_templavoila_next_to, slide
+    
+    // 2 cols with page title and submenu
+    11 < lib.submenu
+    // 2 cols with page title only
+    16 < lib.nothing
+    // 2 cols, only submenu
+    18 < lib.submenu
+    // 2 cols, page title, submenu, prevupnext
+    19 < lib.submenu
+    // 2 cols, only prevupnext
+    20 < lib.nothing
+    // 2 cols, submenu and prevupnext
+    21 < lib.submenu
+    // 2 cols plain
+    22 < lib.nothing
+    
+  }
+
+  // 2 cols with page title and submenu
+  11 < lib.submenu
+  // 2 cols with page title only
+  16 < lib.nothing
+  // 2 cols, only submenu
+  18 < lib.submenu
+  // 2 cols, page title, submenu, prevupnext
+  19 < lib.submenu
+  // 2 cols, only prevupnext
+  20 < lib.nothing
+  // 2 cols, submenu and prevupnext
+  21 < lib.submenu
+  // 2 cols plain
+  22 < lib.nothing
+  
+}
+

@@ -1,0 +1,481 @@
+/**
+* menu.css
+*/
+@import url(menu_user.css);
+
+/* all .cur'ems in menus */
+li.cur em {
+	font-style: normal;
+	cursor: default;
+}
+
+/**
+* Wraps main and service menu
+* Parent is wrap-header
+*/
+#wrap-menu {
+	z-index: 1000;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 8.1ex;
+}
+
+/*************************** Main menu *******************************/
+#wrap-mainmenu {
+	position: absolute;
+	z-index: 7000;
+	bottom: 0px;
+	width: 100%;
+}
+
+/* render as table to avoid wrapping */
+#wrap-mainmenu ul {
+	display: table-row;
+}
+
+#wrap-mainmenu li {
+	display: table-cell;
+	padding: 0 0;
+}
+
+.mainmenu a,
+.mainmenu a:focus {
+	display: block;
+	line-height: 4.5ex;
+	line-height: 4.5ex;
+	padding: 0px 8px 0px 8px;
+}
+
+
+
+.mainmenu .cur em {
+	display: block;
+	line-height: 4.5ex;
+	padding: 0px 8px 0px 8px;
+}
+
+
+/* Main menu: Basic values; some will be overwritten by context */
+#wrap-mainmenu {
+	background-color: #FFB200;
+	border-top: 1px solid #ffffff;
+}
+
+ul.mainmenu ul,
+ul.mainmenu li {
+	border-right: 1px solid #FEEDBF;
+}
+
+.mainmenu a,
+.mainmenu a:focus,
+.mainmenu a:visited {
+	color: #000029;
+	background-color: #FFB200;
+	text-decoration: none;
+	border-left: 1px solid #EC8C03;
+	border-bottom:none;
+}
+
+.mainmenu .external-link a, .mainmenu .external-link a:hover {
+	background-image: url(icons/dark_blue/triangle_l_out.gif);
+	background-repeat: no-repeat;
+	background-position: 6px 1em;
+	padding-left: 16px;
+}
+
+.mainmenu .external-link a:hover {background-image: url(icons/white/triangle_l_out.gif);;}	
+
+/* if mainmenu item represents currently displayed page (Typo3 CUR) */
+.mainmenu .cur em {
+	color: #000029;
+	background: #fefed6;
+}
+
+/* color and background for mainmenu items for Typo3 status ACT and ACTIFSUB */
+.mainmenu .act a,
+.mainmenu .act a:visited,
+.mainmenu .actifsub a,
+.mainmenu .actifsub a:visited {
+	color: #ffffff;
+	background-color: #254457;
+	border-left-color: #254457;
+}
+
+/* hover values for all Typo3 status*/
+.mainmenu a:hover,
+.mainmenu .act a:hover,
+.mainmenu .actifsub a:hover {
+	color: #ffffff;
+	background: #346E86;
+	border-left-color: #346E86;
+}
+
+/* active (IE) and focus status for all Typo3 status.
+	These colors have to be as contrastive and aggressive as possible,
+	because this is for people who do not use the mouse, but the tabulator and
+	therefore need more obvious visible hints where they are on the page.
+*/
+.mainmenu .act a:active,
+.mainmenu .act a:focus,
+.mainmenu .actifsub a:active,
+.mainmenu .actifsub a:focus {
+	color: #ffffff;
+	background-color: #8C0043;
+}
+
+/**************************** Service menu ***************************/
+/**
+* Service menu
+*/
+#wrap-servicemenu {
+	position: absolute;
+	width: 100%;
+	top: -3px;
+	padding-bottom: 3px;
+	text-align: right;
+	min-height: 4ex;
+}
+
+/* plain vanilla floating menu, clearing done by container */
+#wrap-servicemenu ul.servicemenu {
+	float: right;
+	padding: 0px;
+	margin-top:0;
+	font-size: 0.9em;
+	height:auto;
+}
+
+#wrap-servicemenu li {
+	float: left;
+	list-style:none;
+	letter-spacing:0.01em;
+	line-height: 3ex;
+	margin:0 0 0 0.5ex;
+	padding: 0;
+}
+
+.servicemenu a,
+.servicemenu .cur em {
+	display: block;
+	padding:0px 1ex;
+	text-decoration:none;
+
+}
+
+
+/* sericemenu colors */
+#wrap-servicemenu {
+	border-top: 1px solid #000029;
+	background-color: #FEDD63;
+}
+
+.servicemenu a,
+.servicemenu a:visited {
+	/*color: #ffffff;
+	background: #254457;
+	border: 1px solid #254457;*/
+	
+	color: #000029;
+	font-weight: bold;
+	background: #fedd63;
+	border: 1px solid #fedd63;
+}
+
+.servicemenu a:hover {
+	color: #ffffff;
+	background: #346E86;
+	border: 1px solid #254457;
+}
+
+.servicemenu .cur {
+	background: #fefed6;
+	color: #000029;
+	border: 1px solid #254457;
+}
+
+.servicemenu .act a {
+	color: #ffffff;
+	background: #0D3046;
+	border: 1px solid #0D3046;
+}
+
+.servicemenu .external-link a, .servicemenu .external-link a:hover {
+	background-image: url(icons/dark_blue/triangle_l_out.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 0.63em;
+	padding-left: 12px;
+}
+
+.servicemenu .external-link a:hover {background-image: url(icons/white/triangle_l_out.gif);}	
+
+
+/* Uplinks */
+
+/* these are 'wortmarke' Universitaet Erfurt and parent portal title */
+#wrap-uplinks {
+	position: absolute;
+	top: -54px;
+	left: 55px;
+	z-index: 6000;
+}
+
+#wrap-uplinks ul {
+	margin: 0 0;
+	padding: 0 0;
+	position: relative
+}
+
+#wrap-uplinks li {
+	margin: 0 0;
+	padding: 0 0;
+	list-style: none;
+}
+
+/* wortmarke Uni */
+#uplink-uni {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 31px;
+}
+
+#uplink-uni a {
+	display: block;
+	width: 112px;
+	height: 31px;
+	background: url(portale/wortmarke_zweizeilig.gif) no-repeat;
+}
+
+/* wortmarke portal */
+#uplink-parent {
+	position: absolute;
+	left: 122px;
+	top: 0px;
+	height: 32px;
+	width: 342px;
+	border-left: 1px solid #000029;
+	background-image: url(portale/ezw/wortmarke_de.gif);
+	background-repeat: no-repeat;
+	background-position: 12px 20px;
+}
+
+#uplink-parent a {
+	display: block;
+	margin-left: 12px;
+	margin-top: 20px;
+	width: 330px;
+	height: 12px;
+}
+
+/************************* Submenu ********************************/
+
+/* a wrapper for the submenu, parent is wrap-sidebar-inner */
+#wrap-submenu {
+	margin: 0 0 20px 0;
+	letter-spacing: 0.01em;
+	width: 95%;
+
+}
+
+/* the menu itself (indents each level) */
+#wrap-submenu ul,
+ul.catmenu {
+	margin: 0px 0px 0px 15px;
+	padding: 0 0;
+	background-color: #FDFCF2;
+
+}
+
+ul.catmenu {margin-left: 0px}
+
+#wrap-submenu li,
+ul.catmenu li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	line-height: 2.5ex;
+}
+
+#wrap-submenu em,
+ul.catmenu em {
+	display: block;
+	margin: 0 0;
+	padding: 0.7ex 0px 0.7ex 12px;
+	line-height: 2.5ex;
+}
+
+.submenu a,
+.catmenu a {
+	display: block;
+	margin: 0 0;
+	padding: 0.7ex 0px 0.7ex 14px;
+	line-height: 2.5ex;
+	text-decoration:none;
+}
+
+.submenu,
+.catmenu {
+	border-bottom: 1px solid #E0E0E0;
+	background-color: #FDFCF2;
+}
+.submenu-l2 {
+	background-color: #FDFCF2;
+
+}
+
+.submenu a,
+.submenu em,
+.catmenu a,
+.catmenu em {
+	color: #000029;
+	border-style: solid;
+	border-width: 1px 1px 0px 1px;
+	border-color: #E0E0E0 #E0E0E0 #E0E0E0 #fdfdfc;
+}
+.submenu .cur,
+.catmenu .cur {
+	background: #fedd63 url(icons/blue/triangle_l_left.gif) 3px 0.7em no-repeat;
+}
+
+.submenu a,
+.catmenu a {
+	color: inherit;
+	background-image: url(icons/blue/triangle_l_right.gif);
+	background-position: 3px 0.7em;
+	background-repeat: no-repeat;
+}
+.submenu a:hover,
+.submenu-l2 a:hover,
+.catmenu a:hover {
+	color: #000029;
+	background-color: #ffb200;
+}
+
+.submenu li.external-link a, .submenu .external-link a:hover {
+	background-image: url(icons/blue/triangle_l_out.gif);
+	background-position: 3px 0.8em;
+}
+
+
+
+.submenu li a:active, .submenu li a:focus,
+.submenu .submenu-l2 li a:active, .submenu .submenu-l2 li a:focus,
+.catmenu li a:active, .catmenu li a:focus {
+	color: #ffffff;
+	background-color: #8C0043;
+}
+
+.submenu .act a,
+.submenu .actifsub a {
+	color: #ffffff;
+	background-image: url(icons/white/triangle_l_left.gif);
+	background-position: 3px 0.7em;
+	background-repeat: no-repeat;
+}
+
+.submenu .actifsub a:hover {
+	background-color: #ffb200;
+}
+
+/* 2nd level menu colors */
+.submenu .actifsub a {
+	color: #000029;
+	background-color: #edf0d7;
+	background-image: url(icons/blue/triangle_l_down.gif);
+	background-position: 3px 0.9em;
+}
+
+.submenu .actifsub li a {
+	color: #000029;
+	background-color: #fdfdfc;
+	background-image: url(icons/blue/triangle_s_right.gif);
+}
+.submenu .actifsub li.first a {
+	border-top:none;
+}
+.submenu li.act {
+	background-color: #346e86;
+}
+.submenu li.act a {
+	color: #ffffff;
+	background-color: #346e86;
+	background-image: url(icons/white/triangle_s_right.gif);
+}
+
+.submenu .act a:hover {
+	background-color: #254457;
+}
+
+/**
+* Breadcrumbs
+*/
+#breadcrumbs {
+	background: #FDFCF2;
+	border-top: 2px solid #ffffff;
+}
+
+#breadcrumbs ul {
+	border: 1px solid #E2E1D8;
+	border-top: none;
+	margin: 0 0;
+	padding: 1ex 1em 1ex 0px;
+}
+
+#breadcrumbs li {
+	margin: 0 0 0 8px;
+	padding: 0 0;
+	display: inline;
+	list-style: none;
+	background: url(backgrounds/link_breadcrumbs_divider.gif) right 1ex no-repeat;
+	padding-right: 16px;
+}
+
+#breadcrumbs li.last {
+	background-image:none;
+}
+
+#breadcrumbs a {
+	color: #000029;
+	text-decoration: none;
+}
+
+#breadcrumbs a:hover,
+#breadcrumbs a:active,
+#breadcrumbs a:focus {
+	text-decoration: none;
+	border-bottom:1px solid #ffb200;
+}
+
+#breadcrumbs em {
+	font-weight: bold;
+}
+
+/* Search */
+#toolbox1 input,
+#toolbox1 select {
+	font-size: 0.9em;
+}
+
+#toolbox1 ul {
+	margin: 1ex 0px 0px 15px;
+	padding: 0 0;
+	line-height: normal;
+}
+
+#toolbox1 li {
+	list-style: none;
+	margin: 0px 0px 3px 0px;
+	padding: 0 0;
+}
+
+#search-word {
+	background: #ffffff url(icons/lupe.gif) no-repeat 2px 2px;
+	padding-left: 16px;
+	width: 9.9em;
+}
+
+#search-in {
+	width: 12em;
+}

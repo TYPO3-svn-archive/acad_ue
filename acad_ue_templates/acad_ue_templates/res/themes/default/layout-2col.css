@@ -1,0 +1,42 @@
+/*
+ * layout-2col.css - (c)2006 Rene - media++ Karlsruhe http://www.webmechanic.biz
+ * fuer:    uni-erfurt.de
+ * Datum:   04.11.2006
+ * Version: 1.0
+ * Autor:   R. Serradeil
+ */
+
+
+/**
+* Wraps the main (left) part
+* CAUTION: width has to correspond to width and margin-right of #wrap-sidebar
+*/
+#wrap-main {
+	float: left;
+	width: 68%;
+	min-height: 400px;
+}
+
+/* simulates 2col layout for pages with submenu */
+#wrap-divider-2col {
+	width: 100%;
+	background: url(backgrounds/column_divider.gif) 68% 0px repeat-y;
+}
+
+/**
+* Wraps the sidebar to the right
+* CAUTION: margin-right and width values have to be 100 - width of #wrap-main
+*/
+#wrap-sidebar {
+	float: left;
+	margin-right: -32%;
+	width: 32%;
+}
+
+#wrap-sidebar-inner {
+	padding-top: 4ex;
+	position: relative;
+	min-width: 160px;
+}
+
+

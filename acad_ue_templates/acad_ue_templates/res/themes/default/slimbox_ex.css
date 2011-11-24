@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+/* SLIMBOX (Customized version) */
+
+#lbOverlay {
+	position: absolute;
+	top:0; left: 0;
+	width: 100%;
+	background-color: #000;
+	cursor: pointer;
+	z-index: 4000;
+}
+
+#lbCenter, #lbBottomContainer {
+	position: absolute;
+	left: 50%; padding:0;
+	overflow: hidden;
+	background-color: #fff;
+	z-index: 4000;
+}
+
+.lbLoading {
+	background: #fff url(pmkslimbox/sb_loading.gif) no-repeat center;
+	z-index: 4000;
+}
+
+#lbCanvas {
+	border: 9px solid #fff;
+	z-index: 4000;
+}
+
+#lbCanvas iframe, #lbCanvas img {
+	border:1px solid #999;
+	margin:0; padding:0;
+	z-index: 4000;
+}
+
+#lbPrevLink, #lbNextLink {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	outline: none;
+	background:url(pmkslimbox/sb_anchor_spacer.gif);
+}
+
+
+#lbPrevLink {
+	left: 0;
+}
+
+#lbPrevLink:hover {
+	background: transparent url(pmkslimbox/sb_prevlabel.gif) no-repeat 0% 15%;
+}
+
+#lbNextLink {
+	right: 0;
+}
+
+#lbNextLink:hover {
+	background: transparent url(pmkslimbox/sb_nextlabel.gif) no-repeat 100% 15%;
+}
+
+#lbBottom {
+	font-size:10px;
+	font-family: Verdana, Helvetica, sans-serif;
+	color: #666;
+	line-height: 1.4em;
+	text-align: left;
+	margin:0 0 0 10px; padding:0;
+}
+
+#lbCloseLink {
+	display: block;
+	float: right;
+	width: 66px;
+	height: 22px;
+	background: transparent url(pmkslimbox/sb_closelabel.gif) no-repeat center;
+	margin:0; padding:0;
+}
+
+#lbPrintLink {
+	display: block;
+	float: right;
+	width: 22px;
+	height: 22px;
+	background: transparent url(pmkslimbox/sb_printicon.gif) no-repeat center;
+	margin:0 5px 0 0; padding:1px;
+}
+
+#lbSaveLink {
+	display: block;
+	float: right;
+	width: 22px;
+	height: 22px;
+	background: transparent url(pmkslimbox/sb_saveicon.gif) no-repeat center;
+	margin:0 5px 0 0; padding:1px;
+}
+
+#lbSaveLink:hover,
+#lbPrintLink:hover {
+	border: 1px solid #666;
+	padding: 0px;
+}
+
+#lbCaption, #lbNumber {
+}
+
+#lbCaption {
+	font-weight: bold;
+}

@@ -1,0 +1,212 @@
+.sidebar-extras {font-size: 1.1em; letter-spacing: 0.01em;}
+/**
+* Standard elements in .sidebar-extras
+*/
+.sidebar-extras h2 {
+	font-size: 1.1em;
+	margin: 0px 0px 0px 10px;
+	padding-left: 5px;
+	color: #000029;
+	font-weight: bold;
+	border-bottom: none;
+}
+
+.sidebar-extras h3,
+.sidebar-extras h4 {
+	font-size: 0.93em;
+	font-weight: bold;
+	margin-top: 0px;
+	padding-top: 0px;
+	line-height: normal;
+	margin-bottom: 0.3em;
+	color: #000029;
+}
+
+.sidebar-extras a {
+	color: #2748B1;
+	text-decoration: none;
+	background-position: 0px 1ex;
+	background-repeat: no-repeat;
+
+}
+
+.sidebar-extras a:hover,
+.sidebar-extras a:focus,
+.sidebar-extras a:active {
+	outline: none !important;
+	border-bottom: 1px solid #FFB200;
+}
+
+.sidebar-extras a:active,
+.sidebar-extras a:focus {
+	color: #000029;
+	background-color: #FEDD63;
+}
+
+
+.sidebar-extras a:visited {
+	color: #0F6FFF;
+	color: #0063DC; /*flickr-blau*/
+}
+
+
+/**
+* Outer boxes for the different content types
+* @ todo only relevant for html prototype
+*/
+.sidebar-extras .wrap-mininews,
+.sidebar-extras .wrap-related-links,
+.sidebar-extras .wrap-contact {
+	margin: 0 0 20px 0;
+	letter-spacing: 0.01em;
+	width: 95%;
+}
+
+
+/**
+* Mininews
+*/
+.sidebar-extras .mininews {
+	margin-left: 10px;
+	background: #FEFDE9 url(backgrounds/gradient_sunshine_lr.png) repeat-y;
+	border: 1px solid #CCCCCC;
+	border-top-color: #565E5F;
+	padding: 2px 5px 5px 5px;
+	border-top: none;
+}
+
+
+.wrap-mininews h2 {border-bottom: 1px solid #556C79}
+
+
+
+.sidebar-extras .mininews .date {
+	display: block;
+	font-weight: normal;
+	text-align: right;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	line-height: 1em;
+	color: #000029;
+}
+
+.sidebar-extras .mininews h3 a {
+	text-decoration: none;
+	color: #10586D;
+}
+
+.sidebar-extras .mininews h3 a:visited {
+	text-decoration: none;
+	color: #14728E;
+}
+
+.sidebar-extras .mininews h3 a:hover,
+.sidebar-extras .mininews h3 a:focus {
+	outline: none !important;
+	border-bottom: 1px solid #FFB200;
+}
+
+.sidebar-extras .mininews p {
+	margin: 0 0;
+	padding: 0px 0px 8px 0px;
+}
+
+.sidebar-extras .mininews a.more {
+	text-decoration: none;
+	color: #10586D;
+	font-weight: bold;
+	background-color: #FEFCDC;
+	background-image: url(icons/petrol_dark/arrow_right.gif);
+	background-position: 0px 1ex;
+	background-repeat: no-repeat;
+	border: 1px solid #ffffff;
+	border-color: #ffffff #C9C9AE #C9C9AE #ffffff;
+	font-size: 0.9em;
+	padding-right: 3px;
+	padding-left: 10px;
+}
+
+.sidebar-extras .mininews a.more:visited {
+	color: #14728E;
+	background-image: url(icons/turquoise_light/arrow_right.gif);
+}
+
+.sidebar-extras .mininews a.more:hover,
+.sidebar-extras .mininews a.more:active,
+.sidebar-extras .mininews a.more:focus {
+	background-color: #346E86;
+	background-image: url(icons/white/arrow_right.gif);
+	color: #ffffff;
+}
+
+
+/**
+* Related links in sidebar
+*/
+
+
+.sidebar-extras .related-links {
+	margin-left: 10px;
+	padding: 5px 0px 5px 3px;
+	background: #F7F9E9 url(backgrounds/gradient_palegreen_lr.png) repeat-y;
+	border: 1px solid #D7D7D5;
+	border-top-color: #556C79;
+
+}
+
+
+.sidebar-extras .related-links ul {margin: 0px 0px 0px 5px; padding: 0 0}
+.sidebar-extras .related-links li {
+	list-style: none;
+	margin: 0 0;
+	padding: 0.5ex 0px 0.5ex 14px;
+	background-image: url(icons/petrol_dark/arrow_right.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0.6em;
+	line-height: 1em;
+}
+
+.sidebar-extras .related-links li.internal-link-new-window {background-image: url(icons/petrol_dark/arrow_right_box.gif);}
+.sidebar-extras .related-links li.external-link {background-image: url(icons/petrol_dark/arrow_out.gif);}
+.sidebar-extras .related-links li.external-link-new-window {background-image: url(icons/petrol_dark/arrow_out_box.gif);}
+.sidebar-extras .related-links li.download {background-image: url(icons/petrol_dark/arrow_download.gif); background-position: 0px 0.5em}
+
+.sidebar-extras .related-links a,
+.sidebar-extras .related-links a:focus {
+	color: #000029;
+	text-decoration: none;
+	letter-spacing: 0.01em;
+}
+
+.sidebar-extras .related-links a:visited {
+	color: #10586D;
+}
+
+.sidebar-extras .related-links a:hover,
+.sidebar-extras .related-links a:active,
+.sidebar-extras .related-links a:focus {
+	text-decoration: underline;
+	border-bottom: none;
+}
+
+
+/* Contact, only used in drafts */
+.sidebar-extras .contactbox {
+	margin-left: 10px;
+	padding: 5px 5px 5px 5px;
+	background: #F7F9E9 url(backgrounds/gradient_palegreen_rl.png) right top repeat-y;
+	border: 1px solid #D7D7D5;
+	border-top-color: #556C79;
+}
+
+.contactbox address {margin-bottom: 0.74em}
+address.communication dfn {
+	position: absolute;
+	height: 1px;
+	left: -4000px
+}
+
+address.communication p {padding-left: 14px; line-height: 0.9em;  background-repeat: no-repeat}
+address.communication p.mail {padding-left: 0px}
+address.communication p.fon {background-image: url(icons/contact/contact_fon.gif); background-position: 0px 0.5ex}
+address.communication p.fax {background-image: url(icons/contact/contact_fax.gif);}

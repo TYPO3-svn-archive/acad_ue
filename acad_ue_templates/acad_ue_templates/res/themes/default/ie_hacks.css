@@ -1,0 +1,291 @@
+/* no vertical scrollbars if not necessary
+	ER WILL NICH SO WIE ICH DAS WILL.
+	so ist es bloedsinn, als taete ich nix, und wenn es das
+	gewuenschte erreiche, kriege ich eine horizontale
+	scrollbar, sobald es wirklich was zu scrollen gibt!
+	Uffi muede, uffi bett!
+*/
+* html body {
+	overflow: auto;
+}
+
+/**
+* IE < 7 only
+*/
+
+/* give it some arbitrary small height and 3 quarters of
+   float and positioning bugs in IE < 7 are fixed */
+* html #top,
+* html #wrap-all,
+* html #wrap-sidebar,
+* html #wrap-sidebar-inner,
+* html #footer,
+* html #footer .inner,
+* html .ce-section,
+* html .teaser-content
+{
+	display: block;
+	position: relative;
+	height: 1%;
+	overflow: visible;
+}
+
+* html ul.bullet1 {position: relative; height:1%; overflow:visible}
+
+/* simulate min-width property */
+* html #wrap-all,
+* html #top,
+* html #footer {
+	width: expression(document.body.clientWidth < 800 ? "740px" : "auto");
+}
+
+* html #wrap-servicemenu {
+	height: 6ex;
+}	
+
+* html #wrap-menu {
+	margin-bottom: -2px;
+}
+
+
+* html #toolbox2  {
+	margin-right: 10px;
+	background-color: lime;
+	width: 70%;
+}
+
+.clearfix {display: inline-block;}
+* html > body .clearfix {
+	display: inline-block;
+	width: 100%;
+}
+
+
+* html .clearfix {
+	/* Hides from IE-mac \*/
+	height: 1%;
+	/* End hide from IE-mac */
+}
+
+/**
+ * Alpha transparency fix for symbolic icons
+ */
+* html img.symicon-warning {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/warning.png', sizingMethod='scale')}
+* html img.symicon-tip  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/tip.png', sizingMethod='scale')}
+* html img.symicon-note  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/note.png', sizingMethod='scale')}
+* html img.symicon-background-info  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/background-info.png', sizingMethod='scale')}
+* html img.symicon-good  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/good.png', sizingMethod='scale')}
+* html img.symicon-bad  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/bad.png', sizingMethod='scale')}
+
+.floatleft-50percent {display: inline-block; width: 49%}
+* html .floatleft-33percent,
+* html .floatleft-50percent {
+	position: relative;
+	margin-left: -1px;
+}
+
+
+* html .colorbox {padding-top: 2px; margin-top:-2px;}
+* html .colorbox .cebody {padding-bottom: 0.63em};
+
+* html button.submit {padding: 0 0; border: none;}
+/******************************************************************************************************/
+
+/**
+ * Hacks necessary for all versions
+ */
+body {
+	font-size: 0.75em;
+	padding-bottom: 8.5ex;
+}
+
+#wrap-portaltitle {
+	top: 10.5ex;
+	margin-top:3px; /* notch by border-width */
+}
+#toolbox1 {
+	top: 10.5ex;
+	margin-top:3px; /* notch by border-width */
+}
+
+#wrap-mainmenu .dpTable {
+	display: inline !important;
+}
+
+#wrap-mainmenu ul {
+	margin: 0 0;
+	padding: 0 0;
+	display: block;
+	width: 100%;
+	white-space: nowrap;
+}
+
+#wrap-mainmenu li {
+	margin: 0 0;
+	padding: 0 0;
+	display: inline !important;
+}
+
+.mainmenu a,
+.mainmenu .cur em {
+	display: inline-block !important;
+	margin-right: -3px;
+	border-bottom:none;
+}
+
+#wrap-servicemenu {
+	border-top:none;
+}
+
+#wrap-servicemenu li {
+	line-height: normal;
+}
+
+
+#wrap-globalmenu {
+	display: inline-block;
+	width: 100%;
+}
+
+#wrap-globalmenu ul {
+	display: inline;
+	white-space: nowrap;
+	width: 100%;
+}
+
+#wrap-globalmenu li {
+	display: inline;
+}
+
+#wrap-globalmenu a {
+	display: inline-block;
+	margin: 0 0;
+	padding: 0px 0px 0px 0px;
+	width: 19.5%;
+	text-align: center;
+}
+
+* html #wrap-globalmenu {
+	display:block;
+	width:99.8%;
+}	
+
+#wrap-submenu li {
+	display: inline-block;
+	width: 95%;
+}
+
+#wrap-submenu li li,
+#wrap-submenu em,
+#wrap-submenu a {
+	display: inline-block;
+	width: 100%;
+}
+
+#sidebar-extras li {
+	display: inline-block;
+}
+
+.wrap-downlinks li {
+	display: inline-block;
+}
+
+#toolbox1-inner {
+	height: 1%;
+	overflow: visible;
+}
+
+#toolbox1 input,
+#toolbox1 select {
+	font-size: 0.93em;
+}
+
+#toolbox2 .dpTable {
+	display: block !important;
+	text-align: right;
+}
+
+
+
+#toolbox2 ul#usermenu,
+#toolbox2 li {
+	display: inline !important;
+	
+}
+
+#toolbox2 a:link,
+#toolbox2 a:active,
+#toolbox2 a:visited,
+#toolbox2 a:hover,
+#toolbox2 a:focus {
+	display: inline-block;
+	height: 3.5ex;
+
+}
+
+#usermenu li.userinfo {
+	background-position: left 0.74ex;
+}
+
+#lang-select {
+	vertical-align: middle;
+}
+
+* html .sticky-onion1,
+* html .sticky-onion3 {
+	height: 1%;
+	overflow: auto;
+}
+
+.floated {
+	position: relative;
+	height: 1%;
+	overflow: visible;
+}
+
+
+
+
+#footer-row1 {
+	position: relative;
+	height: 1%;
+	overflow: visible;
+
+}
+
+
+#print-stuff {
+	padding-top: 3px;
+}
+
+button {
+	cursor:hand;
+}
+
+.dpTable {}
+.dpTable-cell {float:left; border: 1px solid grey; padding-bottom: 10000px; margin-bottom: -10000px}
+
+
+/* TODO: So will es auch der IE7, muss also hier raus und ie-hacks.css*/
+#wrap-cols-pstart #wrap-sidebar {
+	margin-left: -21em;
+}
+
+/**
+* - Wenn #wrap-cols-pstart .related-links nicht gefixed wird die gesamte Liste links nicht korrekt eingerueckt.
+* - Wenn die li-Elemente nicht gefixed werden, werden weder die Verlaufsgrafik noch die Pfeilchen korrekt angezeigt.
+*/
+#wrap-cols-pstart .related-links,
+#wrap-cols-pstart .related-links ul  {position: relative; height: 1%; overflow: visible; }
+.sidebar-extras .related-links li {line-height: 1em; !important}
+
+/* test: IE7 "get-rid-of" style fixes */
+html[xmlns] #print-stuff {
+	background-color:lime;
+}
+
+* html xdiv#footer {display: none}
+* html #xfooter-row1 {display: none}
+* html #xfooter-row2 {display: none}
+* html #xfooter-row3 {display: none}
+

@@ -1,0 +1,61 @@
+(add new changes on top of this file)
+2010-12-3 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Show page id beneath footer
+
+2010-04-21 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Path to images repaired in print.css.
+
+2010-01-18 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Version hochgesetzt auf 0.9.0
+	* Integration der css-files und der zugehörigen Grafiken
+	* Dokumentation hinzugefügt (noch nicht fertig)
+
+2009-03-25 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #86 Helpermenu: Impressum für jede Seite
+    * Version hochgesetzt auf 0.2.3
+
+2009-02-20 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * added class tx_acad_ue_templates as a container for userFuncs
+    * #69 added tx_acad_ue_templates->getHeaderImage() to read dam data for headerimage (collage)
+    * #69 provide necessary ts for headerImage (header.txt, lib.shared_headerimage.30)
+    * #69 New constant defaultHeaderImage
+
+
+2009-01-14 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* #45 Mainmenu shows access restricted pages
+	* #45 Links to access restricted pages are rendered in FE
+	* #39 Login/Logout button functional
+
+2009-01-14 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* #40 Removed button print ad pdf
+	* #40 Activated preliminary version of print page button (js only)
+	* #40 Changed load order of css files (IE related)
+	
+2009-01-04 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Neues Startseitentemplate in  css-load.txt eingebaut
+	* ts/frontpage.txt an die neuen Gegebenheiten angepasst
+	* Version auf 0.2.0 gesetzt
+	
+2009-01-03 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Fix frontpage for IE6 and IE7 by adding seperate css for these files. Still some bugs.
+
+2008-02-10 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Submenu now working even if parent page is a service menu item
+	
+2008-02-03 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Service menu improved: No constants needed anymore 
+	
+2008-02-02 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+
+	* Changed mainmenu entryLevel to work with stdWrap after this feature has been implemented into core.
+	* Changed breadcrumbs range to work with stdWrap after this feature has been implementened into core.
+	* Changed submenu entryLevel to work with stdWrap
+	
+2008-02-01 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+
+	* fixed empty href attribute in lib.shared_sitetitle
+	* fixed empty href attribute in lib.shared_uplinks
+	
+2007-10-23 Uschi Renziehausen  <ursula.renziehausen@uni-erfurt.de>
+
+	* Initial release

@@ -1,0 +1,98 @@
+
+
+	##
+	# @description Renders blind headline for the servicemenu in multiple languages
+	# @see         LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:toolbox
+
+lib.wac_headline_servicemenu = TEXT
+lib.wac_headline_servicemenu {
+	value = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:servicemenu}
+	insertData = 1
+}
+	
+/**
+ * Renders the service menu
+ */
+ lib.shared_servicemenu = COA
+ lib.shared_servicemenu {
+ 
+ 
+ 	10 = LOAD_REGISTER
+ 	10 {
+ 		subsiteID.cObject < plugin.tx_t3wgetrootlinefield_pi1
+ 		subsiteID.cObject {
+	 		collect=0
+			collectReverse=0
+			fieldToReturn = uid
+			if.value=77
+			if.equals.field=doktype
+ 		}
+ 		
+ 		serviceID.cObject = CONTENT
+ 		serviceID.cObject {
+ 			table = pages
+ 			select {
+ 				selectFields = uid
+ 				pidInList.dataWrap = {register:subsiteID}
+ 				where = doktype=101 
+ 			}
+ 			renderObj = TEXT
+ 			renderObj.field = uid
+ 		}
+ 		
+ 		serviceExists = 0
+ 		serviceExists.override = 1
+ 		serviceExists.override.if.isPositive.data = register:serviceID 
+ 		
+ 	}
+ 	
+ 	20 = CASE
+ 	20.key.data = register:serviceExists
+ 	
+ 	20.0 = HTML
+ 	20.0.value = <div id="wrap-servicmenu" style="height: 2em">&nbsp;</div>
+ 	
+  	20.1 = HMENU
+ 	20.1.special = directory
+	20.1.special.value.cObject = CONTENT
+	20.1.special.value.cObject {
+ 		table = pages
+ 		select {
+ 			selectFields = uid
+ 			pidInList.dataWrap = {register:subsiteID}
+ 			where = doktype=101 
+ 		}
+ 		renderObj = TEXT
+ 		renderObj.field = uid
+ 	}
+
+	20.1.1 = TMENU
+	20.1.1 {
+		wrap = <ul id="servicemenu" class="servicemenu">|</ul>
+		noBlur = 1
+		NO {
+			allWrap.cObject = CASE
+			allWrap.cObject {
+				key.field = doktype
+				default = TEXT
+				default.value = <li class="first">|</li>|*|<li>|</li>|*|<li class="last">|</li>
+				3 = TEXT
+				3.value = <li class="first external-link">|</li>|*|<li class="external-link">|</li>|*|<li class="last external-link">|</li>
+			}
+			stdWrap.htmlSpecialChars = 1
+		}
+		
+		ACT = 1
+		ACT {
+			allWrap = <li class="first act">|</li>|*|<li class="act">|</li>|*|<li class="last act">|</li>
+			stdWrap.htmlSpecialChars = 1
+		}
+		
+		CUR = 1
+		CUR {
+			allWrap = <li class="first cur"><em>|</em></li>|*|<li class="cur"><em>|</em></li>|*|<li class="last cur"><em>|</em></li>
+			stdWrap.htmlSpecialChars = 1
+			doNotLinkIt = 1
+		}
+	}
+}

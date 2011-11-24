@@ -1,0 +1,182 @@
+# --------------- USER AND LANGUAGE MENU ------------------ #
+
+	##	
+	# @description Renders the user menu
+	# @todo Fill with life
+	lib.xshared_usermenu = TEXT
+	lib.xshared_usermenu.value (
+		<li class="userinfo"><a href="#">Sandra.Seitenweber</a></li>
+		<li class="menuitem"><a href="#">Logout</a></li>	
+	)
+	
+lib.shared_usermenu  = COA
+lib.shared_usermenu {
+	10 = TEXT
+	10.value = Sandra.Seitenweber
+	10.wrap = 	<li class="userinfo">|</li>
+	
+	20 = TEXT
+	20.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:login}
+	20.typolink.parameter = {$login_page}
+	20.wrap = <li class="menuitem">|</li>
+	20.insertData = 1
+	
+}
+
+[loginUser = *]
+lib.shared_usermenu.20 {
+	value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:logout}
+	typolink.parameter.data = TSFE:id
+	typolink.additionalParams = &logintype=logout
+	insertData = 1
+}
+[end]
+
+
+	##
+	# @description	The language menu as <select>-list without any js
+	# 				REQUIREMENTS:
+	#				- directory /fileadmin/templates/images/flags/ with the flags
+	# @see CONSTANTS:$site_langs
+	# @see CONSTANTS:$site_langs_wrap
+	# @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:change_language
+	# @todo	finding out, what stdWrap.setCurrent and stdWrap.current = 1 really do in this context.
+	#       It works, but I have no idea why :-) 
+	 
+	lib.shared_langchoice = COA
+	lib.shared_langchoice {
+		
+		// a flag per language
+		20 = CASE
+		20.key.data = TSFE:sys_language_content
+		20 {
+			1 = TEXT
+			1.wrap = <img id="lang-flag" src="/typo3conf/ext/acad_ue_templates/res/themes/shared/flags/|.gif" alt="" />
+			1.value = gb
+			
+			0 < .1
+			0.value = de
+			
+			3 < .1
+			3.value = fr
+			
+			4 < .1
+			4.value = es
+			
+			5 < .1
+			5.value = it
+			
+			6 < .1
+			6.value = jp
+			
+			7 < .1
+			7.value = ru
+			
+			8 < .1
+			8.value = cn
+			
+			9 < .1
+			9.value = sa
+			
+			10 < .1
+			10.value = gr
+			
+			11 < .1
+			11.value = cz
+			
+			12 < .1
+			12.value = tr
+			
+			13 < .1
+			13.value = pk
+			
+		}
+		
+		// The language menu itself
+		30 = HMENU
+		30.protectLvar =1
+		30.special = language
+		30.special.value = {$site_langs}
+		30.special.normalWhenNoLanguage = 0
+		30.1 = TMENU
+		30.1 {
+			wrap = <select name="L" id="lang-select">|</select>
+			NO {
+				linkWrap = <option |</option>
+				stdWrap.setCurrent = {$site_langs_wrap}
+				stdWrap.current = 1
+				doNotLinkIt = 1
+			}
+			
+			
+			
+			ACT = 1
+			ACT {
+				linkWrap = <option selected="selected" |</option>
+				stdWrap.setCurrent = {$site_langs_wrap}
+				stdWrap.current = 1
+				doNotLinkIt = 1
+			}
+			
+			
+			// languages that are not available for the current page and not currently chosen by the user
+			USERDEF1 = 1
+			USERDEF1 {
+				doNotLinkIt = 1
+				doNotShowLink = 1
+			}	
+			
+			// language chosen by the user, but not available for current page
+			USERDEF2 = 1
+			USERDEF2 {
+				doNotLinkIt = 1
+				doNotShowLink = 1
+			}
+		}
+		
+		// submit button
+		50 = TEXT
+		50.value (
+			<button class="submit" type="submit" title="{LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:change_language}"><span>{LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:change_language}</span></button>
+		)
+		50.insertData = 1
+	}
+
+
+	##
+	# @description Combining user and language menu in one uö
+	# @see LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:user_and_langmenu
+	lib.shared_userlangmenu  = COA
+	lib.shared_userlangmenu {
+		
+		10 = TEXT
+		10.value = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:user_and_langmenu}
+		10.wrap = <h3 id="wac_headline_user_and_langmenu" class="hfg">|</h3>
+		10.insertData = 1
+		
+		20 < lib.shared_usermenu
+		20.wrap = <ul id="usermenu">|
+	
+		24 = TEXT
+		24.value = <li class="lang">
+		
+		25 < lib.shared_langchoice.20
+		
+		
+		28 = TEXT
+		28 {
+				
+			value (
+				<form id="frm-lang" action="index.php" method="get"><div style="display:inline">
+				<input type="hidden" name="id" value="{page:uid}" />
+			)
+			insertData = 1
+			
+		}
+		
+		30 < lib.shared_langchoice.30
+		
+		35 < lib.shared_langchoice.50
+		35.wrap = |</div></form></li></ul>
+	}
+	

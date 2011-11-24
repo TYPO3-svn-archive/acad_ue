@@ -1,0 +1,189 @@
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#                  FRONTPAGE SPECIALS                                              #
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+# --------------- FRONTPAGE SKIPLINKS ------------------ #
+	##
+	# @description Renders skiplinks on frontpage
+	# @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_menu
+	# @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_content
+
+	lib.frontpage_skiplinks = COA
+	lib.frontpage_skiplinks.wrap = <ul id="skiplinks_top" class="hfg skiplinks"> | </ul>
+	lib.frontpage_skiplinks {
+		10 = TEXT
+		10.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_menu}
+		10.wrap = <li><a href="#wrap-realms">|</a></li>
+		10.insertData = 1
+	
+		20 < .10
+		20.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_content}
+		20.wrap = <li><a href="#news">|</a></li>
+		
+		30 < .10
+		30.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_toolbox}
+		30.wrap = <li><a href="#toolbox1">|</a></li>
+	}
+
+# --------------- FRONTPAGE LOGO, WORDMARK ------------------ #
+	##
+	# @description Logo, wordmark on frontpage
+	# @see LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:uni_erfurt	
+	lib.frontpage_sitetitle = COA
+	lib.frontpage_sitetitle {
+		10 = TEXT
+		10.value = <img id="unilogo"   alt="{LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:uni_erfurt}" src="/typo3conf/ext/acad_ue_templates/res/themes/default/portale/logo_67-77.gif" width="67" height="77" />
+		20 = TEXT
+		20.value = <img id="wortmarke" alt="{LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:uni_erfurt}" src="/typo3conf/ext/acad_ue_templates/res/themes/default/portale/wortmarke_index.gif" width="331" height="22" />
+		20.insertData = 1
+	}
+
+# --------------- FRONTPAGE: SUMMARY MAINPORTALS ------------------ #
+
+	##
+	# @description Text for summary attribute of table for main portals
+	# @see LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:mainportals_summary
+	# @todo Will become obsolete on recoding of frontpage html
+	lib.frontpage_mainportals_summary = TEXT
+	lib.frontpage_mainportals_summary {
+		value = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:mainportals_summary}
+		insertData = 1
+	}			
+
+
+# --------------- FRONTPAGE: COLLAGE ------------------ #
+	##
+	# @description Renders the header image on frontpage
+	# @todo Fill with life using a constant
+	lib.frontpage_collage = TEXT
+	lib.frontpage_collage.value = Hier kommt der Pfad für die Frontpage-Collage hin
+
+	
+# --------------- FRONTPAGE: SEARCHBOX ------------------ #
+	##
+	# @description Search form on frontpage
+	lib.xfrontpage_searchbox = TEXT
+	lib.xfrontpage_searchbox.value (
+	<form id="frm-search" action="#" method="get">
+		<ul class="search-tools">
+			<li><label for="search-word" class="hfg">Suchwort:</label>
+				<input type="text" id="search-word" name="search-word" value="Suchen" />
+			</li>
+			<li><label for="search-in" class="hfg">Suchen in:</label>
+				<select id="search-in" size="1" name="search-in">
+					<option>Suchen in</option>
+					<option>Seiten des Portals</option>
+					<option>Seiten des Hauptportals</option>
+					<option>Webseite der Universität</option>
+					<option>oder was auch immma ...</option>
+				</select>
+				<button class="submit" type="submit" title="Suchen"><span>Suchen</span></button>
+			</li>
+		</ul>
+	</form>
+	)
+
+
+lib.frontpage_searchbox = COA
+lib.frontpage_searchbox{
+        // formstart with all those hidden fields
+    10 = TEXT
+    10.value (
+        <form action="suche/" id="frm-search" method="post" name="tx_indexedsearch">
+            <input name="tx_indexedsearch[_sections]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[_freeIndexUid]" value="_" type="hidden" />
+            <input name="tx_indexedsearch[pointer]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[ext]" value="" type="hidden" />
+            <input name="tx_indexedsearch[type]" value="1" type="hidden" />
+            <input name="tx_indexedsearch[defOp]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[media]" value="-1" type="hidden" />
+            <input name="tx_indexedsearch[order]" value="rank_flag" type="hidden" />
+            <input name="tx_indexedsearch[group]" value="flat" type="hidden" />
+            <input name="tx_indexedsearch[lang]" value="-1" type="hidden" />
+            <input name="tx_indexedsearch[desc]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[results]" value="10" type="hidden" />
+    )
+
+    20 = TEXT
+    20 {
+        value (
+            <ul class="search-tools"><li>
+                <label for="search-word">Suchwort:</label>
+                <input id="search-word" name="tx_indexedsearch[sword]" value="" type="text" />
+                <button class="submit" type="submit" name="tx_indexedsearch[submit_button]" title="Suchen"><span>Suchen</span></button>
+             </li></ul></form>
+        )
+    }
+}
+
+
+
+# --------------- FRONTPAGE: INSIDERMENU ------------------ #
+	##
+	# @description Invisible headline for insider menu on frontpage
+	# @see LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:insidermenu
+	lib.wac_headline_insidermenu = TEXT
+	lib.wac_headline_insidermenu {
+		value = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:insidermenu}
+		insertData = 1
+	}
+
+	##
+	# @description Renders the insidermenu itself
+	# @todo Make special.value configurable via constant (if possible)
+	lib.frontpage_insidermenu = HMENU
+	lib.frontpage_insidermenu {
+		special = list
+		special.value = 429,430,431,432
+		
+		1 = TMENU
+		1 {
+			wrap = <ul id="insidermenu" class="insidermenu">|</ul>
+			noBlur = 1
+			NO {
+				 allWrap = <li class="first">|</li>|*|<li>|</li>|*|<li class="last">|</li>
+				 stdWrap.htmlSpecialChars = 1
+			}
+		}
+	}
+	
+# --------------- FRONTPAGE: SERVICEMENU ------------------ #
+
+	##
+	# @description Renders the service menu
+	# @todo Make special.value configurable via constant 
+	lib.frontpage_servicemenu = HMENU
+	lib.frontpage_servicemenu {
+		special = directory
+		special.value = 425
+		
+		1 = TMENU
+		1 {
+			wrap = <ul id="servicemenu" class="servicemenu">|</ul>
+			noBlur = 1
+			NO {
+				 allWrap = <li class="first">|</li>|*|<li>|</li>|*|<li class="last">|</li>
+				 stdWrap.htmlSpecialChars = 1
+			}
+		}
+	}
+	
+
+
+    // Footer mit helpermenu
+lib.frontpage_footer = COA
+lib.frontpage_footer {
+    10 = HMENU
+    10.special = list
+    10.special.value.dataWrap = {$frontpage-helpermenu-items}
+    10.1 = TMENU
+    10.1 {
+        wrap = <ul id="helpermenu" class="helpermenu">|</ul>
+        noBlur = 1
+        NO.allWrap = <li>|</li>
+        NO.stdWrap.htmlSpecialChars = 1
+    }
+
+    20 = TEXT
+    20.value = &nbsp;
+}

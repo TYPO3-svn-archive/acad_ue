@@ -1,0 +1,135 @@
+/**
+ * @description CSS files for frontpage
+ * @see page.headerData.10  
+ */ 
+lib.loadCSS_frontpage = HTML
+lib.loadCSS_frontpage.value (
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index-blocks-new.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/content.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/forms.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/print/default.css" rel="stylesheet" type="text/css" media="print" />
+	<!--[if IE]>
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index-ie.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<![endif]-->
+	<!--[if IE 7]>
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index-ie7.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<![endif]-->
+
+)
+
+
+lib.loadCSS_frontpage_revisited = HTML
+lib.loadCSS_frontpage_revisited.value (
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index-blocks-new.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/common.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/content.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/forms.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index-revisited.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/print/default.css" rel="stylesheet" type="text/css" media="print" />
+	<!--[if IE]>
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index-ie.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<![endif]-->
+	<!--[if IE 7]>
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/index-ie7.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<![endif]-->
+
+)
+	
+
+/**
+ * @description CSS files for 3-cols layout
+ * @see page.headerData.10  
+ */ 	
+lib.loadCSS_3cols = HTML
+lib.loadCSS_3cols.value (
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/blocks.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/layout-3col.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/content.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/sidebar_extras.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/common.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/menu.css"	rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/forms.css"   rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/footer.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/print/default.css" rel="stylesheet" type="text/css" media="print" />
+	<!--[if IE]>
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/ie_hacks.css" rel="stylesheet" type="text/css" media="screen, projection, print" />
+	<![endif]-->
+)
+	
+
+/**
+ * @description CSS files for 2-cols layout
+ * @see page.headerData.10  
+ */  
+lib.loadCSS_2cols = HTML 
+lib.loadCSS_2cols.value (
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/blocks.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/layout-2col.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/content.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/sidebar_extras.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/common.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/menu.css"	rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/forms.css"   rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/footer.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/print/default.css" rel="stylesheet" type="text/css" media="print" />
+	<!--[if IE]>
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/ie_hacks.css" rel="stylesheet" type="text/css" media="screen, projection, print" />
+	<![endif]-->
+)
+	
+
+
+/**
+ * @description CSS files for 1-col layout
+ * @see page.headerData.10  
+ */ 
+lib.loadCSS_1col = HTML 
+lib.loadCSS_1col.value (
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/blocks.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/layout-1col.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/content.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/sidebar_extras.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/common.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/menu.css"	rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/forms.css"   rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/footer.css"  rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/print/default.css" rel="stylesheet" type="text/css" media="print" />
+	<!--[if IE]>
+	<link href="/typo3conf/ext/acad_ue_templates/res/themes/default/ie_hacks.css" rel="stylesheet" type="text/css" media="screen, projection, print" />
+	<![endif]-->
+)
+	
+	
+/**
+ * @description Loading sets of css files depending on DS
+ *
+ * @see lib.loadCSS_frontpage
+ * @see lib.loadCSS_3cols
+ * @see lib.loadCSS_2cols
+ * @see lib.loadCSS_1col
+ */	
+
+ // Loading sets of css files depending on DS
+page.headerData.10 = CASE
+page.headerData.10 {
+	key.field = tx_templavoila_ds
+
+		// current page has no own ds, so go up the rootline to find one
+	default = CASE
+	default {
+		key.data = levelfield : -1 , tx_templavoila_next_ds, slide
+		2 < lib.loadCSS_frontpage
+		22 < lib.loadCSS_frontpage_revisited
+		10 < lib.loadCSS_3cols
+		11 < lib.loadCSS_2cols
+		14 < lib.loadCSS_1col
+	}
+
+	2 < lib.loadCSS_frontpage
+	22 < lib.loadCSS_frontpage_revisited
+	10 < lib.loadCSS_3cols
+	11 < lib.loadCSS_2cols
+	14 < lib.loadCSS_1col
+	
+}

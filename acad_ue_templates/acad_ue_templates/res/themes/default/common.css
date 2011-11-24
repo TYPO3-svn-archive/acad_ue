@@ -1,0 +1,672 @@
+/**
+* common.css
+* contains all classes, that are not main layout or menus but are unnecessary for RTE
+*/
+
+/**
+* The page subtitle
+*/
+
+h2 span.subtitle {
+	display: block;
+	font-weight: normal;
+	font-size: 0.8em;
+}
+
+
+/**
+* Downlinks, aka section index
+*/
+.wrap-downlinks {
+	border-bottom: 1px solid #7CA5AA;
+	padding-top: 1em;
+	margin-top: 1px;
+}
+
+.wrap-downlinks ul {
+	padding-left: 0px;
+	padding-top: 0;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+	margin-top:1px;
+}
+
+.wrap-downlinks li {
+	list-style: none;
+	background: url(icons/blue/triangle_l_down.gif) 0px 1ex no-repeat;
+	margin-left: 0px;
+	padding-left: 15px;
+	line-height: 1.3em;
+	color: #000029;
+}
+
+.wrap-downlinks a,
+.wrap-downlinks a:visited,
+.wrap-downlinks a:focus {
+	color:#000029;
+	background-image: none;
+	padding-left: 0px;
+	padding-right: 0px;
+	text-decoration: none;
+}
+
+/**
+* to top of page
+*/
+
+p.pagetop {
+	text-align: right;
+	font-size: 0.8em;
+	font-weight: bold;
+	color: #000029;
+}
+
+p.pagetop a,
+p.pagetop a:visited,
+p.pagetop a:focus {
+	text-decoration: none;
+	color:#000029;
+	background: url(icons/blue/arrowfat_up.gif) no-repeat right;
+	padding-left: 0px;
+	padding-right: 16px;
+}
+
+p.pagetop a:focus {
+	border-color: #FFB200
+}
+
+ul.csc-menu-1 {margin: 0px 0px 0px 5px; padding: 0 0}
+.csc-menu-1 li {
+	list-style: none;
+	margin: 0 0;
+	padding: 0.5ex 0px 0.5ex 14px;
+	background-image: url(icons/petrol_dark/arrow_right.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0.6em;
+	line-height: 1em;
+}
+
+.csc-menu-1 li.internal-link-new-window {background-image: url(icons/petrol_dark/arrow_right_box.gif);}
+.csc-menu-1 li.external-link {background-image: url(icons/petrol_dark/arrow_out.gif);}
+.csc-menu-1 li.external-link-new-window {background-image: url(icons/petrol_dark/arrow_out_box.gif);}
+.csc-menu-1 li.download {background-image: url(icons/petrol_dark/arrow_download.gif); background-position: 0px 0.5em}
+
+.csc-menu-1 a,
+.csc-menu-1 a:focus {
+	color: #000029;
+	text-decoration: none;
+	letter-spacing: 0.01em;
+}
+
+.csc-menu-1 a:visited {
+	color: #10586D;
+}
+
+.csc-menu-1 a:hover,
+.csc-menu-1 a:active,
+.csc-menu-1 a:focus {
+	text-decoration: underline;
+	border-bottom: none;
+}
+
+
+
+
+
+/**
+ * Menu of subpages with abstract
+ */
+div.menu-20-4 dl {margin: 0 0 1ex 12px; padding: 0}
+
+
+div.menu-20-4 dt {
+	font-weight: bold;
+	padding:0; margin: 0ex 1ex 1ex   0;
+	font-size: 0.9em;
+	text-indent: -12px;
+}
+div.menu-20-4 dd { 
+	padding:0;
+	margin: -1ex  1ex 1ex 0px;
+	line-height: 1.2em;
+	font-size: 0.93em;
+	letter-spacing: 0.02em;
+
+}
+
+
+div.menu-20-4 dt a,
+div.menu-20-4 dt a:focus {
+	text-decoration: none;
+	color: #10586D;
+	background-image: url(icons/petrol_dark/arrowfat_right.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0.5ex;
+	border-bottom: none;
+	padding-left: 12px		
+
+}
+
+div.menu-20-4 dt a:visited {
+	color: #14728E;
+	background-image: url(icons/turquoise_light/arrowfat_right.gif);
+}
+
+div.menu-20-4 dt a:hover,
+div.menu-20-4 dt a:active,
+div.menu-20-4 dt a:focus {
+	text-decoration: underline;
+	border-bottom: none;
+}
+
+div.menu-20-4 a.more {
+	position: absolute;
+	height: 1px;
+	left: -4000px;
+}
+
+
+
+
+.boxplain {
+	float: left;
+	width: 16em;
+	margin-right: 10px;
+	background: #FFFFDA;
+	border: 1px solid #eaeaea;
+}
+
+.sticky {
+	background: #FFFFD9 url(backgrounds/sticky_border_top.gif) repeat-x;
+	float: left;
+	width: 16em;
+	margin-right: 10px;
+}
+
+.sticky-onion1 {
+	background: url(backgrounds/sticky_border_left.gif) repeat-y;
+	position: relative
+}
+
+.sticky_top_left {
+	background: url(backgrounds/sticky_corner_top_left.gif) no-repeat;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.sticky_top_right {
+	background: url(backgrounds/sticky_corner_top_right.gif) no-repeat;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 0px;
+	right: 0px
+}
+
+.sticky-onion2 {
+	background: url(backgrounds/sticky_border_right.gif) repeat-y right top;
+}
+
+.sticky-onion3 {
+	background: url(backgrounds/sticky_border_bottom.gif) repeat-x left bottom;
+}
+
+.sticky-onion4 {
+	background: url(backgrounds/sticky_corner_bottom_left.gif) no-repeat left bottom
+}
+
+.sticky-onion5 {
+	background: url(backgrounds/sticky_corner_bottom_right.gif) no-repeat right bottom
+}
+
+.sticky-text {
+	padding: 10px 10px 20px 12px;
+}
+
+/* @todo: siehe "4 Dekaden" */
+.close-box {
+	display:none;
+	float:right;
+	margin-top:-1.3em;
+	width:1.7em;
+	height:1.7em;
+	font-size:0.5em;
+	line-height:1;
+	text-align:center;
+	border: 1px solid #7CA5AA;
+	background: #7CA5AA;
+	color:yellow;
+}
+body.domenabled .close-box {
+	display:block;
+}
+
+
+
+/**
+* Author, first published, last update
+*/
+.credentials {
+	border-top: 1px solid #000029;
+	margin-top: 2em;
+	padding-top: 1ex;
+}
+
+#content-footer .credentials {font-size: 0.9em; letter-spacing: 0.01em;}
+.page-3cols .credentials, .page-1col .credentials {padding-left: 20px; padding-right: 20px}
+
+.credentials a, .credentials a:focus {text-decoration: none;}
+.credentials a:hover, .credentials a:focus, .credentials a:active {border-bottom: 1px solid #ffb200}
+.credentials a:visited {color: #0063DC; }
+
+
+/**
+* Link to next page, to table of contents and to previous page
+* Contains the full title of the respective page!
+*/
+ul.prevtocnext {
+	margin: 1.2em 0px 1em 0px;
+	padding: 0.6em 0px 0px 0px;
+	border-top: 1px solid #000029;
+	font-size: 0.9em;
+	letter-spacing: 0.01em;
+}
+
+ul.prevtocnext li {
+	margin-left: 0px;
+	padding-left: 20px;
+	list-style: none;
+}
+
+ul.prevtocnext a:link,
+ul.prevtocnext a:active,
+ul.prevtocnext a:visited,
+ul.prevtocnext a:hover,
+ul.prevtocnext a:focus {
+	background-image: none;
+	padding-left: 0px;
+	color: #000029;
+	text-decoration: none;
+}
+
+li.to-next {
+	background: url(icons/blue/pun_triangle_right.gif) left 0.1em no-repeat;
+}
+
+li.to-toc {
+	background: url(icons/blue/pun_toc.gif) left 0.1em no-repeat;
+}
+
+li.to-prev {
+	background: url(icons/blue/pun_triangle_left.gif) left 0.1em no-repeat;
+}
+
+
+.teaserbox {
+	background: #F9FAF7 url(backgrounds/gradient_lightblue_td.png) repeat-x;
+	border: 1px solid #E0E8EF;
+	border-top-color: #91B4B6;
+	padding: 10px;
+	font-size: 0.95em;
+
+}
+
+.teaserbox img {
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+}
+
+.teaser-content {}
+
+.teaser-content h3 {font-size: 0.95em; color: #000029; margin-top: 0px; line-height: 1em; margin-bottom: 0px; padding-bottom: 0px;}
+
+/******************************************* grids ************************************/
+
+.mcol-33-33-33 .ce-section {margin-left: 9px; margin-right: 9px}
+.mcol-33-33-33 .col-first .ce-section {margin-left: 0px; margin-right: 9px}
+.mcol-33-33-33 .col-last .ce-section {margin-left: 9px; margin-right: 0px}
+
+.mcol-50-50 .col-first .ce-section {margin-left:0px; margin-right:9px}
+.mcol-50-50 .col-last .ce-section {margin-left:9px; margin-right:0px}
+
+.pullout-left {float: left; margin-right: 10px}
+
+.floatleft-20percent {
+	width: 20%;
+	float: left;
+
+}
+
+/*  */
+.floatleft-33percent {
+	width: 33%;
+	float: left;
+
+}
+
+.floatleft-50percent {
+	width: 50%;
+	float: left;
+	border: none;
+}
+
+
+.floatleft-22em {
+	float: left;
+	width: 22em;
+}
+
+.smallfonts {font-size: 0.9em}
+.smallfonts .smallfonts {font-size: 1em}
+
+.ce-body, .ce-container {
+	margin-right: 18px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #FDFCF2;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.ce-container, .csc-menu-3 .ce-body {margin-right: 0px}
+.csc-menu-3 .ce-body {margin-top: -1em}
+
+.colorbox .ce-body {
+	margin-right: 0px;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.63em;
+}
+
+.colorbox .csc-textpic .ce-body {
+	padding-left: 0px;
+	padding-right: 0px;
+	background-image: none;
+	background-color: transparent;
+}
+
+.colorbox .csc-textpic-intext-left-nowrap .ce-body,
+.colorbox .csc-textpic-intext-right-nowrap .ce-body {
+	padding-top: 0px; margin-top:0px;
+}	
+
+.colorbox .csc-textpic,
+.colorbox .csc-textpic-intext-left-nowrap-hxabove,
+.colorbox .csc-textpic-intext-right-nowrap-hxabove
+ {padding-top: 0px; margin-top: 0px;}
+
+
+
+
+/**
+ * vertically align the imageblock to the beginning of the text
+ */
+.csc-textpic-intext-left .csc-textpic-imagewrap,
+.csc-textpic-intext-right .csc-textpic-imagewrap,
+.csc-textpic-left-nowrap-hxabove .csc-textpic-imagewrap,
+.csc-textpic-right-nowrap-hxabove .csc-textpic-imagewrap,
+.csc-textpic-above .csc-textpic-imagewrap {
+	padding-top: 0.4em;
+}
+
+.csc-textpic-nowrap-left-hxinside .csc-textpic-imagewrap,
+.csc-textpic-nowrap-right-hxinside .csc-textpic-imagewrap {
+	padding-top: 0.5em
+}
+
+
+.csc-textpic-left-nowrap-hxinside,
+.csc-textpic-right-nowrap-hxinside {
+	margin-top:1em;
+}	
+
+.colorbox .csc-textpic-intext-left .csc-textpic-imagewrap,
+.colorbox .csc-textpic-intext-right .csc-textpic-imagewrap,
+.colorbox .csc-textpic-left-nowrap-hxabove .csc-textpic-imagewrap,
+.colorbox .csc-textpic-right-nowrap-hxabove .csc-textpic-imagewrap,
+.colorbox .csc-textpic-left-nowrap-hxinside .csc-textpic-imagewrap,
+.colorbox .csc-textpic-right-nowrap-hxinside .csc-textpic-imagewrap,
+.colorbox .csc-textpic-above .csc-textpic-imagewrap {
+	padding-top: 1em;
+}
+
+.colorbox .csc-textpic-right-nowrap-hxinside .csc-textpic-text h3  {
+	margin-bottom: 0em;
+	margin-top: 0em;
+}
+
+
+.csc-textpic-right-nowrap-hxabove .csc-textpic-imagewrap,
+.csc-textpic-right-nowrap-hxinside .csc-textpic-imagewrap {
+	float:right;
+}
+.csc-textpic-left-nowrap-hxabove .csc-textpic-imagewrap {float:left;}
+
+
+
+
+
+/**
+ * smaller fontsize for image captions
+ */
+.csc-textpic-caption {font-size: 0.8em; line-height: 1.1em}
+div.csc-textpic div.csc-textpic-imagewrap .csc-textpic-image {margin-bottom: 10px}
+.smallfonts .csc-textpic-caption {font-size: 0.9em}
+
+
+.sidebar-extras {padding: 0px 15px 0px 15px;}
+.sidebar-extras .colorbox .ce-body {padding-left: 8px}
+
+
+
+/**
+ * alphabet or numbers as menu
+ */
+ 
+ul.menu-alphanum{margin: 0 0 0.7em 0; padding: 0 0; list-style: none; font-size: 0.9em;}
+ul.menu-alphanum li {
+	margin: 0 0;
+	padding: 0 0;
+	display: block;
+	float: left;
+	color:#ffffff;
+	width: 1.9em;
+
+}
+
+ul.menu-alphanum li a,
+ul.menu-alphanum li a:visited {
+	display: block;
+	color: #254457;
+	background-color: #EFF3D5;
+	border: 1px solid #ffffff;
+	border-left-color: #ccc;
+	border-bottom-color: #ccc;
+	letter-spacing: 0px;
+	text-align: center;
+	line-height: 1.6em;
+	margin-right: 0.1em;
+	margin-top: 0.1em;
+	
+}
+
+ul.menu-alphanum li a:hover {background-color: #346E86; color: #ffffff; border-bottom-color: #254457}
+
+ul.menu-alphanum li a.act, ul.menu-alphanum li a.act:visited {background-color: #254457; color: #ffffff}
+
+
+/**********************************************************
+ * Forms
+ */
+
+form {font-size: 0.9em; letter-spacing: inherit}
+
+fieldset {margin-bottom: 0.3em; border: 1px solid grey}
+legend {color: #1E4C62; font-weight: bold }
+
+fieldset.main-no-border {border: none; padding: 0 0;}
+fieldset.main-no-border legend {margin: 0 0 0.3em 0; padding: 0 0}
+
+fieldset.rowgroup {border: none; padding: 0 0; margin: 0 0; outline: 1px solid red}
+fieldset.rowgroup legend {display: block; font-weight: normal; margin: 0 0; padding: 0 0}
+fieldset.rowgroup legend div.pseudo-label {display: block; float: left}
+
+ul.fo-list, ul.fo-list-inline {margin: 0 0; padding: 0 0; list-style: none}
+ul.fo-list li {margin: 0 0 0.5em 0; padding: 0 0}
+ul.fo-list-inline li {display: inline; white-space: nowrap}
+ul.fo-list label.floatL {margin-right: 1em;}
+
+input.checkbox {vertical-align: text-top}
+
+#top form fieldset legend.umfluss {white-space: normal !important; float: left !important; width: 5em !important}
+.lbl-left-side {margin-right: 1em}
+.lbl-right {display: inline; margin-left: 0.2em}
+.lbl-width-xs {width: 5em}
+.lbl-width-s {width: 8em}
+
+
+input {font-size: inherit; letter-spacing: inherit}
+input {border: 1px solid grey;}
+
+/* size=1: up to 3 characters (e.g. day or month field) */
+.fo-text-xxs-width {width: 2em}
+/* size=3: up to 5 characters (e.g. for a year or the postal code) */
+.fo-text-xs-width {width: 4em}
+span.lbl-width-xs {margin-right: 5em; color: red}
+/* size=9: */
+.fo-text-s-width {width: 6em}
+.fo-text-m-width {width: 9em}
+.fo-text-l-width {width: 11em}
+.fo-text-xl-width {width: 20em}
+.fo-text-xxl-width {width: 28em}
+
+
+
+/* Hints and error messages */
+p.fo-hint {
+	background-image: url(icons/bulb-mini.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0.3em;
+	text-indent: 12px;
+}
+
+/******************* Indexed search stuff **************************/
+.tx-indexedsearch .tx-indexedsearch-whatis {display:none}
+
+ul.browsebox {margin-left: 0px; padding-left: 0px}
+ul.browsebox li {display: inline; margin-left: 0px; margin-right: 0px;}
+ul.browsebox li a {
+    color: #ffffff;
+	background-color: #346E86;
+	border: 1px solid #ffffff;
+	border-left-color: #ccc;
+	border-bottom-color: #ccc;
+    letter-spacing: 0px;
+    margin-right: 5px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+ul.browsebox li a:visited,
+ul.browsebox li a:active,
+ul.browsebox li a:hover,
+ul.browsebox li a:focus {
+    color: #ffffff;
+}
+
+ul.browsebox li.tx-indexedsearch-browselist-currentPage a {
+    background-color: #0D3046;
+}
+.search-result-info {
+    margin-left: 32px;
+    background: none;
+}
+
+.tx-indexedsearch-redMarkup {color:#DB2645;}
+
+/**************** News Stuff ******************************/
+
+dl.news-latest dt,
+dl.cal-latest dt {
+    position:relative; margin-top:2em
+}
+dl.news-latest dt span.news-latest-date,
+dl.cal-latest dt span.cal-latest-date {
+     display:block;
+     position:absolute;
+     top:-1.5em;
+     font-weight:normal;
+     width:100%;
+     text-align:left;
+     border-bottom:1px solid #14728E;
+}
+
+dl.news-latest dt span.news-latest-date span,
+dl.cal-latest dt span.cal-latest-date span{
+    margin-left:13px; padding-right:8px;
+}
+
+/* Cal specific stuff */
+
+div#calendar-event {
+    background: url(backgrounds/column_divider.gif) 68% 0px repeat-y;
+    width: 100%;
+    min-height: 400px;
+    margin-bottom: -2em;
+}
+
+div#calendar-event  div.wrap-content {
+	float: left;
+    width: 68%;
+    margin-top: 0px;
+
+}
+
+div#calendar-event  div.wrap-content-inner {padding-right: 25px}
+
+div#calendar-event  div.wrap-sidebar {
+	float: left;
+    width: 32%;
+    margin-right: -32%;
+    font-size: 0.83em;
+}
+
+div.eventinfo-box {
+    
+
+}
+
+div.eventinfo-box h3 {
+    background-color: #3A7076;
+    background-color: #0D3046;
+    color: #fff;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+}
+
+
+div.eventinfo-box ul {
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+div.eventinfo-box li {
+    margin-left: 0px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    padding-bottom: 6px;
+}
+
+div.eventinfo-box li.datetime {background-image:url(icons/event-when.png);}
+div.eventinfo-box li.location {background-image:url(icons/event-where.png);}
+div.eventinfo-box li.organizer {background-image:url(icons/event-who.png);}
+
+div.eventinfo-box address {
+    padding-bottom: 0px;
+}

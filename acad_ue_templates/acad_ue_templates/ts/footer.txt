@@ -1,0 +1,169 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#                          FOOTER                                               #
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+## PDF and print link
+
+lib.shared_printmenu = TEXT
+lib.shared_printmenu.wrap = <ul id="filesmenu" class="filesmenu">|</ul>
+
+lib.shared_printmenu.value = <li class="print"><a href="#" onclick="window.print(); return false;">Drucken</a></li>
+
+## The helperlinks
+# will later show a given content element in the snippets folder or via a constant
+
+lib.shared_helperlinks = TEXT
+lib.shared_helperlinks.value (
+	<li><a href="#">Hilfe</a></li>
+	<li><a href="#">Impressum</a></li>
+	<li><a href="#">Alphabetisches Register</a></li>
+	<li><a href="#">Sitemap</a></li>
+)
+
+## The <select> with the quicklinks
+lib.shared_quicklinks = TEXT
+lib.shared_quicklinks.wrap = <li><form id="frm-quicklinks" action="#" method="get"><div style="display:inline">|</div></form></li>
+lib.shared_quicklinks.value (
+	<select name="quicklinks" id="quicklinks">
+		<option>Quicklinks</option>
+		<option>Nützliche Seite</option>
+		<option>Praktische Sache</option>
+		<option>Da wollen wir hin</option>
+		<option>Noch ein Link</option>
+		<option>Mir fällt nix ein</option>
+	</select>
+	<button class="submit" type="submit" title="Zielseite aufrufen"><span>Los!</span></button>    
+)
+
+
+## The complete helper menu
+lib.shared_helpermenu = COA
+lib.shared_helpermenu {
+	wrap = <ul id="helpermenu" class="helpermenu">|</ul>
+	10 < lib.shared_helperlinks
+	20 < lib.shared_quicklinks
+}
+
+lib.shared_helpermenu >
+
+lib.shared_helpermenu = COA
+lib.shared_helpermenu {
+    5 = LOAD_REGISTER
+    5 {
+        imprintID.cObject  =< plugin.tx_t3wgetrootlinefield_pi1
+        imprintID.cObject {
+            // we want only 1 result
+            collect=0
+            collectReverse=0
+            // field whose value we are interested in
+            fieldToReturn = tx_acaduebe_imprint_page
+			// condition: tx_acaduebe_imprint_page > 0
+			if.value=0
+			if.isGreaterThan.field=tx_acaduebe_imprint_page
+        }
+    }
+
+    20 = HMENU
+    20.special = list
+    20.special.value.cObject = TEXT
+    20.special.value.cObject.stdWrap.dataWrap = {register:imprintID}
+    20.wrap = <ul id="helpermenu" class="helpermenu">|</ul>
+    20.1 = TMENU
+    20.1 {
+        noBlur = 1
+        NO {
+            allWrap = <li>|</li>
+            stdWrap.htmlSpecialChars = 1
+        }
+
+        CUR = 1
+        CUR {
+            allWrap = <li><em>|</em></li>
+            stdWrap.htmlSpecialChars = 1
+            doNotLinkIt = 1
+        }
+    }
+    20.if.isTrue.dataWrap = {register:imprintID}
+
+}
+
+
+
+## Wrapper for first row of footer
+lib.shared_footer_row1 = COA
+lib.shared_footer_row1 {
+	wrap = <div id="footer-row1"><div class="inner clearfix">|</div></div>
+	10 < lib.shared_printmenu
+	20 < lib.shared_helpermenu
+}
+
+################################### Footer Row 2 ##################################
+
+## Dummy for the design options Fontsize, Colors, and Layout
+lib.shared_designoptions = TEXT
+lib.shared_designoptions.value = [Designoptionen]
+
+## Wrapper for second row of footer
+lib.shared_footer_row2 = COA
+lib.shared_footer_row2 {
+	wrap = <div id="footer-row2"><div class="inner">|</div></div>
+	10 < lib.shared_designoptions
+}	
+
+################################# Footer Row 3 ####################################
+
+
+lib.shared_footer_row3 = HMENU
+lib.shared_footer_row3 {
+	wrap = <div id="footer-row3">	<div class="inner" id="wrap-globalmenu"> | </div></div>
+	special = list
+	special.value = {$global_menu_items}
+	1 = TMENU
+	1 {
+		noBlur = 1
+		wrap = <ul id="globalmenu">|</ul>
+		NO.wrapItemAndSub = <li class="first"> | </li> |*| <li> | </li> |*| <li class="last"> | </li>
+		NO.stdWrap.htmlSpecialChars = 1
+	}
+}
+
+################################# The whole Footer put together ####################
+
+## The complete footer
+lib.shared_footer = COA
+lib.shared_footer {
+	wrap = <div id="footer"><div id="footer-inner">|</div></div>
+	10 < lib.shared_footer_row1
+	20 < lib.shared_footer_row2
+	30 < lib.shared_footer_row3
+	40 = TEXT
+	40.value = ID: {TSFE:id}
+	40.insertData = 1
+	40.wrap = <div id="footer-row4">|</div>
+	
+	70 = LOAD_REGISTER
+	70 {
+	 	schnubbiID.cObject < plugin.tx_t3wgetportalid_pi1
+ 		schnubbiID.cObject {
+	 		collect=0
+			collectReverse=0
+			fieldToReturn = uid
+			if.value=77
+			if.equals.field=doktype
+ 		}
+ 		
+
+	}
+	80 = CONTENT
+	80 {
+ 		table = pages
+ 		select {
+ 			selectFields = uid
+ 			pidInList.dataWrap = {register:schnubbiID}
+ 			where = doktype=199 
+ 		}
+ 		renderObj = TEXT
+ 		renderObj.field = uid
+ 		renderObj.wrap = :|
+	}	
+	
+}	

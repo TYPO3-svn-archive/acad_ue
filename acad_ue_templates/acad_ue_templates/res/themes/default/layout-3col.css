@@ -1,0 +1,79 @@
+/**
+* Block-Layout für die Startseite eines Standardportals
+*
+* 3 Spalten, Content flexibel, Seitenbreite in em fixiert
+* Reihenfolge der Spalten im Quellcode: 2,1,3
+* Wird verwendet fuer die Startseiten von Portalen
+*/
+
+
+/**
+* Wrapper fuer alle drei Spalten
+* - Hat zusaetzlich die .clearfix
+*/
+#wrap-cols-pstart {width: 100%}
+
+
+/**
+* 
+*/
+#wrap-content {
+	float: left;
+	width: 100%;
+
+}
+
+/**
+* Schafft Platz am linken und rechten Rand
+* Warnung: nicht auf #content umbiegen, weil #content eine andere Schriftgröße hat!
+*/
+#wrap-content-inner {
+	margin: 0 20.5em 0 20.5em;
+}
+
+
+#content, #content-header  {
+	margin-left: 0px;
+	padding-right: 15px;
+}
+
+#content-footer {
+	margin-left: 20.5em;
+	margin-right: 20.5em;
+	font-size:1em;
+}
+
+.credentials {
+	margin-top: 1em;
+	font-size: 1.1em;
+
+}
+
+#pagetop-last {font-size: 0.9em}
+
+
+#content-footer ul.prevtocnext {font-size: 1.1em}
+/**
+* Die linke Spalte (Nr. 2 in der Source-Order)
+*/
+#wrap-content-sidebar {
+	float: left;
+	margin-left: -100%;
+	width: 20em;
+	padding-top: 1em;
+}
+
+
+/**
+* Die rechte Spalte (Nr. 3 in der Source-Order)
+*/
+#wrap-sidebar {
+	float: right;
+	margin-left: -100%;
+	width: 21em;
+	padding-top: 1em;
+}
+
+
+
+

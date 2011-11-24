@@ -1,0 +1,103 @@
+# --------------- SEARCHBOX ------------------ #
+	##
+	# @description Displays a hidden headline for the search box
+	# @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:search_noun
+
+	lib.wac_headline_search = TEXT
+	lib.wac_headline_search {
+		value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:search_noun}
+		insertData = 1
+	}
+
+	##
+	# @description Renders the search box
+	# @todo Fill it with life
+	lib.xshared_searchbox = TEXT
+	lib.xshared_searchbox.value (
+	<form action="" id="frm-search" method="get" onsubmit="alert('Die Suche ist noch nicht aktiv')">
+		<ul>
+			<li><label for="search-word" class="hfg">Suchwort:</label>
+				<input type="text" id="search-word" name="search-word" value="Suchen" />
+			</li>
+			<li><label for="search-in" class="hfg">Suchen in:</label>
+				<select id="search-in" size="1" name="search-in">
+					<option>Suchen in</option>
+					<option>Seiten des Portals</option>
+					<option>Seiten des Hauptportals</option>
+					<option>Webseite der Universität</option>
+					<option>oder was auch immma ...</option>
+				</select>
+				<button class="submit" type="submit" title="Suchen"><span>Suchen</span></button>
+			</li>
+		</ul>
+	</form>
+	)
+
+
+
+lib.shared_searchbox = COA
+lib.shared_searchbox {
+        // formstart with all those hidden fields
+    10 = TEXT
+    10.value (
+        <form action="suche/" id="frm-search" method="post" name="tx_indexedsearch">
+            <input name="tx_indexedsearch[_sections]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[_freeIndexUid]" value="_" type="hidden" />
+            <input name="tx_indexedsearch[pointer]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[ext]" value="" type="hidden" />
+            <input name="tx_indexedsearch[type]" value="1" type="hidden" />
+            <input name="tx_indexedsearch[defOp]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[media]" value="-1" type="hidden" />
+            <input name="tx_indexedsearch[order]" value="rank_flag" type="hidden" />
+            <input name="tx_indexedsearch[group]" value="flat" type="hidden" />
+            <input name="tx_indexedsearch[lang]" value="-1" type="hidden" />
+            <input name="tx_indexedsearch[desc]" value="0" type="hidden" />
+            <input name="tx_indexedsearch[results]" value="10" type="hidden" />
+    )
+
+    20 = TEXT
+    20 {
+        value (
+            <ul><li>
+                <label for="search-word" class="hfg">Suchwort:</label>
+                <input id="search-word" name="tx_indexedsearch[sword]" value="" type="text" />
+                <button class="submit" type="submit" name="tx_indexedsearch[submit_button]" title="Suchen"><span>Suchen</span></button>
+             </li></ul></form>
+        )
+    }
+}
+
+lib.xshared_searchbox = TEXT
+lib.xshared_searchbox.value (
+<form action="suche/" id="frm-search" method="post" name="tx_indexedsearch">
+	<input name="tx_indexedsearch[_sections]" value="0" type="hidden">
+	<input name="tx_indexedsearch[_freeIndexUid]" value="_" type="hidden">
+	<input name="tx_indexedsearch[pointer]" value="0" type="hidden">
+	<input name="tx_indexedsearch[ext]" value="" type="hidden">
+	<input name="tx_indexedsearch[type]" value="1" type="hidden">
+	<input name="tx_indexedsearch[defOp]" value="0" type="hidden">
+	<input name="tx_indexedsearch[media]" value="-1" type="hidden">
+	<input name="tx_indexedsearch[order]" value="rank_flag" type="hidden">
+	<input name="tx_indexedsearch[group]" value="flat" type="hidden">
+	<input name="tx_indexedsearch[lang]" value="-1" type="hidden">
+	<input name="tx_indexedsearch[desc]" value="0" type="hidden">
+	<input name="tx_indexedsearch[results]" value="10" type="hidden">
+
+
+	<table summary="Search form" border="0" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td>Search for:</td>
+			<td colspan="2"><input name="tx_indexedsearch[sword]" value="" class="tx-indexedsearch-searchbox-sword sword" type="text"></td>
+		</tr>
+
+
+
+
+		<tr>
+			<td>&nbsp;</td>
+			<td><input name="tx_indexedsearch[submit_button]" value="Search" class="tx-indexedsearch-searchbox-button submit" type="submit"></td>
+		</tr>
+	</tbody></table>
+	<p><a href="suche/?tx_indexedsearch%5Bext%5D=1">Advanced search</a></p>
+</form>
+)

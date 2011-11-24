@@ -1,0 +1,311 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/config.txt">
+	##
+	# @description eliminate default title set by t3
+	config.noPageTitle = 0
+	
+
+
+
+	
+	lib.shared_headTitle = COA
+	lib.shared_headTitle {
+		wrap = <title>|</title>
+		10 = TEXT
+		10.data = page:title
+	}
+	
+	page.headerData.10 < lib.shared_headTitle
+	
+
+/**
+ * @description A little helper to render absolutely nothing
+ *              Meant to meat questions like 'render the page title or not' 
+ */ 
+lib.nothing = TEXT
+lib.nothing.value = 
+
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/css-load.txt">
+
+/**
+ * @description Shows the informations about the page only, if a backend-user is logged in.
+ * @problem Diese Information soll auch auf Seiten angezeigt werden, zu denen der BE-User keine
+ *				Berechtigung hat. Die Informationen zu BE-User werden aber in der index_ts.php
+ *				in diesen Fällen komplett gekillt. Lediglich das Cookie bleibt erhalten.
+ *				Das Cookie bleibt allerdings auch bestehen, wenn der Benutzer sich abmeldet.
+ *				Die Infos werden also auch nach einer Abmeldung solange angezeigt, bis der Browser
+ * 				geschlossen wird. Das lässt sich evtl. verbessern, wenn man anhand der Session-id
+ *				über die Tabelle be_sessions ermittelt, ob das Login im BE überhaupt noch gültig ist.
+ *				Dazu muss man sich die Loginlogik genau anschauen.
+ */
+ 
+lib.pageInfos = COA
+lib.pageInfos {
+	10 = TEXT
+	10 {
+		field = uid
+		# etc....
+	}
+	if.isTrue.data = global : _COOKIE | be_typo_user
+}
+
+/**
+ * @description Shows a hidden list of links to the main parts of a single page
+ *              EXT:acadlllcommonvalues needs to be installed for I18n
+ *
+ * @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_content
+ * @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_content
+ * @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_toolbox
+ */ 
+
+lib.shared_skiplinks = COA
+lib.shared_skiplinks.wrap = <ul id="skiplinks_top" class="hfg skiplinks"> | </ul>
+lib.shared_skiplinks {
+	10 = TEXT
+	10.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_content}
+  10.wrap = <li><a href="#content">|</a></li>
+	10.insertData = 1
+	
+  20 < .10
+	20.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_menu}
+  20.wrap = <li><a href="#navigation">|</a></li>
+
+	30 < .10
+	30.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:skip_to_toolbox}
+  30.wrap = <li><a href="#toolbox">|</a></li>
+}
+
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/header.txt">
+
+
+/**
+ * @description Displays the logo and the hidden title 'University of Erfurt'
+ *  
+ * @see LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:uni_erfurt
+ */    
+lib.shared_sitetitle = COA
+lib.shared_sitetitle {
+	10 = HTML
+	10.value = <a href="/">
+	20 = TEXT
+	20.value = <img alt="" src="/fileadmin/templates/themes/default/portale/logo-wortmarke.gif" width="165" height="50" /><span class="hfg">{LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:uni_erfurt}</span>
+	20.insertData = 1
+	30 = HTML
+	30.value = </a>
+}
+
+
+/**
+ * @description Displays the page title and subtitle if available
+ * 
+ * @see lib.shared_pagetitle  
+ */
+lib.pagetitle = COA
+lib.pagetitle {
+	wrap = <div id="content-header"><h2>|</h2></div>
+	10 = TEXT
+	10.data = page:title
+	10.htmlSpecialChars = 1
+		
+	20 = TEXT
+	20.data = page:subtitle
+	20.wrap = <span class="hfg">: </span><span class="subtitle">|</span>
+	20.required = 1
+	20.htmlSpecialChars = 1
+}
+
+
+
+
+/**
+ * Displays author, last update and so on
+ *  
+ */
+
+lib.shared_credentials = COA
+lib.shared_credentials {
+
+    5 = LOAD_REGISTER
+    5 {
+        author.cObject = TEXT
+        author.cObject {
+            data = page:author
+            override.if.isTrue.data = page:content_from_pid
+            override.cObject = CONTENT
+            override.cObject {
+            table = pages
+            select {
+                selectFields = author
+                where = uid=
+            }
+        }
+    }
+  }
+  wrap = <p class="credentials">|</p>
+
+  // author's name and email, but only if available
+  10 = TEXT
+  10 {
+    data = page:author
+    required = 1
+    typolink {
+      parameter.data = page:author_email
+      ATagParams = class="mail"
+    }
+  }
+
+
+  // Now the label for last update. Problem:
+  // If the author was filled in, we have to start with a comma and a space,
+  // if the author was not filled in, we do not need the comma and the space,
+  // but the first letter of 'last update' in upper case.
+  20 = COA
+  20 {
+ 
+ 
+    // This cObject will be executed if the author is present.
+    10 = TEXT
+    10.dataWrap = , {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:last_update}:
+    10.if.isTrue.data = page:author
+    10.noTrimWrap = | |
+
+    // This cObject will be rendered if the author is missing.
+    20 = COA
+    20 {
+      
+      // Treating the 'last update' string
+      10 = LOAD_REGISTER
+      10 {
+        // Get the first letter of the string using the stdWrap function crop
+        lupdateFirst.cObject = TEXT
+        lupdateFirst.cObject {
+          data = LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:last_update
+          crop = 1||0
+
+        }
+        
+        // Get the rest of the last update string by using function split
+        // with the first letter still in lower case as token
+        lupdateRest.cObject = TEXT
+        lupdateRest.cObject {
+          data = LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:last_update
+          split {
+            token.data = register:lupdateFirst
+            max = 1
+            returnKey = 1
+          }
+        }
+      
+        // Now we can uppercase the first letter
+        lupdateFirstUpper.cObject = TEXT
+        lupdateFirstUpper.cObject {
+          data = register:lupdateFirst
+          case = upper
+        }
+        
+      }
+      
+      // and here we put it all together
+      15 = TEXT
+      15 {
+        dataWrap = {register:lupdateFirstUpper}{register:lupdateRest}:
+        if.isFalse.data = page:author
+        noTrimWrap = | |
+      }  
+    }  
+  }
+
+  
+  30 = TEXT
+  30.data = register:SYS_LASTCHANGED
+  30.if.isTrue.data = register:SYS_LASTCHANGED
+  30.date = j.m.Y
+  
+
+}
+
+
+/**
+ * @descriptions Displays a 'turn page menu'
+ *  
+ * @see lib.shared_contentfooter 
+ */ 	
+lib.shared_prevupnext = COA
+lib.shared_prevupnext {
+  wrap = <ul class="prevtocnext">|</ul>
+  
+  	// to next page
+  10 = HMENU
+  10 {
+
+      includeNotInMenu = 1
+      special = browse
+      special {
+        items = next
+        items.prevnextToSection = 0      
+      }
+      1  = TMENU
+      1.noBlur = 1  
+      1.NO.allWrap = <li class="to-next">|</li>
+      1.NO.ATagTitle.dataWrap = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:next_page}
+  }
+
+  	// to table of contents (up)
+  20 < lib.shared_prevupnext.10
+  20.1.NO.allWrap = <li class="to-toc">|</li>
+  20.1.NO.ATagTitle.dataWrap = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:toc}
+  20.special.items = up
+  
+  	// to previous page (prev)
+  30 < lib.shared_prevupnext.10
+  30.1.NO.allWrap = <li class="to-prev">|</li>
+  30.1.NO.ATagTitle.dataWrap = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:prev_page}
+  30.special.items = prev    
+
+}
+
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/breadcrumbs.txt">
+
+
+# --------------- WAC STUFF ------------------ #	
+	##
+	# @description Displays a hidden headline for all menus
+	# @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:navigation
+
+	lib.wac_headline_navigation = TEXT
+	lib.wac_headline_navigation {
+		value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:navigation}
+		insertData = 1
+	}	
+	
+
+	##
+	# @description Renders the headline for the toolbox in multiple languages
+	#              The toolbox is a wrapper around search, user menu, lang menu and so on
+	# @see         LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:toolbox
+
+	lib.wac_headline_toolbox = TEXT
+	lib.wac_headline_toolbox {
+		value = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:toolbox}
+		insertData = 1
+	}
+
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/mainmenu.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/service-menu.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/submenu.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/uplinks.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/searchbox.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/user-lang.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/footer.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/frontpage.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/page-features.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/news.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:acad_ue_templates/ts/news-defaultstyles.txt">
+
+
+
+
+

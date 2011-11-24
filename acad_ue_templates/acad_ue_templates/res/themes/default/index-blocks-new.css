@@ -1,0 +1,296 @@
+/**
+* blocks.css
+*
+* This file is intended only for the frontend (not RTE)
+* It contains
+* - definitions for menues, header and footer and so on as well as
+* - definitions for the major layout blocks.
+*/
+@import url(menu_user.css);
+
+/********************** HTML and BODY ******************************/
+
+/**
+* 100.1 dalmatiens as a basis to prevent IE from doing one of its funny (mis)calculations
+* It is the .1 which is CRUCIAL
+*/
+html {
+	font-size: 100.1%;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+* Now for the body set the font-size to what you would like to have
+* in menus, i.e. the smallest font-size you want to have on your page.
+* This way, we have a consistent font-size to calculate with in ex and em
+* for the layout of our page.
+* To honor the space occupied by the static #Footer, its height + some "air"
+* is set as padding-bottom.
+*/
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	border: none;
+	background-color: #FDFCF2;
+	background-color: #FCF9E4;
+	font-size: 0.74em;
+}
+
+
+#top {
+	position: relative;
+	width: expression( (document.documentElement||document.body).clientWidth > 1200 ? "1200px" : "auto");
+	max-width: 1280px !important;
+	height: 1%; overflow: visible;
+	background: #FDFCF2;
+}
+
+/**************************** LOGO + BANNER ***********************************/
+
+#wrap-sitetitle {
+	margin: 0;
+	padding: 0 0;
+	border: none;
+	color: #FAF7D8;
+	border-top: 1px solid;
+	font-size: 1px;
+	position: relative;
+}
+
+#sitetitle { /* width="67" height="77" */
+	line-height: 1;
+	margin: 10px 0 0 10px;
+}
+
+#unilogo { /* width="331" height="22" */
+	border: none;
+	vertical-align: middle;
+	line-height: 1;
+}
+
+#wortmarke {
+	border: none;
+	margin-left: 10px;
+}
+
+/***************************** MAIN BLOCKS ************************************/
+
+* html #wrap-all {
+	display: inline-block;
+}
+#wrap-all {
+	position: relative;
+}
+
+#wrap-menu {
+	float: left;
+	clear: both;
+	width: 100%;
+	margin-top: 27ex; 	/* s.a. #wrap-servicemenu .margin-top */
+}
+
+#wrap-realms {
+	float:left;
+	clear: both;
+	width: 100%;
+	background-color: #FCF9E4;
+	background-image: url(backgrounds/line_realm_divider.png);
+	background-repeat: no-repeat;
+	background-position: left top;	
+	border-bottom: 1px solid #254457;
+}
+
+
+
+#wrap-header {
+	position: absolute;
+	width: 100%;
+	top: 2ex;
+	left: 0px;
+	height: 20.5ex;		 /* s.a. #wrap-servicemenu .margin-top */
+	font-size: 100%;
+	line-height: 1ex;
+	background: #254457;
+}
+
+
+#wrap-header h2.collage {
+	position: relative;
+	font-size: 100%;
+	line-height: 1;
+	height: 18ex !important;
+	margin-top: 1ex;
+	overflow: hidden;
+
+	background-image: url(portale/collage_index.jpg);
+	background-repeat: repeat-x;
+	border-top: 1px solid #000029;
+	border-bottom: 1px solid #000029;
+}
+
+/* miscellaneous blocks */
+#wrap-misc {
+	float: none;
+	clear: both;
+	display: block;
+}
+
+#wrap-servicemenu {
+	clear: both;
+	position: absolute;
+	margin-top: -5ex;	/* s.a. #wrap-menu.margin-top */
+	width: 100%;
+	height: auto;
+	z-index: 3999;
+	/* margin-left: -100%;*/
+}
+ul.servicemenu {
+	float: right;
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+	height: auto;
+	width: 26em;
+	min-width: 26em;
+	background: #254457;
+	border-top: 2px solid #254457; /* h2.collage borders */
+}
+* html #wrap-servicemenu {
+	margin-top: 100px;
+	top: 5ex;
+}
+
+ul.servicemenu li {
+	float: left;
+	list-style:none;
+	letter-spacing:0.01em;
+	line-height: 3ex;
+	/* margin: 0 0 0 0.5ex; */
+	margin: 0;
+	padding: 0;
+	width: 25%;
+}
+
+ul.servicemenu li.first {margin-left:25%;}
+
+ul.servicemenu a {
+	display: block;
+	text-align: center;
+	text-decoration:none;
+	font-size: 0.9em;
+}
+
+/* sericemenu colors */
+.servicemenu a {
+	color: #ffffff;
+	border: 1px solid #254457;
+	font-weight: bold;
+}
+
+.servicemenu a:hover {
+	color: #ffffff;
+	background: #346E86;
+	border: 1px solid #254457;
+}
+
+/* suche */
+#toolbox1 {
+	position: absolute;
+	font-size: 100%;
+	line-height: 1;
+	top: -4ex;
+	width: 100%;
+}
+
+#toolbox1 form {
+	float: right;
+	height: 4.5ex;
+	padding-top: 1ex;
+	width: 29em;
+	min-width: 26em;
+	background: #254457;
+}
+
+#search-form {font-size: inherit;}
+#toolbox1 form label {color:#ffffff; font-weight:bold; margin-left: 3em}
+/*
+ * such formular
+ */
+
+ul.search-tools {
+	display: table-row !important;
+	list-style: none;
+}
+* html ul.search-tools {
+	display: inline;
+}
+
+ul.search-tools li {
+	display: table-cell !important;
+	padding: 0px 1ex;
+}
+* html ul.search-tools li {
+	display: block;
+	float: left;
+	padding: 0;
+}
+
+.search-tools input,
+.search-tools button,
+.search-tools select {
+	vertical-align: middle;
+	font-size: 0.9em;
+	line-height: 1;
+}
+.search-tools input {
+	background: #ffffff url(icons/lupe.gif) no-repeat 2px 2px;
+	padding-left: 16px;
+	width: 9em;
+}
+.search-tools select {
+	width: 12em;
+}
+.search-tools button.submit {
+	/*width: 2.5em;
+	 bg image mit >> */
+}
+button.submit span {
+	visibility:hidden;
+}
+
+/*
+ * usermenu and language selector
+ */
+#toolbox2 {
+	position: absolute;
+	top: -100px;		/* ~ h2.collage:  .height - .margin-top */
+	right: 0px;
+	margin-right: 10px;
+}
+
+
+
+#footer {
+
+background: #264353;
+color: #ffffff;
+margin-top: 10px;
+}
+
+
+
+#xfooter span { display: block; float:left; height:2em; padding:0.5ex 1em 0.5ex 1em; }
+
+/* ----------------------------------------------------------*/
+* html #xfooter {
+	border: none;
+	padding:0;
+
+	/* position:fixed "unten" */
+	position: absolute;
+	bottom:0;
+	top: expression( (document.documentElement||document.body).scrollTop + (document.documentElement||document.body).clientHeight - this.clientHeight);
+	width: expression( (document.documentElement||document.body).clientWidth );
+}

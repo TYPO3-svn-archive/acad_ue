@@ -1,0 +1,60 @@
+/**
+ * forms.css - (c)2006 - media++ Karlsruhe http://www.webmechanic.biz
+ *
+ * Generic FORM elements for color scheme "default"
+ *
+ * fuer   : uni-erfurt.de
+ * Datum  : 07.11.2006
+ * Version: 1.0
+ * Autor  : R. Serradeil
+ */
+
+/* std. forms occupy too much room, and each will req. individual spacing
+	defined by using it's ID attribute someplace else.
+ */
+form {
+	display: inline;
+	padding: 0;
+	border : none;
+	/* font-size: inherit; */
+	font-size: 0.9em;
+}
+
+/* pict submit button with span for caption */
+button {
+	cursor: pointer;
+}
+button.submit {
+	font-size: 0.8em;
+	line-height: 0.5;
+	width: 25px;
+	height: 17px;
+	vertical-align: bottom;
+	margin-left: 1ex;
+	border-width: 1px;
+	color: #254457;
+	background: url(icons/white/btn_go.gif) no-repeat;
+
+}
+button.submit span { display: none; padding: 0; }
+
+
+/*
+ * WAC utilities
+ */
+#frm-wac strong { color: #8c0043; }
+#frm-wac label  { color: #000029; line-height:normal; margin-right:1ex; }
+#frm-wac label input { vertical-align:middle; }
+
+
+/* current option from WAC tools */
+#frm-wac label.current { font-weight:bold; }
+
+label.label-right {display: inline}
+
+/* Specials for indexed search */
+.tx-indexedsearch-searchbox div {margin-top:0.5em}
+
+.tx-indexedsearch .tx-indexedsearch-searchbox input.tx-indexedsearch-searchbox-sword {
+    width:19.5em;
+}

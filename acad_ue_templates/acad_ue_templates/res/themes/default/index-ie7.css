@@ -1,0 +1,40 @@
+div.misc {position: relative; height: 1%; overflow: visible}
+
+/*html .clearfix {display: inline-block;}*/
+#wrap-servicemenu {margin-left:-100%}
+/*#insidermenu li, #insidermenu a {display:inline}*/
+ul.insidermenu {
+	display: inline-block;
+}
+
+ul.insidermenu li {
+	display: inline;
+	float: left;
+}
+
+ul.search-tools {
+	display: inline;
+}
+
+ul.search-tools li {
+	display: block;
+	float: left;
+	padding: 0;
+}
+
+ul.search-tools input,
+ul.search-tools button,
+ul.search-tools select {
+	vertical-align: top;
+	font-size: 0.9em;
+	line-height: 1;
+}
+
+
+ul.search-tools button.submit {
+	width: 3em;
+	font-size: 1em;
+	vertical-align:bottom;
+	
+	/* bg image mit >> */
+}

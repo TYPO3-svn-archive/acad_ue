@@ -1,0 +1,102 @@
+/* default styles for extension "tx_syntaxhighlight" */
+
+ 
+
+
+.tx-syntaxhighlight {
+	position: relative;
+	font-family: "Lucida Console","Andale Mono","Courier New",Courier,symbol,greek,monospace !important;
+	font-weight: normal;
+	margin:0 0;
+	max-width: 99%;
+	
+}
+
+.tx-syntaxhighlight .title {
+	margin: 0 0;
+	font-size: 0.8em;
+	padding: 0.5em;
+	background-color: #f9faf7;
+	background-image: url(backgrounds/gradient_lightblue_dt.png);
+	background-repeat: repeat-x;
+	background-position: bottom left;
+	border: 1px solid #E0E8EF;
+	font-weight: bold;
+}
+
+.tx-syntaxhighlight .text {
+border-style: solid; border-width: 1px;	
+	background-color: #f9faf7;
+	border-color: #E0E8EF;
+	border-top-color: #556C79;
+	padding-left: 1em;
+	background-image: url(backgrounds/gradient_lightblue_lr.png);
+	background-repeat: repeat-y;
+	margin: 0 0;
+	overflow: auto;
+	padding: 0px 0 8px 8px;
+	white-space: nowrap;
+max-height:250px;
+	font-size: 0.9em;
+}
+
+.clippyCopyLink {
+	font-size:0.8em;
+	line-height:2em;
+}
+.clippyCopyLink  a {
+
+	background-image: url(icons/copy-to-cb.gif); 
+	padding: 3px 0px 3px 20px;
+	background-position: 0px 0px !important;
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+
+.clippyCopyLink  a:hover,
+.clippyCopyLink  a:hover,
+ {border-bottom:0px}
+
+
+.de1, .de2 {border-left: 1px solid #eee}
+
+
+.tx-syntaxhighlight ol {margin-top:0px}
+.tx-syntaxhighlight ol li { color: #606060; border-left: 1px solid #E0E8EF; border-bottom:1px solid #E0E8EF;}
+.tx-syntaxhighlight ol li div { color: #060; }
+.tx-syntaxhighlight .imp { font-weight: bold; color: red; }
+.tx-syntaxhighlight .ln-xtra { background: #fcc; }
+.tx-syntaxhighlight li:hover, .tx-syntaxhighlight li.li2:hover {background-color:#FEF6C6}
+.tx-syntaxhighlight li.li2 { background: #EEF3F9; }
+
+/* TS/stdWrap properties: */
+.tx-syntaxhighlight .kw1 { color: #009; }
+
+/* cObjects: */
+.tx-syntaxhighlight .kw2 { color: #990000; font-weight: bold}
+
+/* GIFBUILDER only: */
+.tx-syntaxhighlight .kw3 { color: #060; font-weight:bold; }
+
+/* *MENU objects (not including HMENU): */
+.tx-syntaxhighlight .kw4 { color: #006; font-weight:bold; }
+
+/* TLO: */
+.tx-syntaxhighlight .kw5,
+.tx-syntaxhighlight .re3  { color: #00f; }
+
+/* HTML elements: */
+.tx-syntaxhighlight .re1 { color: #900; font-weight:bold; background: #fee; }
+/* HTML entities: */
+.tx-syntaxhighlight .re2 { color: #900; background: #fee; }
+
+.tx-syntaxhighlight .co1 { color: #808080; font-style: italic; }
+.tx-syntaxhighlight .co2 { color: #808080; font-style: italic; }
+.tx-syntaxhighlight .coMULTI { color: #808080; font-style: italic; }
+.tx-syntaxhighlight .es0 { color: #009; font-weight: bold; }
+.tx-syntaxhighlight .br0 { color: #333; font-weight:bold; }
+.tx-syntaxhighlight .st0 { color: #f00; }
+.tx-syntaxhighlight .nu0 { /* GESHI does badly with some numerals such as the second and third digits in '2.75em;' */ }
+.tx-syntaxhighlight .me1 { color: #060; }
+.tx-syntaxhighlight .me2 { color: #060; }
+.tx-syntaxhighlight .re0 { color: #00f; }

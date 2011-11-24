@@ -1,0 +1,199 @@
+/**
+ * @description Displays the header image
+ * @todo make dynamic
+ */
+ 
+lib.shared_headerimage = COA
+lib.shared_headerimage {
+		// get the portaltitle-value and write it into a register
+	5 = LOAD_REGISTER
+	5.portaltitleValue.cObject < plugin.tx_t3wgetrootlinefield_pi1
+	5.portaltitleValue.cObject {
+		  // we want only 1 result
+		collect=0
+		collectReverse=0
+		  // field in which value we are interested
+		fieldToReturn = tx_acaduesubsites_title//title
+		  // condition: doktype 77 , see tsref / if for more
+		if.value=77
+		if.equals.field=doktype
+	}
+	
+	5.portalID.cObject < plugin.tx_t3wgetrootlinefield_pi1
+	5.portalID.cObject < plugin.tx_t3wgetrootlinefield_pi1
+	5.portalID.cObject {
+		  // we want only 1 result
+		collect=0
+		collectReverse=0
+		  // field in which value we are interested
+		fieldToReturn = uid
+		  // condition: doktype 77 , see tsref / if for more
+		if.value=77
+		if.equals.field=doktype
+	}
+	
+	
+		// get the imagefile for the background-image
+		// we have to insert it with dataWrap later, thats why we use a REGISTER here.
+	10 = LOAD_REGISTER
+	10.portaltitleFile.cObject = COA
+	10.portaltitleFile.cObject {
+		5 = TEXT
+		5 {
+			data = register:portaltitleValue
+			split {
+				token.char = 10
+				cObjNum = |*| 1 || 2 || 3 |*|
+				max = 3
+				1.10 = LOAD_REGISTER
+				1.10.portalTitleLine1.current = 1
+				2.10 = LOAD_REGISTER
+				2.10.portalTitleLine2.current = 1
+				3.10 = LOAD_REGISTER
+				3.10.portalTitleLine3.current = 1
+			}
+		}
+			// we need the COA for the if. Using if in the img_resource would mean, that the would be rendered, but we want it to be rendered only if it's used.
+		10 = COA
+		10 {
+			10 = IMG_RESOURCE
+			10 {
+				file = GIFBUILDER
+				file {
+					XY = [10.w],[10.h]
+					backColor = #0d3046
+					10 = TEXT
+					10.text {
+						data = register:portaltitleValue
+							// using split with max=3 to make sure, that only 3 lines are used
+						split {
+							token.char = 10
+							cObjNum = 1
+							max = 3
+							1.current = 1
+							1.append = TEXT
+							1.append.char = 10
+						}
+					}
+					10 {
+						fontFile = fileadmin/fonts/ARIALUNI.TTF
+						fontColor = white
+						fontSize = 16
+						offset = 0,12
+					}
+				}
+			}
+				// using only , if line 3 is true (3 lines)
+			if.isTrue.data = register:portalTitleLine3
+		}
+		20 < .10
+		20.10.file.XY = [10.w]+4,[10.h]+10
+		20.10.file.10.fontSize = 20
+		20.10.file.10.offset = 0,24
+		20.if >
+			// using only, if line 2 is true, but line 3 is false (2 lines at all)
+		20.if.isTrue.data = register:portalTitleLine2
+		20.if.isTrue.if.isFalse.data = register:portalTitleLine3
+		
+			// 1 line only, if line 2 and 3 are empty
+		30 < .10
+		30.10.file.XY = [10.w]+4,[10.h]+4
+		30.10.file.10.fontSize = 24
+		30.10.file.10.offset = 0,22
+		30.if >
+		30.if.isFalse.cObject = COA
+		30.if.isFalse.cObject {
+			10 = TEXT
+			10.data = register:portalTitleLine2
+			20 = TEXT
+			20.data = register:portalTitleLine3
+		}
+	}
+		// Get the imagewidth
+	20 = LOAD_REGISTER
+	20.portaltitleFileWidth.cObject = TEXT
+	20.portaltitleFileWidth.cObject.data = TSFE:lastImgResourceInfo|0
+
+		// Height of the image
+	20.portaltitleFileHeight.cObject = TEXT
+	20.portaltitleFileHeight.cObject.data = TSFE:lastImgResourceInfo|1
+	
+		// Width of the h1 element (image width plus some padding)
+	20.portaltitleWidthTemp.cObject = TEXT
+	20.portaltitleWidthTemp.cObject {
+		value = {register:portaltitleFileWidth} + 55
+		prioriCalc = 1
+		stdWrap.insertData = 1
+	}
+	
+		// Width of the h1 element set to 270 minimum
+	20.portaltitleWidth = 270
+	20.portaltitleWidth.override {
+		data = register:portaltitleWidthTemp
+		if.isGreaterThan.data = register:portaltitleWidthTemp
+		if.value = 270
+	}			
+	
+		// How much of the height is left (i.e. height-of-header - image height	
+	20.portaltitleHeightRest.cObject = TEXT
+	20.portaltitleHeightRest.cObject {
+		value = 80 - {register:portaltitleFileHeight}
+		prioriCalc = 1
+		stdWrap.insertData = 1
+	}
+	
+		// top position of image to get it centered in the h1 element
+	20.portaltitleMarginTop.cObject = TEXT
+	20.portaltitleMarginTop.cObject {
+		value = {register:portaltitleHeightRest} / 2
+		prioriCalc = 1
+		stdWrap.insertData = 1
+	}
+
+        // Now we need the path to the collage
+    30 = COA
+    30 {
+        10 = LOAD_REGISTER
+        10.collage.cObject = USER
+        10.collage.cObject.userFunc = tx_acad_ue_templates->getHeaderImage
+        #10.collage.cObject.default = /fileadmin/templates/images/collagen/collagen-01.jpg
+        10.collage.cObject.default = {$defaultHeaderImage}
+
+        20 = TEXT
+        20.dataWrap = background-position:{register:portaltitleWidth}px 0px; background-image: url({register:collage})
+    }
+
+ }
+
+/**
+ * @description Renders the portal title as image
+ * @todo Adjust font sizes and offsets
+ */
+
+lib.shared_portaltitle = COA
+lib.shared_portaltitle {
+		// Return the HTML
+		
+	50 = COA
+	50 {
+		
+		25 = TEXT
+		25.value = <h1 id="portaltitle" style="width:{register:portaltitleWidth}px;">
+		25.insertData = 1
+		
+		30 = TEXT
+		30 {
+			field = title
+			typolink.parameter.data = register:portalID
+			typolink.ATagParams.dataWrap = style="top:{register:portaltitleMarginTop}px;background:url(/{register:portaltitleFile}) no-repeat;width:{register:portaltitleFileWidth}px;height:{register:portaltitleFileHeight}px;"
+			typolink.wrap = <span class="hfg"> | </span>
+			typolink.ATagBeforeWrap = 1 
+		}
+		
+		35 = TEXT
+		35.value = </h1>
+	}
+}
+
+
+

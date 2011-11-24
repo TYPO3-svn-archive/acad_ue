@@ -1,0 +1,137 @@
+/**
+ * menu_user.css - (c)2006 - media++ Karlsruhe http://www.webmechanic.biz
+ *
+ * Die Datei ist via @import in menu.css oder index.css einzubinden
+ *
+ * fuer   : uni-erfurt.de
+ * Datum  : 09.11.2006
+ * Version: 1.0
+ * Autor  : R. Serradeil
+ */
+
+
+
+/* user, profile, lang select inside #toolbox2 */
+#usermenu {
+	position: relative;
+	display: block;
+	margin: 0 0;
+	padding: 0 0;
+	height: 4ex;
+}
+* html #usermenu {
+	position: absolute;
+	right: 0px;
+	margin-right: -10px;
+}
+
+#usermenu li {
+	float: left;
+	margin: 0 0;
+	padding: 2px 0 0 0;
+	height: 3.5ex;
+	font-size: 1em;
+	line-height: normal;
+	list-style: none;
+}
+
+#usermenu li a,
+#usermenu li a:focus {
+	display: block !important;
+	display: inline-block;
+	margin-top: -2px;
+	text-decoration: none;
+	text-align: center;
+	padding: 2px 12px 2px 12px;
+	height: 3.5ex;
+	color: #000029;
+	white-space: nowrap;
+}
+#usermenu li.userinfo a {
+	background: url(icons/user_mini.gif) left 1.2ex no-repeat;
+}
+
+#usermenu li.userinfo a:active,
+#usermenu li.userinfo a:hover,
+#usermenu li.userinfo a:focus {
+	color: #ffffff;
+	background: #8C0043 url(backgrounds/bg_usermenu_hover.gif) right bottom no-repeat;
+}
+
+#usermenu li.menuitem {
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: #819297;
+}
+
+#usermenu li.menuitem a:active,
+#usermenu li.menuitem a:hover,
+#usermenu li.menuitem a:focus {
+	color: #ffffff;
+	background: #8C0043;
+}
+
+/* language selector */
+#usermenu li.lang {
+	padding-left: 1ex;
+	padding-right: 1em;
+	padding-bottom: 1px;
+	/*background: #EDF0D7;*/
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	border-color: #819297;
+}
+
+li.lang img {
+	margin-right: 6px;
+}
+
+li.lang select {
+	
+	font: 0.91em/1em "Arial Unicode MS", "Lucida Sans Unicode", sans-serif;
+}
+
+li.lang option {
+	color: #000029;
+	font-family: "Arial Unicode MS", "Lucida Sans Unicode", sans-serif;
+	text-indent: 16px;
+}
+
+/**
+* Flags for the language menu
+*
+* the value[#] has to correspond with the uid-field of table sys_language
+*/
+
+/* german / Germany */
+li.lang option[value="0"] { background: url(../shared/flags/de.gif) no-repeat; }
+/* english / Great Britain */
+li.lang option[value="1"] { background: url(../shared/flags/gb.gif) no-repeat; }
+/* french / France */
+li.lang option[value="3"] { background: url(../shared/flags/fr.gif) no-repeat; }
+/* spanish / Spain */
+li.lang option[value="4"] { background: url(../shared/flags/es.gif) no-repeat; }
+/* italian / Italy */
+li.lang option[value="5"] { background: url(../shared/flags/it.gif) no-repeat; }
+/* japanese / Japan */
+li.lang option[value="6"] { background: url(../shared/flags/jp.gif) no-repeat; }
+/* russian / Russia */
+li.lang option[value="7"] { background: url(../shared/flags/ru.gif) no-repeat; }
+/* chinese / China */
+li.lang option[value="8"] { background: url(../shared/flags/cn.gif) no-repeat; }
+/* arabic / Saudi Arabia */
+li.lang option[value="9"] { background: url(../shared/flags/sa.gif) no-repeat; }
+/* greek / Greece */
+li.lang option[value="10"] { background: url(../shared/flags/gr.gif) no-repeat; }
+/* czech / Czech Republic */
+li.lang option[value="11"] { background: url(../shared/flags/cz.gif) no-repeat; }
+/* turkish / Turkey */
+li.lang option[value="12"] { background: url(../shared/flags/tr.gif) no-repeat; }
+/* urdu / Pakistan */
+li.lang option[value="13"] { background: url(../shared/flags/pk.gif) no-repeat; }
+
+li.lang button.submit {
+	vertical-align: top;
+	background: url(icons/blue/btn_go.gif) no-repeat;
+}
+

@@ -1,0 +1,45 @@
+@import url(../default/blocks.css);
+@import url(../default/common.css);
+@import url(../default/content.css);
+/*
+xbody, xoption {
+	font-family: "Arial Unicode MS", Arial, "Lucida Sans Unicode", Helvetica,Verdana, sans-serif !important;
+	font-size:9pt;
+}
+*/
+body, #wrap-all {background-color: transparent}
+#skiplinks_top,
+#breadcrumbs,
+#navigation,
+#wrap-submenu,
+#wrap-header,
+#tools, #toolbox1, #toolbox2,
+#footer,
+.wrap-downlinks,
+.pagetop,
+.prevtocnext
+{display:none}
+
+#top {padding-top:17ex}
+#sitetitle {top:-66px; clip:rect(auto auto auto auto);}
+#wrap-portaltitle {
+	background-image: none !important;
+	background-color: transparent;
+	height: auto;
+	padding-bottom:1em;
+}
+
+#portaltitle {background-image: none; border-right:none; width:auto !important}
+#portaltitle a {background-image:none !important; text-decoration: none !important; position:static; width:auto !important}
+#portaltitle a .hfg {position:static; font-size: 16pt; font-weight: normal; color:#00263C;top:0px;width:auto;display:inline;}
+
+
+#wrap-all, #wrap-all-inner {background-image: none}
+
+#content, #content-header, #content-footer {margin-left:0px; padding-right:0px}
+
+#content-header h2 {border-bottom:none !important}
+
+ul.bullet1 li {background-image: none; list-style-image: url(../default/icons/bullet_disc_lightblue_s.gif);}
+ul.contact-items li.contact-email {list-style-image:url(../default/icons/contact/contact_email.gif)!important; margin-left:18px; text-indent:-5px}
+li.contact-email a.mail, a.mail:visited {border-bottom: none;}

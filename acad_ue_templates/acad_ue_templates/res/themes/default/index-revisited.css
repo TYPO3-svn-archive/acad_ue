@@ -1,0 +1,213 @@
+/**
+ * bloecke.css Startseite - Universität Erfurt
+ * mehrspaltiges nebeneinander
+ *
+ * Stand: 2009-03-09
+ */
+
+
+
+
+
+h2 {
+
+	font-weight: bold;
+	font-size: 1em;
+	line-height: normal;
+	margin:0;
+	padding:0;
+	height:1.3em;
+	font-variant: small-caps;
+}
+
+
+
+
+#wrap-realms h3 {
+	background: #FFB200;
+	border-top: 1px solid #DE8421;
+	border-bottom: 1px solid #DE8421;
+	font-size: 1.4em;
+	line-height: normal;
+	margin: 0 1px 0 0;
+	padding: 0 0;
+}
+
+#wrap-realms h3 a {
+	display: block;
+	padding-top: 0.5ex;
+	padding-bottom: 0.5ex;
+	padding-left: 10px;
+	text-decoration: none;
+	color: #000029;
+}
+
+#wrap-realms h3 a:active, #wrap-realms h3 a:hover, #wrap-realms h3 a:focus {
+	background: #346E86;
+	background: #254457;
+	background: #FEDD63;
+	text-decoration: none;
+}
+
+#wrap-realms .mcol-5 .floatleft-20percent {
+	width: 20%;
+	float: left;
+	background-image: url(backgrounds/line_realm_divider.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	height: 100%;
+
+}
+
+#wrap-realms .mcol-5 {margin-left:1px}
+
+
+#wrap-realms .nobullets {
+	margin-left: 0px;
+}	
+
+#wrap-realms .nobullets li {
+	list-style: none;
+	margin: 0 0;
+	padding: 0.7ex 0px 0.7ex 0px;
+	line-height: 1.7ex;
+}
+
+#wrap-realms .nobullets li.list-divider {
+	background: url(backgrounds/list_divider.gif) 0px bottom no-repeat;
+	padding-bottom: 1em;
+	margin-bottom: 0.5em;
+}
+
+#wrap-realms li a, #wrap-realms li a:focus, #wrap-realms li a:hover {
+	color: #000029;
+	text-decoration: none;
+	background-position: 0px 0.3em;
+	background-repeat: no-repeat;
+}
+
+#wrap-realms li a:hover {text-decoration: underline}
+
+/* Wrapper for News and Events*/
+div.misc {
+	position: relative;
+	padding: 10px;
+	border:  none;
+	font-size: 1.06em;
+}
+
+div.misc .inner {
+	border:none;
+	width: 49.3%;
+}
+
+div.misc .news {
+	float: left;
+}
+
+div.misc .events {
+	float: right;
+}
+
+div.misc h2     {
+	float:left;
+	width:50%;
+	height:1.5em;
+	line-height:1.5em;
+	background-color: #3A7076;
+	border:1px solid #002832;
+	border-bottom-color: #3A7076;
+}
+
+div.misc h2 span { color:white; padding-left:1ex; }
+
+div.misc p.allstuff {
+	display: inline;
+	padding-left: 1ex;
+	font-weight: bold;
+}
+
+div.misc p.allstuff a,
+div.misc p.allstuff a:focus {
+	color: #000029;
+	text-decoration: none;
+}
+
+div.misc dt .date {font-weight: normal !important}
+
+
+div.news   dl,
+div.events dl{ border:1px solid #599DAE; background: #FFFFFB;}
+
+/**
+* Shortcut-menu for insiders
+*/
+
+ul.insidermenu {
+	position: relative;
+	float: right;
+	bottom: 1ex;
+}
+
+* html ul.insidermenu {
+	display: inline-block;
+}
+ul.insidermenu {
+	display: table-row !important;
+	list-style: none;
+}
+
+* html ul.insidermenu li {
+	display: inline;
+	float: left;
+}
+
+ul.insidermenu li {
+	display: table-cell !important;
+}
+
+
+ul.insidermenu a,
+ul.insidermenu a:focus {
+	display: block;
+	text-decoration: none;
+	color: #000029;
+	padding: 0px 1ex;
+	border-right: 1px solid #000029;
+	line-height: 3ex;
+}
+
+ul.insidermenu li.last {padding-right: 5px}
+ul.insidermenu li.last a, ul.insidermenu li.last a:focus{
+	border-right: none;
+}
+
+ul.insidermenu a:focus, ul.insidermenu a:active, ul.insidermenu a:hover {
+	color: #ffffff;
+	background: #8C0043;
+}
+
+/**
+* helpermenu
+*/
+
+.helpermenu {
+	float: left;
+	margin: 0 0;
+	padding: 0 0;
+	width: 68%;
+	line-height: 4.5ex;
+}
+
+.helpermenu li {
+	display: inline;
+	list-style: none;
+	margin-right: 10px;
+}
+
+.helpermenu a {color: #ffffff; text-decoration: none;}
+.helpermenu a:focus,
+.helpermenu a:active,
+.helpermenu a:visited {text-decoration: underline}
+
+

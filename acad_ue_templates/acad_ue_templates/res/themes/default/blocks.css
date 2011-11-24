@@ -1,0 +1,189 @@
+/**
+* blocks.css
+*
+* This file is intended only for the frontend (not RTE)
+* It contains
+* - definitions for menues, header and footer and so on as well as
+* - definitions for the major layout blocks.
+*/
+/********************** HTML and BODY ******************************/
+
+/**
+* 100.1 dalmatiens as a base font size to prevent IE from doing one of its funny (mis)calculations
+* It is the .1 which is CRUCIAL
+*/
+html {
+	font-size: 100.1%
+}
+
+/**
+* Now for the body set the font-size to what you would like to have
+* in menus, i.e. the smallest font-size you want to have on your page.
+* This way, we have a consistent font-size to calculate with in ex and em
+* for the layout of our page.
+* See #content for the (of course bigger) font-size of the content area
+* of each page.
+*/
+body {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	border: none;
+	background-color: #FAF7D8;
+	font-size: 0.74em;
+}
+
+/**
+* Markup is h1 contains the linked logo and a span.hfg with "Universität Erfurt"
+* Parent is #wrap-portaltitle
+*/
+#sitetitle {
+	position: absolute;
+	margin: 0 0;
+	padding: 0 0;
+	width: 34px;
+	height: 40px;
+	top: -56px;
+	left: 1px;
+	z-index: 5000;
+	clip:rect(0px 44px 50px auto);
+	
+}
+
+
+/**
+* Markup: h1
+* Parent: #wrap-portaltitle
+* Text is wrapped in span.hfg, so only the background-image is shown
+*/
+#portaltitle {
+	position: relative;
+	height: 100%;
+	font-size: 1em;
+	line-height: normal;
+	padding: 0 0;
+	margin: 0 0;
+	width: 270px;
+	background: url(backgrounds/bg_portaltitle.gif) no-repeat;
+	border-right: 1px solid #000029;
+}
+
+#portaltitle a {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 26px;
+	background: url(portale/kunst/portaltitel_de.gif);
+}
+
+/****************************** TOOLS *****************************/
+
+/**
+* Search
+*/
+#toolbox1 {
+	position: absolute;
+	top: 11.3ex;
+	right: 0px;
+	width: 16em;
+	color: #ffffff;
+	z-index: 3000;
+	height: 12.4ex;
+	background: #326B82 url(backgrounds/bg_portaltitle.gif) no-repeat top right;
+	border-left: 1px solid #000029;
+}
+
+#toolbox1-inner {
+	position: relative;
+	top: 1ex
+}
+
+/**
+* User menu and language selector
+*/
+#toolbox2 {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+/********************************* MAIN BLOCKS ********************************************/
+
+/**
+* Wraps absolutely everything apart from the footer
+* The padding top value is calculated as follows:
+*   top of #wrap-portaltitle
+* + height of #wrap-portaltitle
+* + border-bottom-width of #wrap-portaltitle
+* + height of #wrap-menu
+*
+*/
+#top {
+	position: relative;
+	margin: 0px 20px 0px 20px;
+	padding: 0px 0px 0px 0px;
+	min-width: 740px;
+	max-width: 1200px;
+	padding-top: 32ex;
+}
+
+/**
+* Markup: div
+* Parent: #top
+* Contains: #sitetitle and #portaltitle
+* - Height value has to be a little less then the height of the background-image,
+*   so that users can scale up one level and there is still a bit of image left.
+* - If you change the height value, be sure to adjust the height value of wrap-header
+* - If the top value is changed here, you have to do two things:
+*   1) recalculate the padding-top value of #top
+*   2) set the top value of #toolbox1 (which contains the search) to the same value as the top value of #wrap-portaltitle
+*/
+#wrap-portaltitle {
+	position: absolute;
+	top: 11.3ex;
+	left: 0px;
+	height: 12.3ex;
+	width: 100%;
+	z-index: 1100;
+	background: #346E86 url(portale/kunst/portaltitel_collage.jpg) 270px 0px repeat-x;
+	border-bottom: 0.1ex solid #0D3046;
+	border-top: 0.1ex solid #0D3046;
+	
+}
+
+#wrap-all {
+	background: #FDFCF2 url(backgrounds/column_divider.gif) top right repeat-y;
+}
+
+#wrap-all-inner {
+	width: 100%;
+	background: url(backgrounds/column_divider.gif) repeat-y;
+}
+
+/**
+* wraps the main menu and the service menu
+* parent is #wrap-all-inner OR #wrap-divider-2col depending on template.
+* - height and top values have to be calculated as follows:
+*   height of #wrap-portaltitle + height of #wrap-menu
+*/
+#wrap-header {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 19.2ex;
+	left: 0px;
+	top: -19.2ex;
+	background: #ffffff;
+}
+
+/**
+* The real content
+*/
+#content, #content-header, #content-footer {
+	font-size: 1.2em;
+	margin-left: 22px;
+	padding-right: 25px;
+	float: none;
+}
+
+
+

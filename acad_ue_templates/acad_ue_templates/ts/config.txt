@@ -1,0 +1,144 @@
+	// Cooluri-Configuration
+config.simulateStaticDocuments = 0
+config.tx_cooluri_enable = 1
+config.baseURL = http://{$unierfurt.baseURL}
+config.prefixLocalAnchors = all
+
+
+	// Show Links to access restricted pages
+config.typolinkLinkAccessRestrictedPages = {$login_page}
+config.typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###&pageId=###PAGE_ID###
+
+
+	// localisation config
+config {
+	linkVars = L
+	sys_language_mode = content_fallback
+	sys_language_overlay = hideNonTranslated
+	sys_language_uid = 0
+	language = de
+	locale_all = de_DE.utf8
+	htmlTag_langKey = de
+	renderCharset = utf-8
+	metaCharset = utf-8
+}
+
+# @description default german
+[globalVar = GP:L = 0]
+config {
+	sys_language_uid = 0
+	language = de
+	locale_all = de_DE.utf8
+	htmlTag_langKey = de
+}
+
+# @description arabic
+[globalVar = GP:L = 9]
+config {
+	sys_language_uid = 9
+	language = ar
+	locale_all = ar_SA.utf8
+	htmlTag_langKey = ar
+}
+
+# @description chinese
+[globalVar = GP:L = 8]
+config {
+	sys_language_uid = 8
+	language = ch
+	locale_all = zn_CN.utf8
+	htmlTag_langKey = zh
+}
+
+# @description english
+[globalVar = GP:L = 1]
+config {
+	sys_language_uid = 1
+	language = en
+	locale_all = en_GB.utf8
+	htmlTag_langKey = en
+}
+
+# @description french
+[globalVar = GP:L = 3]
+config {
+	sys_language_uid = 3
+	language = fr 
+	locale_all = fr_FR.utf8
+	htmlTag_langKey = fr
+}
+
+# @description greek
+[globalVar = GP:L = 10]
+config {
+	sys_language_uid = 10
+	language = gr 
+	locale_all = el_GR.utf8
+	htmlTag_langKey = el
+}
+
+# @description italian
+[globalVar = GP:L = 5]
+config {
+	sys_language_uid = 5
+	language = it 
+	locale_all = it_IT.utf8
+	htmlTag_langKey = it
+}
+
+
+# @description japanese
+[globalVar = GP:L = 6]
+config {
+	sys_language_uid = 6
+	language = jp 
+	locale_all = jp_JP.utf8
+	htmlTag_langKey = jp
+}
+
+# @description russian
+[globalVar = GP:L = 7]
+config {
+	sys_language_uid = 7
+	language = ru 
+	locale_all = ru_RU.utf8
+	htmlTag_langKey = ru
+}
+
+# @description spanish
+[globalVar = GP:L = 4]
+config {
+	sys_language_uid = 4
+	language = es 
+	locale_all = es_ES.utf8
+	htmlTag_langKey = es
+}
+
+# @description czeck
+[globalVar = GP:L = 11]
+config {
+	sys_language_uid = 11
+	language = cz 
+	locale_all = cz_CZ.utf8
+	htmlTag_langKey = cz
+}
+
+# @description turkish
+[globalVar = GP:L = 12]
+config {
+	sys_language_uid = 12
+	language = tr 
+	locale_all = tr_TR.utf8
+	htmlTag_langKey = tr
+}
+
+# @description urdu
+[globalVar = GP:L = 13]
+config {
+	sys_language_uid = 13
+	language = ur 
+	locale_all = ur_PK.utf8
+	htmlTag_langKey = ur
+}
+
+[global]	

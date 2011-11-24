@@ -1,0 +1,143 @@
+
+# --------------- CALCULATING ENTRYLEVELS ------------------ #
+# --------------- DEPRECATED ?? ------------------ #
+	##
+	# @description Calculates the entryLevel for the main menues
+	# @see CONSTANTS: $portal_entrylevel
+	# @todo Try to find out $portal_entrylevel dynamically
+
+	lib.shared_calc_mainmenu_entrylevel = TEXT
+	lib.shared_calc_mainmenu_entrylevel.value = {$portal_entrylevel}
+	lib.shared_calc_mainmenu_entrylevel.intval = 1
+
+	##
+	# @description	Calculates the entryLevel for submenus
+	#				Requires that the service section is a direct child of the portal's start.
+	# @see CONSTANTS:$portal_entrylevel
+	# @see CONSTANTS:$portal_service_uid
+
+	lib.shared_calc_submenu_entrylevel = TEXT
+	lib.shared_calc_submenu_entrylevel.value = {$portal_entrylevel}+1
+	lib.shared_calc_submenu_entrylevel.prioriCalc = 1
+	[PIDupinRootline = {$portal_service_uid}]
+	lib.shared_calc_submenu_entrylevel.value = {$portal_entrylevel}+2
+	lib.shared_calc_submenu_entrylevel.prioriCalc = 1
+	[global]
+
+
+/**
+ * Displays a blind headline for the main menu
+ * 
+ * @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:main_menu
+ */
+lib.wac_headline_mainmenu = TEXT
+lib.wac_headline_mainmenu {
+	value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:main_menu}
+	insertData = 1
+}		
+	
+
+/**
+ * Create the 'home'-link for the main menu of a subsite
+ */ 
+lib.mainmenu_homelink = HMENU
+lib.mainmenu_homelink {
+    special = list
+    special.value.cObject < plugin.tx_t3wgetrootlinefield_pi1
+    special.value.cObject {
+		collect=0
+		collectReverse=0
+		fieldToReturn = uid
+		// condition: doktype 77 (subsite)
+		if.value=77
+		if.equals.field=doktype
+    }
+  
+    1 = TMENU
+    1 {
+      noBlur = 1
+      
+      NO {
+        allWrap = <li class="first">|</li>
+        stdWrap.htmlSpecialChars = 1
+        stdWrap.data = LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:home
+      }
+    
+      CUR = 1
+      CUR {
+        allWrap = <li class="first cur"><em>|</em></li>
+        stdWrap.htmlSpecialChars = 1
+        stdWrap.data = LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:home
+        doNotLinkIt = 1
+      }
+    }  
+}
+
+/**
+ * Render the main menu without the home link
+ */
+lib.mainmenu = HMENU
+lib.mainmenu {
+	entryLevel.cObject < plugin.tx_t3wgetrootlinefield_pi1
+	entryLevel.cObject {
+		collect=0
+		collectReverse=0
+		returnLevel = 1
+		fieldToReturn = uid
+		if.value=77
+		if.equals.field=doktype
+	}
+	includeNotInMenu = 0
+	excludeDoktypes = 5,6,101
+	1 = TMENU
+	1	{
+		showAccessRestrictedPages = {$login_page}
+		showAccessRestrictedPages.addParams = &return_url=###RETURN_URL###&pageId=###PAGE_ID###
+		noBlur = 1
+		
+		NO {
+			allWrap.cObject = CASE
+			allWrap.cObject {
+				key.field = doktype
+				default = TEXT
+				default.value = |*|<li>|</li>|*|<li class="last">|</li>
+				3 = TEXT
+				3.value = |*|<li class="external-link">|</li>|*|<li class="external-link last">|</li>
+			}
+			stdWrap.htmlSpecialChars = 1
+		}
+		
+		ACT = 1
+		ACT {
+			allWrap.cObject = CASE
+			allWrap.cObject {
+				key.field = doktype
+				default = TEXT
+				default.value = |*|<li class="act">|</li>|*|<li class="last act">|</li>
+				3 = TEXT
+				3.value = |*|<li class="external-link act">|</li>|*|<li class="external-link act last">|</li>
+			}
+
+			stdWrap.htmlSpecialChars = 1
+		}
+		
+		CUR = 1
+		CUR {
+			allWrap = |*|<li class="cur"><em>|</em></li>|*|<li class="last cur"><em>|</em></li>
+			stdWrap.htmlSpecialChars = 1
+			doNotLinkIt = 1
+		}
+	}
+}
+
+
+/**
+ * The whole mainmenu put together
+ */ 
+lib.shared_mainmenu = COA
+lib.shared_mainmenu {
+  wrap = <ul id="mainmenu" class="mainmenu">|</ul>
+  10 =< lib.mainmenu_homelink
+  20 =< lib.mainmenu
+}
+

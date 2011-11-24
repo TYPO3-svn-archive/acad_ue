@@ -1,0 +1,52 @@
+/*
+ * layout-1col.css
+ * fuer:    uni-erfurt.de
+ * Datum:   04.11.2006
+ * Version: 1.0
+ * Autor:   R. Serradeil
+ */
+
+
+/**
+* 
+* CAUTION: width has to correspond to width and margin-right of #wrap-sidebar
+*/
+#wrap-main {
+	float: none;
+	width: 100%;
+	min-height: 400px;
+}
+
+
+
+/**
+* Wraps the sidebar to the right
+* CAUTION: margin-right and width values have to be 100 - width of #wrap-main
+*/
+#wrap-sidebar {
+	float: left;
+	margin-right: -32%;
+	width: 32%;
+}
+
+#wrap-sidebar-inner {
+	padding-top: 4ex;
+	position: relative;
+	min-width: 160px;
+}
+
+
+#content {
+	padding-right: 25px;
+}
+
+.portalhome .credentials {
+	border-top: none;
+	padding-left: 15px;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	font-size: 1.1em;
+	text-align: center;
+}
+
+

@@ -1,0 +1,72 @@
+@import url(content.css);
+
+/**
+ * Correct link colors in textarea for FF
+ * If we do not set this here FF will always use the browser/user default color
+ */
+.htmlarea-content-body a, .htmlarea-content-body a:visited {
+	color: #2748B1 !important;
+	text-decoration: none !important;
+}
+.htmlarea-content-body dl.linklist_commented dt a {color: #10586D !important}
+
+
+/**
+ * Add borders to certain elements in RTE only
+ * They are meant as guidelines for authors only
+ */
+table, div.clearfix { border: 1px dotted #e4e4e4 }
+
+/**
+ * Elements that might have a clearing
+ */
+h1.clearL, h2.clearL, h3.clearL, h4.clearL, h5.clearL, h6.clearL,
+p.clearL, div.clearL, ol.clearL, ul.clearL, dl.clearL, table.clearL,
+pre.clearL, address.clearL, img.clearL,
+h1.clearR, h2.clearR, h3.clearR, h4.clearR, h5.clearR, h6.clearR,
+p.clearR, div.clearR, ol.clearR, ul.clearR, dl.clearR, table.clearR,
+pre.clearR, img.clearR, address.clearL {}
+
+div.align-right, p.align-right, h3.align-right, h4.align-right, h5.align-right, h6.align-right {}
+div.align-left, p.align-left, h3.align-left, h4.align-left, h5.align-left, h6.align-left {}
+div.align-center, p.align-center, h3.align-center, h4.align-center, h5.align-center, h6.align-center {}
+div.align-justify, p.align-justify, h3.align-justify, h4.align-justify, h5.align-justify, h6.align-justify {}
+
+b.warning, strong.warning {}
+
+div.cscheme1-rte,
+div.cscheme2-rte,
+div.cscheme3-rte,
+div.cscheme4-rte,
+pre.cscheme1-rte,
+pre.cscheme2-rte,
+pre.cscheme3-rte,
+pre.cscheme4-rte {}
+
+tr.tr-odd {}
+tr.tr-even {}
+
+td.td-odd {}
+td.td-even {}
+
+th.th-odd {}
+th.th-even {}
+
+td.td-odd-col {}
+td.td-even-col {}
+
+th.th-odd-col {}
+th.th-even-col {}
+
+div.cscheme4-rte div {color: #ffff00}
+
+/**
+ * png Alpha transparency fix for symbolic icons
+
+* html img.symicon-warning {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/warning.png', sizingMethod='scale')}
+* html img.symicon-tip  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/tip.png', sizingMethod='scale')}
+* html img.symicon-note  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/note.png', sizingMethod='scale')}
+* html img.symicon-background-info  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/background-info.png', sizingMethod='scale')}
+* html img.symicon-good  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/good.png', sizingMethod='scale')}
+* html img.symicon-bad  {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='symbols/bad.png', sizingMethod='scale')}
+*/

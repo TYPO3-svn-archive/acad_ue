@@ -1,0 +1,26 @@
+	# +-+-+-+ LANGUAGE MENU +-+-+-+ #
+site_langs = 0,1,3,4,5,6,7,8,9,10,11,12,13,14
+site_langs_wrap = value="0">Deutsch || value="1">English || value"3">Français || value="4">Español || value="5">Italiano || value="6">日本語 || value="7">Русский || value="8">漢語 || value="9">العربية || value="10">Ελληνικά || value="11">Čeština || value="12">Türkçe || value="13">اردو || value="14">Lingua Latina
+site_langs_flags = de.gif || gb.gif || fr.gif || es.gif || it.gif || jp.gif || ru.gif || cn.gif || sa.gif || gr.gif || cz.gif || tr.gif || pk.gif || spqr.gif
+global_menu_items = 413,352,46,2
+
+/*
+	# set the constants for different hosts
+
+unierfurt.baseURL = cms.uni-erfurt.de/		
+[globalString = _SERVER|HTTP_HOST=cmsdemo.uni-erfurt.de]
+unierfurt.baseURL = cmsdemo.uni-erfurt.de/	
+[globalString = _SERVER|HTTP_HOST=uni-erfurt.datenwolken.net]
+unierfurt.baseURL = uni-erfurt.datenwolken.net/
+[globalString = _SERVER|HTTP_HOST=spinne.uni-erfurt.t3]
+unierfurt.baseURL = spinne.uni-erfurt.t3/
+[globalString = _SERVER|HTTP_HOST=ute.uni-erfurt.t3]
+unierfurt.baseURL = ute.uni-erfurt.t3/
+[globalString = _SERVER|HTTP_HOST=susan.uni-erfurt.t3]
+unierfurt.baseURL = susan.uni-erfurt.t3/
+[globalString = _SERVER|HTTP_HOST=irene.uni-erfurt.t3]
+unierfurt.baseURL = irene.uni-erfurt.t3/
+[global]
+
+*/
+plugin.pmkslimbox.slimboxCSS = fileadmin/templates/themes/default/slimbox_ex.css

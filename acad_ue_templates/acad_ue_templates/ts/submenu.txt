@@ -1,0 +1,206 @@
+/**
+ * Renders the submenu
+ * 	 
+ * @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:submenu
+ * @see lib.shared_submenu	 
+ */ 	 
+
+	// Include a userFunc that enables us to count how many menuitem are on both levels
+	// Needed to calculate whether or not the submenu will be expanded or collapsed
+#includeLibs.menuCount=fileadmin/scripts/menu_count.php
+includeLibs.menuCount = typo3conf/ext/acad_cscadaptations/class.user_acadcscadaptations.php
+
+lib.submenu = COA
+lib.submenu.wrap = <div id="wrap-submenu">|</div>
+lib.submenu {
+
+		// Accessibility headline for the submenu
+	5 = TEXT
+	5.wrap = <h3 id="wac_headline_submenu" class="hfg">|</h3>
+	5.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:submenu}
+	5.insertData = 1
+
+		// Various calculations for entryLevel and expAll
+	10 = LOAD_REGISTER
+	10 {
+			// The level next subsite (doktype 77) up in rootline
+		subsiteLevel.cObject =< plugin.tx_t3wgetrootlinefield_pi1
+		subsiteLevel.cObject {
+			collect=0
+			collectReverse=0
+			returnLevel = 1
+			fieldToReturn = uid
+			if.value = 77
+			if.equals.field=doktype
+		}
+		
+			// uid of the service folder if up in rootline
+		servicePageId.cObject =< plugin.tx_t3wgetrootlinefield_pi1
+		servicePageId.cObject {
+			collect=0
+			collectReverse=0
+			fieldToReturn = uid
+			if.value=101
+			if.equals.field=doktype
+		}
+
+			// how many levels to add to the subsite level
+			// 1 for mainmenu, 2 for servicemenu because of the service folder in between		
+		addToLevel.cObject = HTML
+		addToLevel.cObject {
+			value = 1
+			value.override = 2
+			value.override.if {
+				value = 0
+				isGreaterThan.data = register:servicePageId
+			}
+		}	
+		
+			// entryLevel of the submenu
+		subMenuEntryLevel.cObject = TEXT
+		subMenuEntryLevel.cObject {
+			value = {register:subsiteLevel} + {register:addToLevel}
+			stdWrap.insertData = 1
+			prioriCalc = 1
+		}
+		
+			// level of current page		
+		curPageLevel.cObject =< plugin.tx_t3wgetrootlinefield_pi1
+		curPageLevel.cObject {
+			collect=0
+			collectReverse=0
+			returnLevel = 1
+			fieldToReturn = uid
+			if.data = register:id
+			if.equals.field=uid
+		}
+		
+			// how many levels to go up in rootline to find the active mainmenu/servicemenu page
+			// i.e. curPageLevel - subMenuEntryLevel
+		subMenuParentLevel.cObject = TEXT
+		subMenuParentLevel.cObject {
+			value = {register:subMenuEntryLevel} - {register:curPageLevel}
+			stdWrap.insertData = 1
+			prioriCalc = 1
+		}
+		
+			// Prepare a string leveluid:-x needed to find out the uid of the submenu's parent page
+		prepareSubMenuParentId.cObject = COA
+		prepareSubMenuParentId.cObject {
+			10 = TEXT
+			10.value = leveluid:{register:subMenuParentLevel}
+			10.stdWrap.insertData = 1
+		}
+
+			// 	uid of the submenu's parent page itself	
+		subMenuParentId.cObject = COA
+		subMenuParentId.cObject {
+			10 = TEXT
+			10.value = {register:prepareSubMenuParentId}
+			10.wrap = {|}
+			10.stdWrap.insertData = 1
+			stdWrap.insertData = 1
+		}
+	}
+
+		// Find out whether or not the submenu shall be expanded or not
+	15 = USER
+	15 {
+		userFunc = user_acadcscadaptations->countAllMenuItems
+			// uid of the parent page in mainmenu or servicemenu
+		start.cObject = TEXT
+		start.cObject.data = register:subMenuParentId
+			// number of levels for the submenu
+		levels = 2
+			// if the submenu has more items than limit it will be collapsed
+		limit = 14
+			// do not count pages that are hidden in menu
+		addWhere = AND nav_hide=0
+	}
+
+		// The submenu itself
+	20 = HMENU
+	20.excludeDoktypes = 5,6,101
+	20.entryLevel.cObject = TEXT
+	20.entryLevel.cObject {
+		value = {register:subsiteLevel} + {register:addToLevel}
+		stdWrap.insertData = 1
+		prioriCalc = 1
+	}
+	
+	20.1 = TMENU
+	20.1 {
+		wrap = <ul id="submenu" class="submenu">|</ul>
+		noBlur = 1
+		expAll.cObject = TEXT
+		expAll.cObject.data = register:doExpandAll
+		
+		NO {
+			// set a class for external pages
+			wrapItemAndSub.cObject = CASE
+			wrapItemAndSub.cObject {
+				key.field = doktype
+				default = TEXT
+				default.value = <li>|</li>
+				3 = TEXT
+				3.value = <li class="external-link">|</li>
+				3.stdWrap.insertData = 1
+			}
+			stdWrap.htmlSpecialChars = 1
+		}
+
+		ACT = 1
+		ACT {
+      		wrapItemAndSub = <li class="act">|</li>
+			stdWrap.htmlSpecialChars = 1
+		}  
+		
+		ACTIFSUB = 1
+		ACTIFSUB {
+      		wrapItemAndSub = <li class="actifsub">|</li>
+			stdWrap.htmlSpecialChars = 1
+		}  
+		
+		CUR = 1
+		CUR {
+      		wrapItemAndSub = <li class="cur">|</li>
+		  	linkWrap = <em>|</em>
+		  	stdWrap.htmlSpecialChars = 1
+		  	doNotLinkIt = 1
+		}  
+	}
+
+	
+	20.2 = TMENU
+	20.2 {
+		wrap = <ul class="submenu-l2">|</ul>
+		noBlur = 1
+		ACT = 1
+		CUR = 1
+		
+		NO {
+			// set a class for doktype external url
+			allWrap.cObject = CASE
+			allWrap.cObject {
+				key.field = doktype
+				default = TEXT
+				default.value = <li>|</li>
+				3 = TEXT
+				3.value = <li class="external-link">|</li>
+			}
+			stdWrap.htmlSpecialChars = 1
+			allWrap.insertData = 1
+		}
+		
+		ACT {
+			allWrap = <li class="act">|</li>
+			stdWrap.htmlSpecialChars = 1
+		}
+		
+		CUR {
+			allWrap = <li class="cur"><em>|</em></li>
+			stdWrap.htmlSpecialChars = 1
+			doNotLinkIt = 1
+		}
+	}
+}

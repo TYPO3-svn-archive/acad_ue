@@ -1,0 +1,47 @@
+/**
+ * Renders the breadcrumbs starting at portal entry
+ *
+ * @see LLL:EXT/acadlllcommonvalues/locallang_cwc.xml:you_are_here
+ * @todo - CSS update, because two lines of breadcrumbs render ugly if there is a linebreak
+ *         in the middle of one page title 	
+ */
+
+ lib.shared_breadcrumbs = COA
+ lib.shared_breadcrumbs {
+  	10 = TEXT
+	10.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:you_are_here}:
+    10.insertData = 1
+	10.wrap = <p class="hfg">|</p>
+	
+	20 = HMENU
+	20.special = rootline
+	20.special.range.cObject = COA
+	20.special.range.cObject {
+		10 = < plugin.tx_t3wgetrootlinefield_pi1
+		10 {
+			collect=0
+			collectReverse=0
+			returnLevel = 1
+			fieldToReturn = uid
+			if.value=77
+			if.equals.field=doktype		
+		}
+		
+		20 = HTML
+		20.value = |-1	
+	}
+
+	20.1 = TMENU
+	20.1 {
+		wrap = <ul>|</ul>
+		noBlur = 1
+		CUR = 1
+		
+		NO.allWrap = <li class="first">|</li>|*|<li>|</li>|*|<li class="last">|</li>
+		NO.stdWrap.htmlSpecialChars = 1
+		
+		CUR.allWrap = <li class="cur first"><em>|</em></li>|*|<li class="cur"><em>|</em></li>|*|<li class="cur last"><em>|</em></li>
+		CUR.stdWrap.htmlSpecialChars = 1
+		#CUR.doNotLinkIt = 1
+	}
+ }
