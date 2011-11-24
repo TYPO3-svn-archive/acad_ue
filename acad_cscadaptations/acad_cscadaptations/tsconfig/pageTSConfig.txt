@@ -1,0 +1,33 @@
+	// Default header_layout = h3
+TCAdefaults.tt_content.header_layout = 2
+
+
+	// Custom labels for header_layout
+TCEFORM.tt_content.header_layout.altLabels {
+	1 = LLL:EXT:acad_cscadaptations/locallang_db.xml:h2
+	2 = LLL:EXT:acad_cscadaptations/locallang_db.xml:h3
+	3 = LLL:EXT:acad_cscadaptations/locallang_db.xml:h4
+	4 = LLL:EXT:acad_cscadaptations/locallang_db.xml:h5
+	5 = LLL:EXT:acad_cscadaptations/locallang_db.xml:h6
+}
+
+
+	// Remove all standard content frames
+TCEFORM.tt_content.section_frame.removeItems = 1,5,6,10,11,12,20,21
+
+
+	// Define our custom frames
+TCEFORM.tt_content.section_frame.addItems {
+	35 = LLL:EXT:acad_cscadaptations/locallang_db.xml:custom-box-cscheme1
+	40 = LLL:EXT:acad_cscadaptations/locallang_db.xml:custom-box-cscheme2
+	45 = LLL:EXT:acad_cscadaptations/locallang_db.xml:custom-box-cscheme3
+	50 = LLL:EXT:acad_cscadaptations/locallang_db.xml:custom-box-cscheme4 
+}
+
+	  // Only 'above' positions for CType Image	
+TCEFORM.tt_content.imageorient.types.image.removeItems = 18,20,26,17,19,25,8,9,10
+	 
+
+
+
+

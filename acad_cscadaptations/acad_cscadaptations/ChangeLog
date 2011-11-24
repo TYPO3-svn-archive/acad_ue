@@ -1,0 +1,25 @@
+(add new changes on top of this file)
+2008-05-25 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* BE: bigger size for 'Startingpoint', scale it automacially (ext_tables.php)
+	* BE: Corrected some typos concerning CE Sitemap (ext_tables.php, http://mantis.abezet.eu/view.php?id=1169)
+	
+2008-05-07 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Reorganized select list for image orient
+	
+2008-05-02 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Reorganised select list for menu types
+	* New field for adding pages to link lists by uid positioned beneath Starting point.
+	  WARNING: This field does not do anything yet.
+	  
+2008-05-01 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* New menu_type 99: Alphabetical list of subpages with abstract
+	* New menu_type 100: List of selected pages with abstract
+	* New menu_type 101: Alphabetical list of selected pages with abstract
+	* New menu_type 102: Alphabetical list of pages
+	
+2008-02-08 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+	* Allowed doktype 1 (standard page) again, because Advanced does not exist anymore in typo3 4.2
+
+2007-11-01 Uschi Renziehausen  <ursula.renziehausen@uni-erfurt.de>
+
+	* Initial release

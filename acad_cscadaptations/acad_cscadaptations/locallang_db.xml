@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallang>
+	<meta type="array">
+		<description>
+			Values to overwrite default labels in Content element forms
+		</description>
+		<type>database</type>
+	</meta>
+	<data type="array">
+		<languageKey index="default">
+			<label index="h1">h1 - headline 1</label>
+			<label index="h2">h2 - headline 2</label>
+			<label index="h3">h3 - headline 3</label>
+			<label index="h4">h4 - headline 4</label>
+			<label index="h5">h5 - headline 5</label>
+			<label index="h6">h6 - headline 6</label>
+			<label index="custom-box-cscheme1">Pale green background</label>
+			<label index="custom-box-cscheme2">Light yellow background</label>
+			<label index="custom-box-cscheme3">Light blue background</label>
+			<label index="custom-box-cscheme4">Pale violet background</label>
+			<label index="menu-optgroup-toc">Table(s) of contents</label>
+			<label index="menu-optgroup-plain">Plain menus</label>
+			<label index="menu-optgroup-abstract">Menus with description</label>
+			<label index="menu-optgroup-special">Special menus</label>
+			<label index="menu-selected-pages">Selected pages</label>
+			<label index="menu-subpages">Subpages</label>
+			<label index="menu-selected-pages-alphabet">Selected pages, alphabetical</label>
+			<label index="menu-subpages-alphabet">Subpages, alphabetical</label>
+			<label index="menu-sections-current-page">TOC of current page</label>
+			<label index="menu-sections-subpage">TOC of subpages</label>
+			
+			<label index="menu-subpages-description">Subpages with description</label>
+			<label index="menu-subpages-description-alphabet">Subpages alphabetical with description</label>
+			<label index="menu-selected-pages-description">Selected pages with description</label>
+			<label index="menu-selected-pages-description-alphabet">Selected pages, alphabetical, with description</label>
+			
+			
+			<label index="imageorient-optgroup-left">Image left</label>
+			<label index="imageorient-optgroup-right">Image right</label>
+			<label index="imageorient-optgroup-above">Image above</label>
+			<label index="imageorient-optgroup-below">Image below</label>
+			
+			<label index="imageorient-left-intext-hx-above">Left, wrapped, headline above</label>
+			<label index="imageorient-left-intext-hx-inside">Left, wrapped, headline inside</label>
+			<label index="imageorient-left-nowrap-hx-above">Left, not wrapped, headline above</label>
+			<label index="imageorient-left-nowrap-hx-inside">Left, not wrapped, headline inside</label>
+			
+			<label index="imageorient-right-intext-hx-above">Right, wrapped, headline above</label>
+			<label index="imageorient-right-intext-hx-inside">Right, wrapped, headline inside</label>
+			<label index="imageorient-right-nowrap-hx-above">Right, not wrapped, headline above</label>
+			<label index="imageorient-right-nowrap-hx-inside">Right, not wrapped, headline inside</label>
+		</languageKey>
+
+		<languageKey index="de">
+			<label index="h1">h1 - Überschrift 1</label>
+			<label index="h2">h2 - Überschrift 2</label>
+			<label index="h3">h3 - Überschrift 3</label>
+			<label index="h4">h4 - Überschrift 4</label>
+			<label index="h5">h5 - Überschrift 5</label>
+			<label index="h6">h6 - Überschrift 6</label>
+			<label index="custom-box-cscheme1">Blassgrüner Hintergrund</label>
+			<label index="custom-box-cscheme2">Hellgelber Hintergrund</label>
+			<label index="custom-box-cscheme3">Hellblauer Hintergrund</label>
+			<label index="custom-box-cscheme4">Blasslila Hintergrund</label>
+			<label index="menu-optgroup-toc">Überschriftenmenü</label>
+			<label index="menu-optgroup-plain">Einfache Linklisten</label>
+			<label index="menu-optgroup-abstract">Linklisten mit Beschreibung</label>
+			<label index="menu-optgroup-special">Spezielle Menüs</label>
+			<label index="menu-selected-pages">Ausgewählte Seiten</label>
+			<label index="menu-subpages">Unterseite(n)</label>
+			<label index="menu-selected-pages-alphabet">Ausgewählte Seiten, alphabetisch</label>
+			<label index="menu-subpages-alphabet">Unterseiten alphabetisch</label>
+			<label index="menu-sections-current-page">Aktuelle Seite</label>
+			<label index="menu-sections-subpage">Unterseite(n)</label>
+			
+			<label index="menu-subpages-description">Unterseiten mit Beschreibung</label>
+			<label index="menu-subpages-description-alphabet">Unterseiten alphabetisch mit Beschreibung</label>
+			<label index="menu-selected-pages-description">Ausgewählte Seiten mit Beschreibung</label>
+			<label index="menu-selected-pages-description-alphabet">Ausgewählte Seiten alphabetisch mit Beschreibung</label>
+			
+			
+			<label index="imageorient-optgroup-left">Bild links</label>
+			<label index="imageorient-optgroup-right">Bild rechts</label>
+			<label index="imageorient-optgroup-above">Bild oben</label>
+			<label index="imageorient-optgroup-below">Bild unten</label>
+			
+			<label index="imageorient-left-intext-hx-above">Links, Umfluss, Überschrift oben</label>
+			<label index="imageorient-left-intext-hx-inside">Links, Umfluss, Überschrift innen</label>
+			<label index="imageorient-left-nowrap-hx-above">Links, Spaltensatz, Überschrift oben</label>
+			<label index="imageorient-left-nowrap-hx-inside">Links, Spaltensatz, Überschrift innen</label>
+			
+			<label index="imageorient-right-intext-hx-above">Rechts, Umfluss, Überschrift oben</label>
+			<label index="imageorient-right-intext-hx-inside">Rechts, Umfluss, Überschrift innen</label>
+			<label index="imageorient-right-nowrap-hx-above">Rechts, Spaltensatz, Überschrift oben</label>
+			<label index="imageorient-right-nowrap-hx-inside">Rechts, Spaltensatz, Überschrift innen</label>
+			
+		</languageKey>
+	</data>
+</T3locallang>

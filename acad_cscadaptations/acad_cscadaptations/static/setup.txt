@@ -1,0 +1,915 @@
+/**
+ * Remove superfluous div around hx elements
+ */	
+lib.stdheader.stdWrap.dataWrap >
+	
+/**
+ * Clean up the hx element itself
+ *
+ * - removes superfluous class atrribute
+ * - first header is h2, because h1 usually is reserved for the sitetitle
+ * - lowest header is h6
+ */					 
+lib.stdheader {
+	10.1.fontTag = <h2{register:headerStyle}>|</h2>
+	10.2.fontTag = <h3{register:headerStyle}>|</h3>
+	10.3.fontTag = <h4{register:headerStyle}>|</h4>
+	10.4.fontTag = <h5{register:headerStyle}>|</h5>
+	10.5.fontTag = <h6{register:headerStyle}>|</h6>
+}
+	
+/**
+ * Place the date AFTER the headline
+ *
+ * By default the date is rendered before the text of the headline,
+ * which is wrong in terms of importance.
+ */	
+lib.stdheader.5 >
+lib.stdheader.15 = TEXT
+lib.stdheader.15 {
+	field = date
+	if.isTrue.field = date
+	date = d.m.Y
+	wrap = <p class="header-date">|</p>
+}
+	
+	
+
+/**
+ * Customise output of to top link
+ */
+tt_content.stdWrap.innerWrap2 = | <p class="pagetop"><a href="#top">{LLL:EXT:css_styled_content/pi1/locallang.xml:label.toTop}</a></p>
+
+
+/**
+ * Clear the default id handling
+ *
+ * Before 4.3 css_styled_content rendered the following code in front of every CE:
+ * <a id="c50"></a>, where 50 is the uid of the CE in the original language. Since 4.3 we
+ * we have <div id="c50 ...>. The superfluous <a>-element is now only rendered for translations.
+ *
+ * @see	tt_content.stdWrap.innerWrap.cObject.10
+ */
+tt_content.stdWrap.dataWrap >
+tt_content.stdWrap.prepend >
+
+	
+/**
+ * Clear the default evaluation of section_frame
+ *
+ * By default, css_styled_content uses the path tt_content.stdWrap.innerWrap.cObject
+ * as a CASE to evaluate the field section_frame. We clear it to get one appropriate
+ * DIV with all necessary styling information.
+ * Evaluation of section_frame is done in tt_content.stdWrap.innerWrap.cObject.20
+ *
+ * @see tt_content.stdWrap.innerWrap.cObject.20
+ *
+ */						
+tt_content.stdWrap.innerWrap.cObject >
+
+
+/**
+ *  Clear the standard evaluation of spaceBefore and spaceAfter
+ */    	
+tt_content.stdWrap.spaceBefore >
+tt_content.stdWrap.spaceAfter >
+tt_content.stdWrap.space >
+
+
+
+	// Clear the default wrap around the text inside text with image
+tt_content.textpic.20.text.wrap >
+	
+
+
+	// CE GENERAL: Register some values
+tt_content.stdWrap.innerWrap.cObject = COA
+	// Evaluate uid of content element and store in register:ceId
+tt_content.stdWrap.innerWrap.cObject.10 = LOAD_REGISTER
+tt_content.stdWrap.innerWrap.cObject.10 {
+	ceId = TEXT
+	// If translated CE has to be displayed, show the translated uid, else the original uid
+	ceId.data = field:_LOCALIZED_UID // field:uid
+}
+
+
+
+	// Evaluate spaceBefore and spaceAfter and store in register:ceStyles
+tt_content.stdWrap.innerWrap.cObject.11 = LOAD_REGISTER
+tt_content.stdWrap.innerWrap.cObject.11 {
+	ceStyles.cObject = COA
+	ceStyles.cObject {
+		1 = TEXT
+		1.fieldRequired = spaceBefore
+		1.data = field:spaceBefore
+		1.noTrimWrap = |margin-top:|px; |
+		
+		2 = TEXT
+		2.fieldRequired = spaceAfter
+		2.data = field:spaceAfter
+		2.noTrimWrap = |margin-bottom:|px; |
+	}
+}
+	
+	
+
+	//  Create the style attribute and store it in register:ceStyleAttr
+tt_content.stdWrap.innerWrap.cObject.12 = LOAD_REGISTER
+tt_content.stdWrap.innerWrap.cObject.12 {
+	ceStyleAttr = TEXT
+	ceStyleAttr {
+		data = register:ceStyles
+		noTrimWrap = | style="|" |
+		required = 1
+	}	
+}
+
+	// Evaluate field text_size and store in register:textsize
+tt_content.stdWrap.innerWrap.cObject.13 = LOAD_REGISTER
+tt_content.stdWrap.innerWrap.cObject.13 {
+	textsize.cObject = CASE
+	textsize.cObject {
+		key.field = text_size
+		
+		default = TEXT
+		default.value =
+		
+		1 = TEXT
+		1.value = smallfonts
+	}	
+}
+
+	// In case of CType menu, store the css-class for some types in register:menuType
+tt_content.stdWrap.innerWrap.cObject.14 = LOAD_REGISTER
+tt_content.stdWrap.innerWrap.cObject.14 {
+	menuType.cObject = CASE
+	menuType.cObject {
+		key.field = menu_type
+		
+		default = TEXT
+		default.value =
+		
+		3 = TEXT
+		3.value = csc-menu-3
+	}
+}
+
+/**
+ * Wrap each CE in an appropriate DIV
+ *
+ *	What we need is:
+ *	a) id set to uid of the CE prefixed with c: c123
+ *	b) a class for the chosen section frame
+ *	c) a common class for all colorboxes. This comes in handy to style margins and paddings for our colorboxes at once
+ *	d) a style attribute for margin-top and margin-bottom according to editors input into
+ *	   spaceBefore and spaceAfter
+ *	e) additionally each CE has a class ce-section (Do we need this? Not really,
+ *	   but might come in handy?)
+ *
+ * @see tt_content.stdWrap.innerWrap.cObject.10 (ceUid)
+ * @see	tt_content.stdWrap.innerWrap.cObject.11 (ceStyles)
+ * @see	tt_content.stdWrap.innerWrap.cObject.12 (ceStyleAttr)
+ */
+
+	//  Wrap each CE in an appropriate DIV according to field section_frame
+tt_content.stdWrap.innerWrap.cObject.20 = CASE
+tt_content.stdWrap.innerWrap.cObject.20  {
+	insertData = 1
+	key.field = section_frame
+	
+		// no frame selected
+	default = TEXT
+	default.value = <div id="c{register:ceId}" class="ce-section {register:textsize} {register:menuType}" {register:ceStyleAttr}>|</div>
+	default.insertData = 1
+
+		// cscheme1 selected
+	35 = TEXT
+	35.value = <div id="c{register:ceId}" class="ce-section colorbox cscheme1 {register:textsize} {register:menuType}" {register:ceStyleAttr}>|</div>
+	35.insertData = 1
+		// cscheme2 selected
+	40 = TEXT
+	40.value = <div id="c{register:ceId}" class="ce-section colorbox cscheme2 {register:textsize} {register:menuType}" {register:ceStyleAttr}>|</div>
+	40.insertData = 1
+		// cscheme3 selected
+	45 = TEXT
+	45.value = <div id="c{register:ceId}" class="ce-section colorbox cscheme3 {register:textsize} {register:menuType}" {register:ceStyleAttr}>|</div>
+	45.insertData = 1
+		// cscheme4 selected
+	50 = TEXT
+	50.value = <div id="c{register:ceId}" class="ce-section colorbox cscheme4 {register:textsize} {register:menuType}" {register:ceStyleAttr}>|</div>
+	50.insertData = 1
+}
+
+/**
+ * Pop variables from register stack
+ *
+ * @see tt_content.stdWrap.innerWrap.cObject.10 (ceUid)
+ * @see	tt_content.stdWrap.innerWrap.cObject.11 (ceStyles)
+ * @see	tt_content.stdWrap.innerWrap.cObject.12 (ceStyleAttr)
+ * @see	tt_content.stdWrap.innerWrap.cObject.12 (textsize)
+ */
+
+	// pop register:ceUid
+tt_content.stdWrap.innerWrap.cObject.101 = RESTORE_REGISTER
+	// pop register:ceStyles
+tt_content.stdWrap.innerWrap.cObject.102 = RESTORE_REGISTER
+	// pop register:ceStyleAttr
+tt_content.stdWrap.innerWrap.cObject.103 = RESTORE_REGISTER
+	// pop register:textsize
+tt_content.stdWrap.innerWrap.cObject.104 = RESTORE_REGISTER
+
+
+	// Wrap field bodytext of each CE with a div.ce-body (text and textpic)
+tt_content.text.20.wrap = <div class="ce-body">|</div>
+
+	// Wrap CType html with div.ce-body
+tt_content.html.wrap = <div class="ce-body">|</div>
+
+
+	// For images: Only render a caption wrapper if we have a caption
+tt_content.image.20.rendering {
+	dl.caption.required = 1
+	ol.caption.required = 1
+	ul.caption.required = 1
+	div.caption.required = 1
+}
+
+ 
+	// Images rendered in dl: wrap caption in dd.csc-textpic-caption
+tt_content.image.20.rendering.dl.caption.wrap = <dd class="csc-textpic-caption"> | </dd> 
+
+
+
+# @description	Redefine wrappers for text with image
+#
+#		What does it change?
+#		a) Clearing for intext-left and intext-right is done via css .clearfix.
+#		b) For the nowrap types (25, 26) CSC wraps div.csc-textpic-text with an additional
+#		   div.style to set margin-right or margin-left. We want to integrate the style attribute
+#		   into div.csc-textpic-text
+#		c) The headline of the nowrap types 25 and 26 is inside div.csc-textpic-text, but there are
+#		   occasions where you want the headline ABOVE it as usual. Therefore two new layouts are
+#		   added: 19 = intext-right-nowrap  and 20 = intext-right-nowrap
+#						
+
+	// Redefine wrappers for text with image
+tt_content.image.20.layout >
+tt_content.image.20.layout = CASE
+tt_content.image.20.layout {
+	key.field = imageorient
+		// above-center
+	default = TEXT
+	default.value (
+		<div class="csc-textpic csc-textpic-center csc-textpic-above ce-body###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text">###TEXT###</div>
+		</div>
+	)	
+		
+		// above-right
+	1 = TEXT
+	1.value ( 
+		<div class="csc-textpic csc-textpic-right csc-textpic-above ce-body###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text">###TEXT###</div>
+		</div>
+	)
+		
+		// above-left
+	2 = TEXT
+	2.value (
+		<div class="csc-textpic csc-textpic-left csc-textpic-above ce-body ###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text">###TEXT###</div>
+		</div>
+	)
+		
+		// below-center
+	8 = TEXT
+	8.value (
+		<div class="csc-textpic csc-textpic-center csc-textpic-below clearfix ce-body###CLASSES###">
+			<div class="csc-textpic-text">###TEXT###</div>
+			###IMAGES###
+		</div>
+	)	
+		
+		// below-right
+	9 = TEXT
+	9.value (
+		<div class="csc-textpic csc-textpic-right csc-textpic-below clearfix ce-body###CLASSES###">
+			<div class="csc-textpic-text">###TEXT###</div>
+			###IMAGES###
+		</div>
+	)
+		
+		// below-left
+	10 = TEXT
+	10.value (
+		<div class="csc-textpic csc-textpic-left csc-textpic-below clearfix ce-body###CLASSES###">
+			<div class="csc-textpic-text">###TEXT###</div>
+			###IMAGES###
+		</div>
+	)
+		
+		//	intext-right (headline above)
+	17 = TEXT
+	17.value (
+		<div class="csc-textpic csc-textpic-right csc-textpic-intext-right clearfix ce-body###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text">###TEXT###</div>
+		</div>
+	)
+
+		
+		//	intext-left (headline above)
+	18 = TEXT
+	18.value (
+		<div class="csc-textpic csc-textpic-left csc-textpic-intext-left-hxabove clearfix ce-body###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text">###TEXT###</div>
+		</div>
+	)
+
+		
+		//	intext-right-nowrap (headline above)
+	19 = TEXT
+	19.value (
+		<div class="csc-textpic csc-textpic-right csc-textpic-right-nowrap-hxabove clearfix ce-body ###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text" style="margin-right:{register:rowWidthPlusTextMargin}px;">###TEXT###</div>
+		</div>
+	)	
+	19.insertData = 1
+		
+		
+		//	intext-left-nowrap (headline above)
+	20 = TEXT
+	20.value (
+		<div class="csc-textpic csc-textpic-left csc-textpic-left-nowrap-hxabove clearfix ce-body###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text" style="margin-left:{register:rowWidthPlusTextMargin}px;">###TEXT###</div>
+		</div>
+	)	
+	20.insertData = 1
+		
+		
+		
+		//	intext-right-nowrap (headline inside)
+	25 = TEXT
+	25.value (
+		<div class="csc-textpic csc-textpic-right csc-textpic-right-nowrap-hxinside clearfix ce-body ###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text" style="margin-right:{register:rowWidthPlusTextMargin}px;">###TEXT###</div>
+		</div>
+	)	
+	25.insertData = 1
+		
+		
+		//	intext-left-nowrap (headline inside)
+	26 = TEXT
+	26.value (
+		<div class="csc-textpic csc-textpic-left csc-textpic-left-nowrap-hxinside clearfix ce-body ###CLASSES###">
+			###IMAGES###
+			<div class="csc-textpic-text" style="margin-left:{register:rowWidthPlusTextMargin}px;">###TEXT###</div>
+		</div>
+	)	
+	26.insertData = 1
+		
+	# @TODO	Two more to come
+	#	27 = intext-right (headline inside)
+	#	28 = intext-left (headline inside)
+}
+
+# @description	No DIV around hx for No 25 and 26
+#tt_content.textpic.20.text.10.10.stdWrap.dataWrap >
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//             tt_content.menu.20                                              //
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @description Wrap each menu with div.ce-body, if frame has a value
+ */ 
+
+
+tt_content.menu.15 = HTML
+tt_content.menu.15 {
+  value = <div class="ce-body">
+  fieldRequired = section_frame
+}
+
+/**
+ * @description Write end tag for div.ce-body at the end of each menu
+ */ 
+tt_content.menu.25 = HTML
+tt_content.menu.25 {
+  value = </div>
+  fieldRequired = section_frame
+}
+
+
+	// Menu of these pages (tt_content.menu.20.0)
+tt_content.menu.20.default.excludeDoktypes = 5,6,101	
+tt_content.menu.20.default.wrap = <ul class="csc-menu-1">|</ul>
+tt_content.menu.20.default.1.noBlur = 1
+tt_content.menu.20.default.includeNotInMenu = 1
+tt_content.menu.20.default.1.NO {
+	allWrap >
+	wrapItemAndSub >
+	wrapItemAndSub.cObject =  CASE
+		wrapItemAndSub.cObject  {
+		key.field = doktype
+		default  = TEXT
+		default.value = <li>|</li>
+			// doktype 3: external URL
+		3 = TEXT
+		3.value = <li class="external-link">|</li>
+	}
+}	
+
+
+
+
+
+	// Menu subpages to these pages (tt_content.menu.20.1)
+tt_content.menu.20.1 < tt_content.menu.20.default
+tt_content.menu.20.1.special = directory
+tt_content.menu.20.1.wrap = <ul class="csc-menu-1">|</ul>
+tt_content.menu.20.1.1.noBlur = 1
+
+/**
+ * @description	Menu of subpages with abstract
+ *
+ *				Renders a menu of subpages with abstract, description or subtitle as dl
+ *
+ *				Changes to default behaviour are:
+ *				- wrapper div.menu-20-4
+ *				- 'more' is followed by the title for accessibility reasons.
+ *				  The title is wrapped by span.hfg	
+ * @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:more
+ */
+tt_content.menu.20.4 >
+tt_content.menu.20.4 = HMENU
+tt_content.menu.20.4.maxItems = 100
+
+tt_content.menu.20.4 {
+	special = directory
+
+	special.value.field = pages
+	includeNotInMenu = 1
+	excludeDoktypes = 5,6,101
+	
+	wrap = <dl class="linklist-commented">|</dl>
+}
+
+tt_content.menu.20.4.1 = TMENU
+tt_content.menu.20.4.1 {
+	noBlur = 1
+	expAll = 0
+	NO {
+	  	stdWrap.field = title
+		stdWrap.htmlSpecialChars = 1
+		allWrap.stdWrap.cObject = CASE
+		allWrap.stdWrap.cObject {
+			key.field = doktype
+			default = TEXT
+			default.value = <dt>|</dt>
+			3 = TEXT
+			3.value = <dt class="external-link">|</dt>
+		}
+		after.required = 1
+		after.htmlSpecialChars = 1
+		after.wrap= <dd>|</dd>
+		after.data = field:abstract // field:description // field:subtitle
+		after.postCObject = COA
+		after.postCObject {
+			1 = TEXT
+			1.stdWrap.noTrimWrap = | |
+			
+			2 = TEXT
+			2.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:more}<span class="hfg">: {field:title}</span>
+			2.insertData = 1
+			2.typolink.parameter.data = field:uid
+			2.typolink.ATagParams = class="more"
+		}
+	}
+}
+
+	// Recently updated pages
+tt_content.menu.20.5 {
+	mode = SYS_LASTCHANGED // tstamp
+	wrap = <ul class="csc-menu-1">|</ul>
+		// include pages hidden in menu
+	includeNotInMenu = 1
+		// exclude doktypes Not in menu,BE-User Section and Service Folder
+	excludeDoktypes = 5,6,101
+		// do not show pages older than 2 weeks
+	special.maxAge = 3600*24*14
+		// search for new stuff 2 levels recursively
+	special.depth = 3	
+		// no blur stuff
+	1.noBlur = 1
+		// use title instead of navtitle
+	1.NO.stdWrap.data = field:title
+		// set title attribute to get more info what the page is about
+	1.NO.ATagTitle.field = abstract // description // title	
+}
+
+/**
+ * Alphabetical list of subpages with abstract
+ */
+tt_content.menu.20.99 < tt_content.menu.20.4
+tt_content.menu.20.99.1.alternativeSortingField = title asc
+
+/**
+ * @description List of pages with abstract
+ */
+tt_content.menu.20.100 < tt_content.menu.20.4
+tt_content.menu.20.100.special = list
+  
+/**
+ * Alphabetical list of selected pages with abstract
+ */
+includeLibs.user_acadcscadaptations = typo3conf/ext/acad_cscadaptations/class.user_acadcscadaptations.php 
+tt_content.menu.20.101 < tt_content.menu.20.100
+tt_content.menu.20.101.1.itemArrayProcFunc = user_acadcscadaptations->sortMenu
+
+
+/**
+ * Alphabetical list of selected pages
+ */
+tt_content.menu.20.103 < .tt_content.menu.20.default
+tt_content.menu.20.103.1.itemArrayProcFunc = user_acadcscadaptations->sortMenu
+
+/**
+ * Alphabetical list of subpages
+ */
+tt_content.menu.20.102 <  .tt_content.menu.20.1
+tt_content.menu.20.102.1.alternativeSortingField = title asc 
+tt_content.menu.20.102.1.NO.stdWrap.data = field:title
+
+
+##
+# @description	Section index as nested <ul> and cast in order of appearance even with TV  
+#
+
+
+
+
+lib.shared_sectionindex = COA
+lib.shared_sectionindex.wrap = <div class="wrap-downlinks">|</li></ul></div>
+
+
+# @description	Select the content elements in question
+
+lib.shared_sectionindex.5  = LOAD_REGISTER
+lib.shared_sectionindex.5  {
+	tvcontents.cObject < plugin.tx_acadtvtools_pi1
+	tvcontents.cObject.searchFieldsInTo { 
+ 			// 1 col plain
+	    14 = field_content
+	    	// 1 col, page title only
+	    23 = field_content
+	    	// 1 col, page title and prevupnext
+	    24 = field_content
+	    
+	    	// 2 cols, page title and submenu
+	    11 = field_content
+	    	// 2 cols, only page title
+	    16  = field_content
+	    	// 2 cols, only submenu
+	    18  = field_content
+	    	// 2 cols, page title, submenu and prevpnext
+	    19  = field_content
+	    	// 2 cols, only prevupnext
+	    20  = field_content
+	    	// 2 cols, submenu and prevupnext
+	    21  = field_content
+	    	// 2 cols plain
+	    22  = field_content
+	    
+	    	// 3 cols plain
+	    10  = field_content
+	    	// 3 cols, page title and prevupnext
+	    26  = field_content
+	    	// 3 cols, only page title
+	    25  = field_content
+ 
+   }
+ }  
+
+
+
+lib.shared_sectionindex.10 = RECORDS
+lib.shared_sectionindex.10.tables = tt_content
+lib.shared_sectionindex.10.source.data = register:tvcontents
+
+
+# @description	Render the section menu, part 1	
+
+lib.shared_sectionindex.10.conf.tt_content = COA
+lib.shared_sectionindex.10.conf.tt_content {
+	5 = LOAD_REGISTER
+        5 {
+        	# @description	Mapping the internal values of header_layout to a header level
+        	# @todo Get this out of here into an external lib, so that this is the only thing
+        	#	people have to customize. Unfortunately CASE objects are not allowed in
+        	#	in the constants section.
+
+        	headerLevel.cObject = CASE
+        	headerLevel.cObject {
+        		
+        		// h3
+        		key.field = header_layout
+        		default = TEXT
+        		default.value = 0
+        		
+        		// h2 (editors should not use it on normal content pages, but in case they do ...)
+        		1 = TEXT
+        		1.value = 0
+        		
+        		// h3
+        		2 = TEXT
+        		2.value = 0
+        		
+        		// h4
+        		3 = TEXT
+        		3.value = 1
+        		
+        		// h5
+        		4 = TEXT
+        		4.value = 2
+        		
+        		// h6
+        		5 = TEXT
+        		5.value = 3
+        		
+        	}
+        	
+        	# @description Calculate the difference between last level and current level
+        	
+		headerLevelTemp.dataWrap = {register:lastHeaderLevel}-{register:headerLevel}
+		headerLevelDiff.data = register:headerLevelTemp
+		headerLevelDiff.prioriCalc = 1
+		
+		# @description Linking to a translated or a original CE?
+		sectionIndexId = TEXT
+		sectionIndexId.data = field:_LOCALIZED_UID // field:uid
+		sectionIndexId.wrap = c|
+		
+		
+	}
+	
+	// If current headerLevel is the same as lastHeaderLevel,
+	// we need to close the <li>-element of the last header item before we start writing the new one.
+	10 = TEXT
+	10.value = </li>
+	10.if {
+		value.data = register:lastHeaderLevel
+		equals.data = register:headerLevel
+	}
+	
+	
+	// If the current headerLevel (e.g. h4) is higher than the lastHeaderLevel (e.g. h3),
+	// we need to open up a new <ul>
+	
+	15 = TEXT
+	15.value = <ul>
+	15.if {
+		value.data = register:lastHeaderLevel
+		isGreaterThan.data = register:headerLevel
+	}
+	
+	
+	
+	20 = CASE
+	20 {
+		key.data = register:headerLevelDiff
+		
+		-2 = TEXT
+		-2.value = <li><ul>
+		
+		-3 = TEXT
+		-3.value = <li><ul><li><ul>
+	}
+	
+	
+	30 = CASE
+	30 {
+		key.data = register:headerLevelDiff
+		
+	
+		
+		// e.g. level 0 follows level 1
+		1 = TEXT
+		1.value = </li></ul></li>
+		
+		
+		2 = TEXT
+		2.value = </li></ul></li></ul></li>
+		
+		
+		3 = TEXT
+		3.value = </li></ul></li></ul></li></ul></li>
+	}
+	
+	40 = TEXT
+	40 {
+		field = header
+		typolink.section.data = register:sectionIndexId
+		typolink.parameter.field = pid
+		dataWrap = <li>|
+		# dataWrap = <li>{register:sectionIndexId}|
+		# dataWrap = <li><tt>current level:{register:headerLevel} lastHeader:{register:lastHeaderLevel} layoutDiff:{register:headerLevelDiff} </tt>|
+	}
+	
+	50 = LOAD_REGISTER
+	50 {
+		lastHeaderLevel.data = register:headerLevel
+	}
+}
+
+
+/**
+ * @description	Close all open <ul>s and <li>s
+ *              This is crucial, if the last headline is not on level 0! 
+ */ 		
+lib.shared_sectionindex.20 = COA
+lib.shared_sectionindex.20.10 = CASE	
+lib.shared_sectionindex.20.10  {
+key.data = register:headerLevel
+	
+	1 = TEXT
+	1.value = </li></ul>
+	
+	2 = TEXT
+	2.value = </li></ul></li></ul>
+	
+	3 = TEXT
+	3.value = </li></ul></li></ul></li></ul>
+	
+}	
+
+
+
+/*
+lib.shared_sectionindex.25 = TEXT
+lib.shared_sectionindex.25.data = register:tvcontents
+*/
+
+/**
+ * @description Replace the default section index with the hierarchical version
+ */ 
+tt_content.menu.20.3 >
+tt_content.menu.20.3 = < lib.shared_sectionindex
+tt_content.menu.20.3.stdWrap.if.isTrue.data = register:tvcontents
+
+	// CSS stuff needs to be adapted for the two new image positions 
+plugin.tx_cssstyledcontent._CSS_DEFAULT_STYLE >	
+plugin.tx_cssstyledcontent._CSS_DEFAULT_STYLE (
+	/* Captions */
+	DIV.csc-textpic-caption-c .csc-textpic-caption { text-align: center; }
+	DIV.csc-textpic-caption-r .csc-textpic-caption { text-align: right; }
+	DIV.csc-textpic-caption-l .csc-textpic-caption { text-align: left; }
+
+	/* Needed for noRows setting */
+	DIV.csc-textpic DIV.csc-textpic-imagecolumn { float: left; display: inline; }
+
+	/* Border just around the image */
+	{$styles.content.imgtext.borderSelector} {
+		border: {$styles.content.imgtext.borderThick}px solid {$styles.content.imgtext.borderColor};
+		padding: {$styles.content.imgtext.borderSpace}px {$styles.content.imgtext.borderSpace}px;
+	}
+
+	DIV.csc-textpic-imagewrap { padding: 0; }
+
+	DIV.csc-textpic IMG { border: none; }
+
+	/* DIV: This will place the images side by side */
+	DIV.csc-textpic DIV.csc-textpic-imagewrap DIV.csc-textpic-image { float: left; }
+
+	/* UL: This will place the images side by side */
+	DIV.csc-textpic DIV.csc-textpic-imagewrap UL { list-style: none; margin: 0; padding: 0; }
+	DIV.csc-textpic DIV.csc-textpic-imagewrap UL LI { float: left; margin: 0; padding: 0; }
+
+	/* DL: This will place the images side by side */
+	DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image { float: left; }
+	DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DT { float: none; }
+	DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD { float: none; }
+	DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD IMG { border: none; } /* FE-Editing Icons */
+	DL.csc-textpic-image { margin: 0; }
+	DL.csc-textpic-image DT { margin: 0; display: inline; }
+	DL.csc-textpic-image DD { margin: 0; }
+
+	/* Clearer (We do not need it, we  use clearfix)
+	DIV.csc-textpic-clear { clear: both; } */
+
+	/* Margins around images: */
+
+	/* Pictures on left, add margin on right (changed by uffi)*/
+	DIV.csc-textpic-left DIV.csc-textpic-imagewrap .csc-textpic-image,
+	DIV.csc-textpic-intext-left-hxabove DIV.csc-textpic-imagewrap .csc-textpic-image,
+	DIV.csc-textpic-intext-left-nowrap-hxabove DIV.csc-textpic-imagewrap .csc-textpic-image,
+	DIV.csc-textpic-intext-left-nowrap-hxinside DIV.csc-textpic-imagewrap .csc-textpic-image,
+	DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-image {
+		display: inline; /* IE fix for double-margin bug */
+		margin-right: {$styles.content.imgtext.colSpace}px;
+	}
+
+	/* Pictures on right, add margin on left */
+	DIV.csc-textpic-right DIV.csc-textpic-imagewrap .csc-textpic-image,
+	DIV.csc-textpic-intext-right-nowrap-hxabove DIV.csc-textpic-imagewrap .csc-textpic-image,
+	DIV.csc-textpic-intext-right-nowrap-hxinside DIV.csc-textpic-imagewrap .csc-textpic-image,
+	DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-image {
+		display: inline; /* IE fix for double-margin bug */
+		margin-left: {$styles.content.imgtext.colSpace}px;
+	}
+
+	/* Pictures centered, add margin on left */
+	DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image {
+		display: inline; /* IE fix for double-margin bug */
+		margin-left: {$styles.content.imgtext.colSpace}px;
+	}
+	DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption { margin: 0; }
+	DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image IMG { margin: 0; }
+
+	/* Space below each image (also in-between rows) */
+	DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image { margin-bottom: {$styles.content.imgtext.rowSpace}px; }
+	DIV.csc-textpic-equalheight DIV.csc-textpic-imagerow { margin-bottom: {$styles.content.imgtext.rowSpace}px; display: block; }
+	DIV.csc-textpic DIV.csc-textpic-imagerow { clear: both; }
+
+	/* No margins around the whole image-block */
+	DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-firstcol { margin-left: 0px !important; }
+	DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-lastcol { margin-right: 0px !important; }
+
+	/* Add margin from image-block to text (in case of "Text w/ images") */
+	DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap,
+	DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {
+		margin-right: {$styles.content.imgtext.textMargin}px !important;
+	}
+	DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap,
+	DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {
+		margin-left: {$styles.content.imgtext.textMargin}px !important;
+	}
+	
+	DIV.csc-textpic-left .csc-textpic-imagewrap,
+	DIV.csc-textpic-right .csc-textpic-imagewrap	 {padding-top: 0.5em}
+	.colorbox DIV.csc-textpic-left .csc-textpic-imagewrap,
+	.colorbox DIV.csc-textpic-right .csc-textpic-imagewrap {padding-top:1em}
+	
+	/* Getting ce-body right */
+	DIV.csc-textpic-right .ce-body {margin-right: 0px}
+	DIV.csc-textpic-left-nowrap-hxinside  .ce-body,
+	DIV.csc-textpic-right-nowrap-hxinside .ce-body {padding-top: 0.3em}
+	.colorbox DIV.csc-textpic-above .csc-textpic-text .ce-body {padding-top: 0px}
+	
+	/* Styling inside headers */
+	DIV.csc-textpicHeader h3 {margin-top: -0.5em; margin-bottom: 0; padding-bottom: 0px; padding-top: 0.63em}
+	DIV.csc-textpicHeader h4 {margin-top: 0px; padding-top: 0.3em}
+	DIV.csc-textpicHeader h5 {margin-top: 0px; padding-top: 0.3em}
+	DIV.csc-textpicHeader h6 {margin-top: 0px; padding-top: 0.3em}
+	
+	.colorbox DIV.csc-textpicHeader {padding-top: 0.5em}	
+
+	/* Positioning of images: */
+
+	/* Above */
+	DIV.csc-textpic-above DIV.csc-textpic-text { clear: both; }
+
+	/* Center (above or below) */
+	DIV.csc-textpic-center { text-align: center; /* IE-hack */ }
+	DIV.csc-textpic-center DIV.csc-textpic-imagewrap { margin: 0 auto; clear:left}
+	DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image { text-align: left; /* Remove IE-hack */ }
+	DIV.csc-textpic-center DIV.csc-textpic-text { text-align: left; /* Remove IE-hack */ }
+
+	/* Right (above or below) */
+	DIV.csc-textpic-right DIV.csc-textpic-imagewrap { float: right; }
+	/* We do not need this, if we use clearfix
+	DIV.csc-textpic-right DIV.csc-textpic-text { clear: right; } */
+
+	/* Left (above or below) */
+	DIV.csc-textpic-left DIV.csc-textpic-imagewrap { float: left; }
+	/*DIV.csc-textpic-left DIV.csc-textpic-text { clear: left; }*/
+
+	/* Left (in text) */
+	DIV.csc-textpic-intext-left-hxabove DIV.csc-textpic-imagewrap { float: left; margin-right: {$styles.content.imgtext.textMargin}px !important;}
+
+	/* Right (in text) */
+	DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap { float: right; }
+
+	/* Right (in text, no wrap around) */
+	DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap { float: right; clear: both; }
+	/* Hide from IE5-mac. Only IE-win sees this. \*/
+	* html DIV.csc-textpic-intext-right-nowrap .csc-textpic-text { height: 1%; }
+	/* End hide from IE5/mac */
+
+	/* Left (in text, no wrap around) */
+	DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap { float: left; clear: both; }
+	/* Hide from IE5-mac. Only IE-win sees this. \*/
+	* html DIV.csc-textpic-intext-left-nowrap .csc-textpic-text { height: 1%; }
+	/* End hide from IE5/mac */
+)
+
+  

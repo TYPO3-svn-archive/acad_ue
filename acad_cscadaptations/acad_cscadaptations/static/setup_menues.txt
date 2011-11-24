@@ -1,0 +1,245 @@
+#tt_content.menu.20.default.1.NO.stdWrap.data = field:title
+tt_content.menu.20.default.1.NO.allWrap.postCObject = TEXT
+tt_content.menu.20.default.1.NO.allWrap.postCObject.field = title
+#allWrap.postCObject.field = title
+
+tt_content.menu.20.1.1.NO.stdWrap.case = upper
+
+##
+# @description	Menu of subpages with abstract
+#
+#				Renders a menu of subpages with abstract, description or subtitle as dl
+#
+#				Changes to default behaviour are:
+#				- wrapper div.menu-20-4
+#				- 'more' is followed by the title for accessibility reasons.
+#				  The title is wrapped by span.hfg	
+# @see LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:more
+#
+tt_content.menu.20.4 >
+tt_content.menu.20.4 = HMENU
+tt_content.menu.20.4.maxItems = 100
+
+tt_content.menu.20.4 {
+	special = directory
+
+	special.value.field = pages
+	includeNotInMenu = 1
+	wrap = <div class="menu-20-4"><dl>|</dl></div>
+}
+
+tt_content.menu.20.4.1 = TMENU
+tt_content.menu.20.4.1 {
+	noBlur = 1
+	expAll = 0
+	NO {
+		stdWrap.htmlSpecialChars = 1
+		linkWrap = <dt>|</dt>
+		after.required = 1
+		after.htmlSpecialChars = 1
+		after.wrap= <dd>|</dd>
+		after.data = field:abstract // field:description // field:subtitle
+		after.postCObject = COA
+		after.postCObject {
+			1 = TEXT
+			1.stdWrap.noTrimWrap = | |
+			
+			2 = TEXT
+			2.value = {LLL:EXT:acadlllcommonvalues/locallang_cwv.xml:more}<span class="hfg">: {field:title}</span>
+			2.insertData = 1
+			2.typolink.parameter.data = field:uid
+		}
+	}
+}
+
+
+plugin.tx_tvtoolsfe_pi1 {
+	getContents {
+		excludeFieldsByDS.page.10 = field_sidebar
+	}	
+	
+}
+
+############################################################################################
+# @description	Section index as nested <ul> and cast in order of appearance even with TV  
+#
+#		In order to make this setup work, some changes to the DS of the page       
+#		template are required. In the field definition for the main content,
+#		change the default <TypoScript> to:
+#		<TypoScript><![CDATA[
+#               	5 = LOAD_REGISTER
+#                   	5.recordsInTVField.data = current:1
+#                       10= RECORDS
+#                       10.source.current=1
+#                       10.tables = tt_content
+#                       10.wrap =  <!--TYPO3SEARCH_begin--> | <!--TYPO3SEARCH_end--> 
+#                       15 = RESTORE_REGISTER
+#               ]]></TypoScript>	
+#
+#		Otherwise the titles of 'unused elements' will be rendered as well.		
+#############################################################################################
+
+lib.shared_sectionindex = COA
+lib.shared_sectionindex.wrap = <div class="wrap-downlinks">|</li></ul></div>
+
+
+# @description	Select the content elements in question
+
+lib.shared_sectionindex.5  = LOAD_REGISTER
+lib.shared_sectionindex.5  {
+	tvcontents.cObject < plugin.tx_tvtoolsfe_pi1
+}
+
+
+lib.shared_sectionindex.10 = RECORDS
+lib.shared_sectionindex.10.tables = tt_content
+lib.shared_sectionindex.10.source.data = register:tvcontents
+
+# @description	Render the section menu, part 1	
+
+lib.shared_sectionindex.10.conf.tt_content = COA
+lib.shared_sectionindex.10.conf.tt_content {
+	5 = LOAD_REGISTER
+        5 {
+        	# @description	Mapping the internal values of header_layout to a header level
+        	# @todo Get this out of here into an external lib, so that this is the only thing
+        	#	people have to customize. Unfortunately CASE objects are not allowed in
+        	#	in the constants section.
+
+        	headerLevel.cObject = CASE
+        	headerLevel.cObject {
+        		
+        		// h3
+        		key.field = header_layout
+        		default = TEXT
+        		default.value = 0
+        		
+        		// h2 (editors should not use it on normal content pages, but in case they do ...
+        		1 = TEXT
+        		1.value = 0
+        		
+        		// h3
+        		2 = TEXT
+        		2.value = 0
+        		
+        		// h4
+        		3 = TEXT
+        		3.value = 1
+        		
+        		// h5
+        		4 = TEXT
+        		4.value = 2
+        		
+        		// h6
+        		5 = TEXT
+        		5.value = 3
+        		
+        	}
+        	
+        	# @description Calculate the difference between last level and current level
+        	
+		headerLevelTemp.dataWrap = {register:lastHeaderLevel}-{register:headerLevel}
+		headerLevelDiff.data = register:headerLevelTemp
+		headerLevelDiff.prioriCalc = 1
+		
+		# @description Linking to a translated or a original CE?
+		sectionIndexId = TEXT
+		sectionIndexId.data = field:_LOCALIZED_UID // field:uid
+		sectionIndexId.wrap = c|
+		
+		
+	}
+	
+	// If current headerLevel is the same as lastHeaderLevel,
+	// we need to close the <li>-element of the last header item before we start writing the new one.
+	10 = TEXT
+	10.value = </li>
+	10.if {
+		value.data = register:lastHeaderLevel
+		equals.data = register:headerLevel
+	}
+	
+	
+	// If the current headerLevel (e.g. h4) is higher than the lastHeaderLevel (e.g. h3),
+	// we need to open up a new <ul>
+	
+	15 = TEXT
+	15.value = <ul>
+	15.if {
+		value.data = register:lastHeaderLevel
+		isGreaterThan.data = register:headerLevel
+	}
+	
+	
+	
+	20 = CASE
+	20 {
+		key.data = register:headerLevelDiff
+		
+		-2 = TEXT
+		-2.value = <li><ul>
+		
+		-3 = TEXT
+		-3.value = <li><ul><li><ul>
+	}
+	
+	
+	30 = CASE
+	30 {
+		key.data = register:headerLevelDiff
+		
+	
+		
+		// e.g. level 0 follows level 1
+		1 = TEXT
+		1.value = </li></ul></li>
+		
+		
+		2 = TEXT
+		2.value = </li></ul></li></ul></li>
+		
+		
+		3 = TEXT
+		3.value = </li></ul></li></ul></li></ul></li>
+	}
+	
+	40 = TEXT
+	40 {
+		field = header
+		typolink.section.data = register:sectionIndexId
+		typolink.parameter.field = pid
+		dataWrap = <li>{register:sectionIndexId}|
+		# dataWrap = <li><tt>current level:{register:headerLevel} lastHeader:{register:lastHeaderLevel} layoutDiff:{register:headerLevelDiff} </tt>|
+	}
+	
+	50 = LOAD_REGISTER
+	50 {
+		lastHeaderLevel.data = register:headerLevel
+	}
+}
+
+# @description	Close all open <ul>s and <li>s
+#		This is crucial, if the last headline is not on level 0!
+#		
+lib.shared_sectionindex.20 = COA
+lib.shared_sectionindex.20.10 = CASE	
+lib.shared_sectionindex.20.10  {
+	key.data = register:headerLevel
+	
+	1 = TEXT
+	1.value = </li></ul>
+	
+	2 = TEXT
+	2.value = </li></ul></li></ul>
+	
+	3 = TEXT
+	3.value = </li></ul></li></ul></li></ul>
+	
+}	
+
+
+lib.shared_sectionindex.25 = TEXT
+lib.shared_sectionindex.25.data = register:tvcontents
+
+tt_content.menu.20.3 >
+tt_content.menu.20.3 < lib.shared_sectionindex

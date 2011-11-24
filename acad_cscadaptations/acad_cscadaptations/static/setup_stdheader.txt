@@ -1,0 +1,30 @@
+##
+# @description Remove superfluous div around hx elements
+#
+lib.stdheader.stdWrap.dataWrap >
+
+##
+# @description	Clean up the hx element itself
+# 				- removes superfluous class atrribute
+#				- first header is h2, because h1 usually is reserved for the sitetitle
+#				- lowest header is h6
+lib.stdheader {
+	10.1.fontTag = <h2{register:headerStyle}>|</h2>
+	10.2.fontTag = <h3{register:headerStyle}>|</h3>
+	10.3.fontTag = <h4{register:headerStyle}>|</h4>
+	10.4.fontTag = <h5{register:headerStyle}>|</h5>
+	10.5.fontTag = <h6{register:headerStyle}>|</h6>
+}
+
+##
+# @description	Place the date AFTER the headline
+#				By default the date is rendered before the text of the headline,
+#				which is wrong in terms of importance.
+lib.stdheader.5 >
+lib.stdheader.15 = TEXT
+lib.stdheader.15 {
+	field = date
+	if.isTrue.field = date
+	date = d.m.Y
+	wrap = <p class="header-date">|</p>
+}

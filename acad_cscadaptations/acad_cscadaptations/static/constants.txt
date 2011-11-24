@@ -1,0 +1,2 @@
+	// Set default header type to 2 (renders as h3 in lib.stdHeader)
+content.defaultHeaderType = 2
