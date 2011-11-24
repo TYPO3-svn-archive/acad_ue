@@ -1,0 +1,32 @@
+// do we still need this
+includeLibs.tx_dam_tsfeimgtag = EXT:dam/binding/imgtag/class.tx_dam_tsfeimgtag.php
+	
+// dam related
+plugin.tx_dam_tsfemediatag {
+	procFields {
+		file_size = 1
+	}
+	format = filesize
+	tag {
+		current = 1
+		typolink.parameter.data = parameters : allParams
+		typolink.extTarget = {$styles.content.links.extTarget}
+		typolink.target = {$styles.content.links.target}
+		typolink.title { 
+			dataWrap = { field : txdam_file_name } ({ field : txdam_file_size })
+			htmlspecialchars = 1
+		}
+		parseFunc.constants = 1
+	}
+}
+
+lib.parseFunc_RTE {
+	nonTypoTagStdWrap.HTMLparser.tags.img.fixAttrib {
+		txdam.unset = 1
+	}
+}
+
+
+lib.parseFunc.tags.media = < plugin.tx_dam_tsfemediatag
+lib.parseFunc_RTE.tags.media = < plugin.tx_dam_tsfemediatag
+

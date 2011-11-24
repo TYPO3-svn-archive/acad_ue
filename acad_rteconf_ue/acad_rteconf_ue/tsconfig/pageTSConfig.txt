@@ -1,0 +1,36 @@
+// RTE conf for University of Erfurt
+
+RTE.default {
+		// Tell the editor which css-file to use
+	contentCSS = EXT:acad_ue_templates/res/themes/default/rte.css
+
+		// Remove some buttons
+	showButtons := removeFromList(emoticon,insertedtext,deletedtext,italic,bold,big,small,monospaced,subscript,superscript,underline,strikethrough,justifyfull,codebox,line,textcolor,bgcolor,textindicator,fontstyle,fontsize,inserttag,spellcheck,insertcharacter,about,showhelp)	
+
+		// Disable some classes for blockstyles
+	buttons.blockstyle.tags {
+		p.allowedClasses := removeFromList(align-justify)
+		div.allowedClasses := removeFromList(align-justify)
+	}
+	
+		// Disable Upload and Drag&Drop tabs for images
+	buttons.image.options.removeItems = media_upload,dragdrop
+	
+		// Disable Upload tab for  media links
+	buttons.link.options.removeItems = media_upload
+
+    buttons.acronym {
+        pages = 1
+        recursive = 30
+        lockBeUserToDBmounts = 0
+    }
+
+		// Processing rules
+	proc {
+		allowedClasses := removeFromList(align-justify)
+	}
+
+        // Setting default language for lang attribute to german
+    defaultContentLanguage = de
+	
+}
