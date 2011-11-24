@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'acad_ue_ldap'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="be_users.tx_acadueldap_phe_guid">guid from eDirectory:</label>
+			<label index="fe_users.tx_acadueldap_phe_guid">guid from eDirectory:</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="be_users.tx_acadueldap_phe_guid">guid aus dem eDirectory:</label>
+			<label index="fe_users.tx_acadueldap_phe_guid">guid aus dem eDirectory:</label>
+		</languageKey>
+	</data>
+</T3locallang>

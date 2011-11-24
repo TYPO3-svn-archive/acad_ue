@@ -1,0 +1,4 @@
+[ ] SSL-Unterstützung
+[ ] _t3 aus ldap-Autentifizierung rausnehmen?
+[x] Klären, ob Benutzer angelegt werden, wenn noch nicht vorhanden
+[ ] Gibt es einen unbind?

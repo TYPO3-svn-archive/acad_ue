@@ -1,0 +1,131 @@
+#<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/acad_ue_ldap/ts/ldap_phe.txt">
+
+BEusers = LDAP_SYNC
+BEusers {
+	enable = 0
+	table = be_users
+	#basedn = OU=rz, OU=zki, O=uni-erfurt, C=de
+	basedn = O=uni-erfurt, C=de
+	# todo: handlenotfound f�r nicht mit _t3-endende Datensätze
+	pid = root
+	filter = (&(objectClass=user))
+	returnAttributes = *, guid
+	uniqueField = username
+	dontAutocreateT3Users = 1
+	fields {
+		username = MAP_OBJECT
+		username.attribute = cn
+		username.userFunc = tx_ldapserver->getSingleValue
+		tx_ldapserver_dn = MAP_OBJECT
+		tx_ldapserver_dn.special = DN	
+		realname = MAP_OBJECT
+		realname {
+			attribute = fullName
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		email = MAP_OBJECT
+		email {
+			attribute = mail
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		tx_acadueldap_phe_guid = MAP_OBJECT
+		tx_acadueldap_phe_guid {
+			attribute = guid
+			userFunc = tx_ldapserver->getSingleValue
+		}
+	}
+}
+
+BEauth = LDAP_AUTH
+BEauth {
+   enable = 1
+   table = be_users
+   sync < BEusers
+}
+
+FEusers = LDAP_SYNC
+FEusers {
+	enable = 1
+	table = fe_users
+	#basedn = OU=rz, OU=zki, O=uni-erfurt, C=de
+	basedn < BEusers.basedn
+	# todo: handlenotfound für nicht mit _t3-endende Datensätze
+	pid = 524
+	filter = (&(objectClass=user))
+	returnAttributes = *, guid
+	uniqueField = username
+	dontAutocreateT3Users = 0
+	defaults {
+		usergroup = 1
+	}
+	fields {
+		username = MAP_OBJECT
+		username {
+			attribute = cn
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		password = MAP_OBJECT
+		password {
+			attribute = cn
+			#userFunc = tx_ldapserver->getSingleValue
+			userFunc = tx_ldapserver->generateRandomString
+			userFunc.length = 30
+		}
+		tx_ldapserver_dn = MAP_OBJECT
+		tx_ldapserver_dn.special = DN	
+		name = MAP_OBJECT
+		name {
+			attribute = fullName
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		email = MAP_OBJECT
+		email {
+			attribute = mail
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		tx_acadueldap_phe_guid = MAP_OBJECT
+		tx_acadueldap_phe_guid {
+			attribute = guid
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		first_name = MAP_OBJECT
+		first_name {
+			attribute = givenName
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		last_name = MAP_OBJECT
+		last_name {
+			attribute = sn
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		fax = MAP_OBJECT
+		fax {
+			attribute = facsimileTelephoneNumber
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		telephone = MAP_OBJECT
+		telephone {
+			attribute = telephoneNumber
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		address = MAP_OBJECT
+		address {
+			attribute = l
+			userFunc = tx_ldapserver->getSingleValue
+		}
+		usergroup {
+			respectLocalGroups = 1
+			userFunc.pid = 524
+		}
+		#passwordExpirationTime
+		#ou
+		#loginDisabled
+	}
+}
+
+FEauth = LDAP_AUTH
+FEauth {
+   enable = 1
+   table = fe_users
+   sync < FEusers
+}
