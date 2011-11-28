@@ -67,32 +67,33 @@ $TCA['pages']['columns']['doktype']['config']['items'] = array(
     array('LLL:EXT:lang/locallang_tca.php:doktype.I.0', '1', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages.gif'),
     array('LLL:EXT:acad_ue_subsites/locallang_db.xml:pages.doktype.I.77', '77', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_subsite.gif'),
     array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.4', '6', 'i/be_users_section.gif'),
-	array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.div.link', '--div--'),
+    array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.div.link', '--div--'),
     array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.8', '3', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_link.gif'),
-	array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.2', '4', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_shortcut.gif'),
-	array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.5', '7', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_mountpoint.gif'),
-	array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.div.special', '--div--'),
+    array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.2', '4', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_shortcut.gif'),
+    array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.5', '7', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_mountpoint.gif'),
+    array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.div.special', '--div--'),
     array('LLL:EXT:lang/locallang_tca.php:doktype.I.1', '254', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/sysf.gif'),
-	array('LLL:EXT:lang/locallang_tca.php:doktype.I.2', '255', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/recycler.gif'),
-	array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.7', '199', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/spacer_icon.gif'),
-	array('LLL:EXT:service_spacer/locallang.xml:pages.doktype.I.101', '101', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_servicespacer.gif'),
+    array('LLL:EXT:lang/locallang_tca.php:doktype.I.2', '255', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/recycler.gif'),
+    array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.7', '199', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/spacer_icon.gif'),
+    array('LLL:EXT:service_spacer/locallang.xml:pages.doktype.I.101', '101', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_servicespacer.gif'),
  );
  
+        // adjust the size of several fields
+$TCA['pages']['columns']['title']['config']['size'] = 30;
+$TCA['pages']['columns']['subtitle']['config']['size'] = 30;
+$TCA['pages']['columns']['alias']['config']['size'] = 13;
+$TCA['pages']['columns']['target']['config']['size'] = 13;
+$TCA['pages']['columns']['nav_title']['config']['size'] = 13;
+$TCA['pages']['columns']['tx_realurl_pathsegment']['config']['size'] = 13;
 
-	// getting rid of checkbox in front of nav_title
-unset($TCA['pages']['columns']['nav_title']['config']['checkbox']);
-
-	// making navtitle a little smaller
-$TCA['pages']['columns']['nav_title']['config']['size'] = 15;
-	// making real_url_pathsegment smaller
-$TCA['pages']['columns']['tx_realurl_pathsegment']['config']['size'] = 15;
+    
     // bigger select field for fe-groups
 $TCA['pages']['columns']['fe_group']['config']['size'] = 20;
 $TCA['pages']['columns']['fe_group']['config']['foreign_table_where'] = 'ORDER BY fe_groups.title';
 
 	// New palettes for table pages
 
-    // General, first palette for standard ans subsites
+    // General, first palette for standard and subsites
 $TCA['pages']['palettes']['20'] = array(
 	'showitem' => 'doktype,layout,module,hidden,nav_hide',
 	'canNotCollapse'  => 1
@@ -393,7 +394,8 @@ t3lib_div::loadTCA('tt_content');
 
     // Bigger Popup for field header_link
 $TCA['tt_content']['columns']['header_link']['config']['wizards']['link']['JSopenParams'] = 'height=600,width=800,status=0,menubar=1,scrollbars=1';
-
+    // Make header_link field a little smaller
+$TCA['tt_content']['columns']['header_link']['config']['size'] = 15;
 	// Allow more than the default 22 items in field pages
 $TCA['tt_content']['columns']['pages']['config']['maxitems'] = 40;
 
@@ -433,6 +435,7 @@ $TCA['tt_content']['types']['text']['showitem'] = '
 
 
 	// Text with image
+
 $TCA['tt_content']['types']['textpic']['showitem'] = '
 	--palette--;LLL:EXT:acad_ue_be/locallang_ttc.xml:palette_type_settings;22,
 	header;;23;button;1-1-1,

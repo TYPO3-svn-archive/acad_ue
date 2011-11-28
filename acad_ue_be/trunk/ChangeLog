@@ -1,4 +1,10 @@
 (add new changes on top of this file)
+2011-11-03 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+    * #172 Cleanup: Code zum Ausschalten der Lösch-Checkboxen entfernt
+    * #171 Feldgrößen im Dialog Seiteneigenschaften angepasst
+
+2011-10-27 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
+        * #166 In T3 4.6 ist das Feld header_link zu groß. Zurückgesetzt auf die ursprüngliche Größe.
 2009-12-01 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
 	* #113 Echtes delete für Content-Elemente aktivieren
 	* #114 Header im NewContentWizard aktivieren und Sitemap in common verschieben
