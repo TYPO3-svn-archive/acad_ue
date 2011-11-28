@@ -39,6 +39,8 @@
             <label index="home">Home</label>
             <label index="login">Login</label>
             <label index="logout">Logout</label>
+			<label index="common_headerOnly_title">Header only</label>
+			<label index="common_headerOnly_description">Adds a header only.</label>
         </languageKey>
         
         <languageKey index="de">
@@ -62,6 +64,8 @@
             <label index="home">Home</label>
             <label index="login">Login</label>
             <label index="logout">Logout</label>
+			<label index="common_headerOnly_title">Überschrift</label>
+			<label index="common_headerOnly_description">Fügt nur eine Überschrift hinzu.</label>
         </languageKey>
         
         <languageKey index="es">

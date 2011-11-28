@@ -23,6 +23,10 @@
             <label index="insidermenu">Shortcuts for insiders</label>
             <label index="user_and_langmenu">User menu and language choice</label>
             <label index="to_uni_home">To homepage of the University of Erfurt</label>
+            <label index="event_info_header">Event Information</label>
+            <label index="question_when">When?</label>
+            <label index="question_where">Where?</label>
+            <label index="question_who">Who?</label>
         </languageKey>
         
         <languageKey index="de">
@@ -33,6 +37,10 @@
             <label index="insidermenu">Schnellzugriff für Insider</label>
             <label index="user_and_langmenu">Nutzermenü und Sprachwahl</label>
             <label index="to_uni_home">Zur Startseite der Universität Erfurt</label>
+            <label index="event_info_header">Termin-Info</label>
+            <label index="question_when">Wann?</label>
+            <label index="question_where">Wo?</label>
+            <label index="question_who">Wer?</label>
           </languageKey>
     </data>
 </T3locallang>
