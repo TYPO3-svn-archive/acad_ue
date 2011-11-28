@@ -1,9 +1,0 @@
-
-2010-11-09 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
-	* Use sprite icon API for 4.4
-	* Change ext_icon.gif
-	* Set version number to 1.1
-
-2008-06-28 Steffen Kamper  <info@sk-typo3.de>
-
-	* initial code generated with kickstarter
