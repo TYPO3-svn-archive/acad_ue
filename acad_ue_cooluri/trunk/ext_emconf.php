@@ -1,13 +1,13 @@
 <?php
 
 ########################################################################
-# Extension Manager/Repository config file for ext "acad_ue_cooluri".
+# Extension Manager/Repository config file for ext: "acad_ue_cooluri"
 #
-# Auto generated 18-01-2010 14:58
+# Auto generated 20-11-2007 17:57
 #
 # Manual updates:
-# Only the data in the array - everything else is removed by next
-# writing. "version" and "dependencies" must not be touched!
+# Only the data in the array - anything else is removed by next write.
+# "version" and "dependencies" must not be touched!
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
@@ -40,9 +40,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:6:{s:9:"ChangeLog";s:4:"5320";s:15:"CoolUriConf.xml";s:4:"785c";s:10:"README.txt";s:4:"9fa9";s:12:"ext_icon.gif";s:4:"1bdc";s:19:"doc/wizard_form.dat";s:4:"90d7";s:20:"doc/wizard_form.html";s:4:"2549";}',
-	'suggests' => array(
-	),
+	'_md5_values_when_last_written' => 'a:5:{s:9:"ChangeLog";s:4:"c8a3";s:10:"README.txt";s:4:"ee2d";s:12:"ext_icon.gif";s:4:"1bdc";s:19:"doc/wizard_form.dat";s:4:"90d7";s:20:"doc/wizard_form.html";s:4:"79a0";}',
 );
 
 ?>
