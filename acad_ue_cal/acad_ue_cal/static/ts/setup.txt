@@ -1,0 +1,361 @@
+plugin.tx_cal_controller {
+	noWrapInBaseClass = 1
+	view {
+            # single view
+		event {
+			substitutePageTitle = 1
+
+
+			event {
+				title {
+					dataWrap >
+				}
+				alldayTitle {
+					dataWrap >
+				}
+
+                description {
+                    dataWrap >
+                    wrap = <div class="ce-body">|</div>
+                }
+                description_image {
+                    maxWInText = 280
+                    textPos.override = 20
+                    layout.key.override = 20
+                }
+
+                top_link = TEXT
+                top_link {
+                    current = 1
+                    setCurrent.dataWrap = {LLL:EXT:css_styled_content/pi1/locallang.xml:label.toTop}
+                    typolink {
+                        parameter = #top
+                    }
+                }
+
+                image {
+                    stdWrap.dataWrap >
+                }
+                    # remove standards in favour of dam_cal_connection
+				attachment.20.stdWrap >
+
+                event_info_header = TEXT
+                event_info_header {
+                    dataWrap = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:event_info_header}
+                }
+
+                when = TEXT
+                when.dataWrap = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:question_when}
+
+                dateFormat = %d.%m.%y
+                startdate.dataWrap >
+                startdate.noTrimWrap = || |
+                enddate >
+                enddate = CASE
+                enddate {
+                    key.data = register:hasStartTime
+                    default = TEXT
+                    default {
+                        current = 1
+                        noTrimWrap = | - ||
+                    }
+
+                    1 = TEXT
+                    1 {
+                        current = 1
+                        noTrimWrap = || |
+                    }
+                }
+                starttime >
+                starttime = COA
+                starttime {
+                    5 = LOAD_REGISTER
+                    5 {
+                        eventStartTime.cObject = TEXT
+                        eventStartTime.cObject {
+                            current = 1
+                        }
+                        hasStartTime.cObject = TEXT
+                        hasStartTime.cObject {
+                            value = 1
+                            if.isTrue.data = register:eventStartTime
+                        }
+                    }
+
+                    10 = TEXT
+                    10.data = register:eventStartTime
+                    10.noTrimWrap = || - |
+                }
+
+                endtime.dataWrap >
+                endtime.noTrimWrap >
+
+                title2 {
+                    required = 1
+                    wrap = <p class="title2">|</p>
+                }
+                organizer {
+                    dataWrap = <li class="organizer" title="{LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:question_who}">|</li>
+                }
+
+                    // das hier ist die untere location
+                location {
+                    dataWrap = <li class="location" title="{LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:question_where}">|</li>
+                    if.isFalse.field = name
+                }
+			}
+			location {
+                where = TEXT
+                where.dataWrap = {LLL:EXT:acadlllcommonvalues/locallang_uni_erfurt.xml:question_where}
+
+				# @description	Content object for location name
+				name = TEXT
+				name {
+					current = 1
+					required = 1
+                    typolink.parameter.field = link
+					dataWrap >
+				}
+
+				# @description	Content object for location street
+				street = TEXT
+				street {
+					current = 1
+					required = 1
+					dataWrap >
+                    wrap = <p>|</p>
+				}
+	
+				# @description	Content object for location zip
+				zip = TEXT
+				zip {
+					current = 1
+					required = 1
+					dataWrap >
+				}
+
+
+				# @description	Content object for location city
+				city = TEXT
+				city {
+					current = 1
+					required = 1
+					dataWrap >
+				}
+	
+
+	
+				
+				# @description	Content object for location link
+				link = TEXT
+				link {
+					current = 1
+					typolink.parameter.current = 1
+					required = 1
+					dataWrap = <div>Link:&nbsp; |</div>
+			    	}
+			    
+			}
+		}
+		list {
+			lang_list_title = TEXT
+			lang_list_title.dataWrap = Kalender
+                // for events that start in one month and end in the next one
+            showLongEventsInEachWrapper = 1
+			
+			lang_list_subtitle = TEXT
+			lang_list_subtitle.dataWrap = Jahresübersicht
+			
+			event {
+				dateFormat = %d.%m.%y
+                startdate.dataWrap >
+                startdate.noTrimWrap = || |
+                enddate >
+                enddate = CASE
+                enddate {
+                    key.data = register:hasStartTime
+                    default = TEXT
+                    default {
+                        current = 1
+                        noTrimWrap = | - ||
+                    }
+
+                    1 = TEXT
+                    1 {
+                        current = 1
+                        noTrimWrap = || |
+                    }
+                }
+                starttime >
+                starttime = COA
+                starttime {
+                    5 = LOAD_REGISTER
+                    5 {
+                        eventStartTime.cObject = TEXT
+                        eventStartTime.cObject {
+                            current = 1
+                        }
+                        hasStartTime.cObject = TEXT
+                        hasStartTime.cObject {
+                            value = 1
+                            if.isTrue.data = register:eventStartTime
+                        }
+                    }
+
+                    10 = TEXT
+                    10.data = register:eventStartTime
+                    10.noTrimWrap = || - |
+                }
+
+                endtime.dataWrap >
+                endtime.noTrimWrap >
+
+				title2 {
+					required = 1
+					wrap = <p class="title2">|</p>
+				}
+				organizer {
+					dataWrap >
+					wrap = <p class="details"><span class="organizer">|</span>
+					outerWrap = |</p>
+					outerWrap.if.isFalse.field = location
+				}
+				location {
+					dataWrap >
+					wrap = <span class="location">|</span></p>
+					outerWrap = <p class="details">|
+					outerWrap.if.isFalse.field = organizer
+					if.isFalse.field = name
+				}
+				eventLink = TEXT
+				eventLink {
+					current = 1
+					typolink {
+						parameter.field = link_parameter
+						ATagParams = class="internal-link"
+						additionalParams.field = link_additionalParams
+						#section.field = link_section
+						title.current = 1
+						title.htmlSpecialChars = 1
+						title.override {
+							field = title
+							required = 1
+						}
+						no_cache.field = link_no_cache
+						useCacheHash = 1
+					}
+				}
+			}
+			top_link = TEXT
+			top_link {
+				current = 1
+				setCurrent.dataWrap = {LLL:EXT:css_styled_content/pi1/locallang.xml:label.toTop}
+				typolink {
+					parameter = #top
+				}
+			}
+			
+			endtime = +12 month
+			enableMonthWrapper = 1
+			monthWrapperFormat = <h3 id="c%Y%m">%B</h3>
+			monthWrapper.10.wrap = |<ul class="eventlist">
+			monthWrapperEnd.value = </ul><p class="pagetop">###TOP_LINK###</p>
+			enableSectionMenu = 1
+			sectionMenuItem.wrap = <li>|</li>
+			sectionMenu.wrap = <ul class="browsebox cal-browsebox">|</ul>
+		}
+		category {
+			tree {
+				calendarTitle >
+	
+				# @description	Content object to render each root element of the tree
+				rootElement = TEXT
+				rootElement {
+					wrap >
+				}
+	
+				# @description	Content object to render the selector
+				selector >
+
+				alternativeSelect = CASE
+				alternativeSelect {
+					key.data = field:cur
+					default = TEXT
+					default {
+						current = 1
+						typolink {
+							parameter.data = TSFE:id
+							additionalParams = &tx_cal_controller[category]={field:uid}
+							additionalParams.insertData = 1
+						}
+						wrap = <li>|</li>
+					}
+					1 = TEXT
+					1 {
+						current = 1
+						wrap = <li class="cur"><em>|</em></li>
+					}
+				}
+	
+				# @description	Defines a root node of the tree
+				element >
+	
+				# @description	Defines an element if the tree has no nodes
+				emptyElement >
+	
+				# @description	Defines a sub node of the tree
+				subElement = <br /><table class="treelevel###LEVEL###" id="treelevel###UID###">
+	
+				# @description	Defines a wrap for sub node of the tree
+				subElement_wrap {
+					wrap = <tr><td>|</td></tr>
+				}
+	
+				# @description	Defines the trailer for a branch level
+				subElement_pre = </table>
+
+				# @description	Defines the submit button
+				categorySelectorSubmit >
+			}
+		}
+	}
+}
+
+plugin.tx_cal_controller.lib.cal-list-xxs < plugin.tx_cal_controller.view.list
+plugin.tx_cal_controller.lib.cal-list-xxs {
+    listTemplate = EXT:acad_ue_cal/static/templates/mini_list.tmpl
+    enableSectionMenu = 0
+    enableMonthWrapper = 0
+    alternatingLayoutMarkers >
+    alternatingLayoutMarkers {
+    	xxs = LIST_XXS
+    }
+
+    event.starttime.10.if {
+       value.field = start_date
+       equals.field = end_date
+
+    }
+
+    event.endtime.if {
+       value.field = start_date
+       equals.field = end_date
+
+    }
+
+    event.enddate.1 {
+        innerWrap = -&nbsp:|
+        innerWrap.if {
+          value.field = start_date
+          equals.field = end_date
+          negate = 1
+       }
+    }
+}
+
+plugin.tx_cal_controller.lib.cal-start-list-xxs < plugin.tx_cal_controller.view.list
+plugin.tx_cal_controller.lib.cal-start-list-xxs {
+    listTemplate = EXT:acad_ue_cal/static/templates/mini_list.tmpl
+    enableSectionMenu = 0
+    enableMonthWrapper = 0
+}

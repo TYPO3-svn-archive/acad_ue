@@ -1,0 +1,7 @@
+plugin.tx_cal_controller.view.event.phpicalendarEventTemplate = EXT:acad_ue_cal/static/templates/phpicalendar_event.tmpl
+plugin.tx_cal_controller.view.list.listTemplate = EXT:acad_ue_cal/static/templates/list.tmpl
+plugin.tx_cal_controller.view.event.eventTemplate = EXT:acad_ue_cal/static/templates/event.tmpl
+plugin.tx_cal_controller.module.locationloader.template = EXT:acad_ue_cal/static/templates/module_locationloader.tmpl
+plugin.tx_cal_controller.view.month.monthTemplate = EXT:acad_ue_cal/static/templates/category_selector.tmpl
+plugin.tx_cal_controller.view.dateFormat = %d.%m.%Y
+plugin.tx_cal_controller.view.timeFormat = %H:%M
