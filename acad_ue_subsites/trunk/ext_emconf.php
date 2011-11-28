@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "acad_ue_subsites".
 #
-# Auto generated 15-11-2010 08:31
+# Auto generated 15-11-2010 07:56
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
