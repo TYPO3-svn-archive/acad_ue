@@ -1,4 +1,7 @@
 (add new changes on top of this file)
+2011-10-26 Uschi Renziehausen
+        * Repaired lib.stdHeader which was broken after upgrading the core to 4.6
+
 2008-05-25 Uschi Renziehausen <ursula.renziehausen@uni-erfurt.de>
 	* BE: bigger size for 'Startingpoint', scale it automacially (ext_tables.php)
 	* BE: Corrected some typos concerning CE Sitemap (ext_tables.php, http://mantis.abezet.eu/view.php?id=1169)

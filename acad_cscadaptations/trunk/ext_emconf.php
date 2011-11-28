@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "acad_cscadaptations".
 #
-# Auto generated 15-11-2010 08:30
+# Auto generated 15-11-2010 07:57
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next

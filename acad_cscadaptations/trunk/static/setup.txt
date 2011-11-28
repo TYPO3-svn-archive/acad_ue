@@ -11,11 +11,11 @@ lib.stdheader.stdWrap.dataWrap >
  * - lowest header is h6
  */					 
 lib.stdheader {
-	10.1.fontTag = <h2{register:headerStyle}>|</h2>
-	10.2.fontTag = <h3{register:headerStyle}>|</h3>
-	10.3.fontTag = <h4{register:headerStyle}>|</h4>
-	10.4.fontTag = <h5{register:headerStyle}>|</h5>
-	10.5.fontTag = <h6{register:headerStyle}>|</h6>
+	10.1.dataWrap = <h2{register:headerStyle}>|</h2>
+	10.2.dataWrap = <h3{register:headerStyle}>|</h3>
+	10.3.dataWrap = <h4{register:headerStyle}>|</h4>
+	10.4.dataWrap = <h5{register:headerStyle}>|</h5>
+	10.5.dataWrap = <h6{register:headerStyle}>|</h6>
 }
 	
 /**
