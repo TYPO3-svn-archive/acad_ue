@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Template for felogin-Box in ServiceNavi</title>
+</head>
+<body>
+
+<!--###TEMPLATE_LOGIN###-->
+###STATUS_HEADER###
+<!-- ###LOGIN_FORM### -->
+<form action="###ACTION_URI###" target="_top" method="post" onsubmit="###ON_SUBMIT###">
+	<fieldset>
+		<input type="text" id="user" size="10" name="user" value="###USERNAME_LABEL###" onblur="if(this.value=='') this.value='###USERNAME_LABEL###'" onfocus="if(this.value == '###USERNAME_LABEL###') this.value=''" />
+		<input type="password" id="pass" size="10" name="pass" value="" />
+		<span class="common_button"><input type="submit" name="submit" value="###LOGIN_LABEL###" /></span>
+	<div class="hide">
+		<input type="hidden" name="logintype" value="login" />
+		<input type="hidden" name="pid" value="###STORAGE_PID###" />
+		<input type="hidden" name="redirect_url" value="###REDIRECT_URL###" />
+		<input type="hidden" name="###PREFIXID###[noredirect]" value="###NOREDIRECT###" />
+		<input type="hidden" name="permalogin" value="1" ###PERMALOGIN_HIDDENFIELD_ATTRIBUTES### id="permaloginHiddenField" />
+		###EXTRA_HIDDEN###
+	</div>
+	</fieldset>
+</form>
+<!-- ###LOGIN_FORM### -->
+<!--###TEMPLATE_LOGIN###-->
+
+<!--###TEMPLATE_LOGOUT###-->
+<form action="###ACTION_URI###" target="_top" method="post">
+	<fieldset>
+		<label id="loginname">###USERNAME###</label>
+	  	<span class="common_button"><input type="submit" name="submit" value="###LOGOUT_LABEL###" /></span>
+	<div class="felogin-hidden"> 
+		<input type="hidden" name="logintype" value="logout" />
+		<input type="hidden" name="pid" value="###STORAGE_PID###" />
+		<input type="hidden" name="###PREFIXID###[noredirect]" value="###NOREDIRECT###" />
+	</div>
+	</fieldset>
+</form>
+<!--###TEMPLATE_LOGOUT###-->

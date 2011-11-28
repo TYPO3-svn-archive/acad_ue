@@ -132,6 +132,7 @@ lib.submenu {
 	20.1 {
 		wrap = <ul id="submenu" class="submenu">|</ul>
 		noBlur = 1
+                showAccessRestrictedPages = NONE
 		expAll.cObject = TEXT
 		expAll.cObject.data = register:doExpandAll
 		
@@ -175,6 +176,7 @@ lib.submenu {
 	20.2 {
 		wrap = <ul class="submenu-l2">|</ul>
 		noBlur = 1
+                showAccessRestrictedPages = NONE
 		ACT = 1
 		CUR = 1
 		

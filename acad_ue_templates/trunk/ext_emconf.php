@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "acad_ue_templates".
 #
-# Auto generated 14-12-2010 09:44
+# Auto generated 14-12-2010 09:24
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next

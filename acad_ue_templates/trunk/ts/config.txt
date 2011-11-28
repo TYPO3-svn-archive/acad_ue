@@ -10,6 +10,7 @@ config.typolinkLinkAccessRestrictedPages = {$login_page}
 config.typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###&pageId=###PAGE_ID###
 
 
+
 	// localisation config
 config {
 	linkVars = L
