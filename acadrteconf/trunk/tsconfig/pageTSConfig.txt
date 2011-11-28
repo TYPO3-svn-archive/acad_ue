@@ -155,8 +155,8 @@ RTE.default {
 		// If DAM is available, use caption field for title attribute
     buttons.image.title.useDAMColumn = caption
         // Bigger link popup for large pagetrees
-    buttons.image.dialogueWindow.width = 800
-    buttons.image.dialogueWindow.height = 700
+    buttons.image.dialogueWindow.width = 500
+    buttons.image.dialogueWindow.height = 400
     
 
 
@@ -171,8 +171,8 @@ RTE.default {
         // Enable query parameter selector for internal pages?
     buttons.link.queryParametersSelector.enabled = 1
         // Bigger link popup for large pagetrees
-    buttons.link.dialogueWindow.width = 800
-    buttons.link.dialogueWindow.height = 700
+    buttons.link.dialogueWindow.width = 500
+    buttons.link.dialogueWindow.height = 400
    	
    	// Language Attribute //
 

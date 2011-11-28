@@ -26,7 +26,7 @@
 			<label index="css-indent-left">Indent left</label>
 			<label index="css-indent-left-right">Indent left and right</label>
 			<label index="css-indent-right">Indent right</label>
-            <label index="css-indent-hanging">Indent hanging</label>
+                        <label index="css-indent-hanging">Indent hanging</label>
 			<label index="css-align-left">Align left</label>
 			<label index="css-align-right">Align right</label>
 			<label index="css-align-center">Align center</label>
@@ -48,12 +48,12 @@
 			<label index="css-contact-mobile">Contact mobile</label>
 			<label index="css-contact-fax">Contact fax</label>
 
-            <label index="css-list-divider">List divider</label>
+                        <label index="css-list-divider">List divider</label>
 			<label index="css-warning">Warning!</label>
-            <label index="css-menuItem">Menuitem</label>
-            <label index="css-button">Button</label>
-            <label index="css-path">Path</label>
-            <label index="css-valignMiddle">Position in line</label>
+                        <label index="css-menuItem">Menuitem</label>
+                        <label index="css-button">Button</label>
+                        <label index="css-path">Path</label>
+                        <label index="css-valignMiddle">Position in line</label>
 			
 			<label index="css-tb-caption-top">Caption on top</label>
 			<label index="css-odd-row">Odd row</label>
@@ -90,13 +90,13 @@
 			<label index="custom-indentation">Indentation</label>
 			
 
-            <label index="publist-yearfirst">Publications: Year first</label>
-            <label index="pub-author">Author</label>
-            <label index="pub-title">Title</label>
-            <label index="pub-yearfirst">Year outdent</label>
-            <label index="pub-review">Reviews</label>
-            <label index="pub-in">Journal, Book</label>
-			
+                        <label index="publist-yearfirst">Publications: Year first</label>
+                        <label index="pub-author">Author</label>
+                        <label index="pub-title">Title</label>
+                        <label index="pub-yearfirst">Year outdent</label>
+                        <label index="pub-review">Reviews</label>
+                        <label index="pub-in">Journal, Book</label>
+
 			<label index="title-mail">Email</label>
 			<label index="title-download">Download file</label>
 			<label index="title-download-odc">Download Open Office Calc document (ODC)</label>
