@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "service_spacer".
 #
-# Auto generated 15-11-2010 08:32
+# Auto generated 15-11-2010 07:55
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
