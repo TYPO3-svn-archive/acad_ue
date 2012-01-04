@@ -126,6 +126,9 @@ lib.pagetitle {
 lib.shared_credentials = COA
 lib.shared_credentials {
 
+
+/* auskommentiert wg. SQL Fehler (RG) 
+
     5 = LOAD_REGISTER
     5 {
         author.cObject = TEXT
@@ -142,6 +145,8 @@ lib.shared_credentials {
         }
     }
   }
+  
+*/  
   wrap = <p class="credentials">|</p>
 
   // author's name and email, but only if available
