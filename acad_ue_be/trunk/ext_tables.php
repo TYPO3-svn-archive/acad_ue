@@ -77,7 +77,7 @@ $TCA['pages']['columns']['doktype']['config']['items'] = array(
     array('LLL:EXT:cms/locallang_tca.xml:pages.doktype.I.7', '199', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/spacer_icon.gif'),
     array('LLL:EXT:service_spacer/locallang.xml:pages.doktype.I.101', '101', t3lib_extMgm::extRelPath($_EXTKEY) . 'gfx/pages_servicespacer.gif'),
  );
- 
+
         // adjust the size of several fields
 $TCA['pages']['columns']['title']['config']['size'] = 30;
 $TCA['pages']['columns']['subtitle']['config']['size'] = 30;
@@ -86,7 +86,7 @@ $TCA['pages']['columns']['target']['config']['size'] = 13;
 $TCA['pages']['columns']['nav_title']['config']['size'] = 13;
 $TCA['pages']['columns']['tx_realurl_pathsegment']['config']['size'] = 13;
 
-    
+
     // bigger select field for fe-groups
 $TCA['pages']['columns']['fe_group']['config']['size'] = 20;
 $TCA['pages']['columns']['fe_group']['config']['foreign_table_where'] = 'ORDER BY fe_groups.title';
@@ -115,14 +115,16 @@ $TCA['pages']['palettes']['22'] = array(
     // Special for doktypes that might need to be excluded from URL
     // Not used!
 $TCA['pages']['palettes']['23'] = array(
-	'showitem' => 'nav_title,tx_realurl_pathsegment,tx_cooluri_exclude,alias',
+	'showitem' => 'nav_title,tx_realurl_exclude,alias',
+//'showitem' => 'nav_title,tx_realurl_pathsegment,tx_realurl_exclude,alias',
 	'canNotCollapse'  => 1
 );
 
     // General, nav_title and url stuff for pages that may not be excluded from URL,
     // i.e. doktypes standard (3) and subsite (77)
 $TCA['pages']['palettes']['24'] = array(
-	'showitem' => 'nav_title,tx_realurl_pathsegment,alias,target',
+	'showitem' => 'nav_title,alias,target',
+//'showitem' => 'nav_title,tx_realurl_pathsegment,alias,target',
 	'canNotCollapse'  => 1
 );
 
@@ -167,7 +169,7 @@ $TCA['pages']['palettes']['31'] = array(
 
 	//  For Spacer and Service Folder: No nav_title, no url segment
 $TCA['pages']['palettes']['32'] = array(
-	'showitem' => 'tx_cooluri_exclude,alias',
+	'showitem' => 'tx_realurl_exclude,alias',
 	'canNotCollapse'  => 1
 );
 
@@ -223,11 +225,11 @@ $TCA['pages']['types']['1']['showitem'] = '
  		storage_pid;;7,
  		l18n_cfg,
  		content_from_pid,
- 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access, 
+ 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access,
  		fe_login_mode,
  		fe_group,
  		extendToSubpages,
- 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.extended,	
+ 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.extended,
  		tx_templavoila_ds;;;;1-1-1,
  		tx_templavoila_to,
  		tx_templavoila_next_ds,
@@ -255,11 +257,11 @@ $TCA['pages']['types']['77']['showitem'] = '
  		storage_pid;;7,
  		l18n_cfg,
  		content_from_pid,
- 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access, 
+ 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access,
  		fe_login_mode,
  		fe_group,
  		extendToSubpages,
- 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.extended,	
+ 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.extended,
  		tx_templavoila_ds;;;;1-1-1,
  		tx_templavoila_to,
  		tx_templavoila_next_ds,
@@ -277,7 +279,7 @@ $TCA['pages']['types']['3']['showitem'] = '
 		 --palette--;LLL:EXT:lang/locallang_general.xml:LGL.author;5;;3-3-3,
 		 abstract,
 		 keywords,
-		 description,		
+		 description,
 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.files,
 		media,
 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.options,
@@ -315,11 +317,11 @@ $TCA['pages']['types']['101']['showitem'] = '
  		storage_pid;;7,
  		l18n_cfg,
  		content_from_pid,
- 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access, 
+ 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access,
  		fe_login_mode,
  		fe_group,
  		extendToSubpages,
- 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.extended,	
+ 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.extended,
  		tx_templavoila_ds;;;;1-1-1,
  		tx_templavoila_to,
  		tx_templavoila_next_ds,
@@ -502,7 +504,7 @@ $TCA['tt_content']['types']['templavoila_pi1']['showitem'] = '
 	--palette--;LLL:EXT:acad_ue_be/locallang_ttc.xml:palette_visibility;20;;1-1-1,
 	tx_templavoila_ds,
 	tx_templavoila_to,
-	--div--;TV,	
+	--div--;TV,
 		tx_templavoila_flex;;;;2-2-2,
 	--div--;LLL:EXT:cms/locallang_tca.xml:pages.tabs.access
 ';
@@ -588,5 +590,10 @@ t3lib_div::loadTCA('be_groups');
 	// wider and higher category tree when adding dam mount to be-user group
 $TCA['be_groups']['columns']['tx_dam_mountpoints']['config']['itemListStyle'] = 'width:380px;height:400px;';
 $TCA['be_groups']['columns']['tx_dam_mountpoints']['config']['selectedListStyle'] = 'width:260px';
+
+
+
+
+t3lib_extMgm::addToAllTCAtypes('pages', 'tx_realurl_pathsegment;;137;;', '', 'after:title');
 
 ?>
