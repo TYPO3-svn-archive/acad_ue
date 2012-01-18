@@ -37,6 +37,9 @@ class tx_acad_ue_templates {
      * @return string
      */
     function getHeaderImage($content, $conf) {
+		$docRoot = PATH_site;
+		$allowPaths = $GLOBALS['TYPO3_CONF_VARS']['FE']['addAllowedPaths'];
+		
         $uid = $GLOBALS["TSFE"]->id;
         $mediaData = tx_dam_db::getReferencedFiles('pages',$uid,'tx_acaduebe_headerimage','tx_dam_mm_ref');
         $rootline = $GLOBALS["TSFE"]->sys_page->getRootLine($uid);
@@ -45,7 +48,9 @@ class tx_acad_ue_templates {
             $mediaData = tx_dam_db::getReferencedFiles('pages',$line['uid'],'tx_acaduebe_headerimage','tx_dam_mm_ref');
             $line = array_shift($rootline);
         }
+        
         $filePath = '';
+        $rows = $mediaData['rows'];
         if($mediaData['files']) {
             $file = array_slice($mediaData['files'],0);
             $filePath = '/' .$file[0];
@@ -53,6 +58,15 @@ class tx_acad_ue_templates {
         if(!$filePath) {
             $filePath = $conf['default'];
         }
+
+		if (strpos($filePath, $docRoot) === FALSE) {
+			if (strpos($filePath, $allowPaths) === 1) {
+				$damUid = array_keys($rows);
+				$filePath = '/index.php?eID=tx_wmdbdamsecurefiles_delivery&uid=' . $damUid[0];
+			}
+			
+		}
+
         return $filePath;
     }
 }
